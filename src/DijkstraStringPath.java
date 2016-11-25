@@ -1,7 +1,15 @@
+import Lab3Help.BLineTable;
+import Lab3Help.BStop;
 import Lab3Help.Path;
 import java.util.Iterator;
+import java.util.List;
 
 public class DijkstraStringPath implements Path<String> {
+
+    public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
+
+    }
+
     /**
      * Computes the path from <code>from</code> to <code>to</code> (if any). Path
      * information can be retrieved by subsequent calls to
