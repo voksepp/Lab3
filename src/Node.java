@@ -1,9 +1,11 @@
+import Lab3Help.BStop;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-public class Node<E> {
+public class Node {
     public final String name;
     public List<Node> predNodes;
     public List<Node> succNodes;
@@ -12,6 +14,8 @@ public class Node<E> {
         this.name = name;
     }
 
+
+
     public void setPredNodes(List<Node> n){  //Skicka in en lista med alla föregående noder.
                                                 //Alt. Räkna ut föregående noder här.
         for (Node nd : n){
@@ -19,7 +23,7 @@ public class Node<E> {
         }
     }
 
-    public void succNode(List<Node<E>> n){      //Skicka in en lista med alla efterföljande noder.
+    public void succNode(List<Node> n){      //Skicka in en lista med alla efterföljande noder.
                                                 //Alt. Räkna ut efterföljande noder här.
         for(Node nd : n){
             succNodes.add(nd);

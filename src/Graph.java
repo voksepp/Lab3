@@ -5,7 +5,7 @@ import java.util.List;
 public class Graph {
 
 
-    private Node node;
+    private List<Node> nodes;
     private List<BStop> stops;
     private List<BLineTable> lines;
 
@@ -16,7 +16,11 @@ public class Graph {
 
     public void setStops(){
         for(BStop bSt : stops){
+            for(BLineTable bLT : lines){
+                if(/*Hållplatsen passeras av den linjen*/){
 
+                }
+            }
         }
 
     }
