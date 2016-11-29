@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Graph {
 
+
+    private Node node;
     private List<BStop> stops;
     private List<BLineTable> lines;
 
@@ -16,6 +18,7 @@ public class Graph {
         for(BStop bSt : stops){
 
         }
+
     }
 
 

@@ -5,30 +5,23 @@ import java.util.NoSuchElementException;
 
 public class Node<E> {
     public final String name;
-    public final Map<String, Object> node;
-    public List<Node<E>> predNodes;
-    public List<Node<E>> succNodes;
+    public List<Node> predNodes;
+    public List<Node> succNodes;
 
-    public Node(Map<String, Object> init){
-        node = new HashMap<>(init);
-        name = toString(); //FIXME: Overrida toString med egen?? Alt. Ändra denna. Är den ens nödvändigt? Vad är meningen med livet?
+    public Node(String name){
+        this.name = name;
     }
 
-    Object get(String var){
-        if(node.containsKey(var)){
-            return node.get(var);
-        }
-        throw new NoSuchElementException();
-    }
-
-    public void setPredNodes(List<Node<E>> n){
-        for (Node<E> nd : n){
+    public void setPredNodes(List<Node> n){  //Skicka in en lista med alla föregående noder.
+                                                //Alt. Räkna ut föregående noder här.
+        for (Node nd : n){
             predNodes.add(nd);
         }
     }
 
-    public void succNode(List<Node<E>> n){
-        for(Node<E> nd : n){
+    public void succNode(List<Node<E>> n){      //Skicka in en lista med alla efterföljande noder.
+                                                //Alt. Räkna ut efterföljande noder här.
+        for(Node nd : n){
             succNodes.add(nd);
         }
 
