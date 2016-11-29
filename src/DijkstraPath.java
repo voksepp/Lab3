@@ -1,7 +1,8 @@
 import Lab3Help.Path;
 import java.util.Iterator;
+import java.util.PriorityQueue;
 
-public class DijkstraPath<E> implements Path<E>{
+public class DijkstraPath<E> implements Path<E> {
 
     /**
      * Computes the path from <code>from</code> to <code>to</code> (if any). Path
