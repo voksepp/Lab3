@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-public class Node {
+public class Node<E> {
     public final String name;
     public final Map<String, Object> node;
 
