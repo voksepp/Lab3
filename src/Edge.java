@@ -1,14 +1,13 @@
-public class Edge {
+public class Edge<T> {
     private final String label;
-    private final Node tail;
-    private final Node head;
+    private final Vertex<T> from;
+    private final Vertex<T> to;
     private final int cost;
 
-    public Edge(String label, Node tail, Node head, int cost){
-        this.tail = tail;
-        this.head = head;
+    public Edge(String label, Vertex<T> from, Vertex<T> to, int cost){
+        this.from = from;
+        this.to = to;
         this.label = label;
         this.cost = cost;
     }
-
 }

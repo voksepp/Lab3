@@ -5,7 +5,7 @@ import java.util.List;
 public class Graph {
 
 
-    private List<Node> nodes;
+    //private List<Node> nodes;
     private List<BStop> stops;
     private List<BLineTable> lines;
 
