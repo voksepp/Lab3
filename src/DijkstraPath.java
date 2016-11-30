@@ -31,7 +31,13 @@ public class DijkstraPath<E> implements Path<E> {
         if(from.equals(to)){
             return;
         }
+        else{
+            for (Vertex v : g) {
+                if(v.getOutgoing().equals(to))
+                    return;
 
+            }
+        }
 
     }
 
