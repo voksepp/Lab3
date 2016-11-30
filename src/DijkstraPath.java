@@ -1,5 +1,6 @@
 import Lab3Help.Path;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class DijkstraPath<E> implements Path<E> {
@@ -7,6 +8,8 @@ public class DijkstraPath<E> implements Path<E> {
     private Graph<E> g;
     private List<E> path;
     private PriorityQueue<E> pq;
+
+
 
     public DijkstraPath(Graph<E> g){
         this.g=g;
@@ -27,9 +30,11 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to) {
-        Stack<E> stack = new Stack<E>();
-        stack.add(from);
-        while (!stack.isEmpty()) {
+        Stack<E> visitedVertices = new Stack<E>();
+        visitedVertices.add(from);
+
+
+        while (!prioritetskön.isEmpty()) {
             if (from.equals(to)) {
                 path.add(from);
                 return;
