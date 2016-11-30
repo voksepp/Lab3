@@ -42,4 +42,10 @@ public class Lab3 {
             }
         }*/
     }
+
+    public void buildGraph2(List<BStop> stops, List<BLineTable> lines){
+        for (BStop stop : stops){
+
+        }
+    }
 }
