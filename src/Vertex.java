@@ -8,8 +8,8 @@ public class Vertex<T>{
 
     public Vertex(String name) {
         this.name = name;
-        incoming = new ArrayList<Edge<T>>();
-        outgoing = new ArrayList<Edge<T>>();
+        incoming = new ArrayList<>();
+        outgoing = new ArrayList<>();
     }
     public boolean addEdge(Edge<T> edge){
         if(edge.getFrom() == this)

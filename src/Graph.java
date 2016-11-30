@@ -8,8 +8,8 @@ public class Graph<T> {
     private HashMap<String, Vertex<T>> nameMap;
 
     public Graph(){
-        vertices = new ArrayList<Vertex<T>>();
-        edges = new ArrayList<Edge<T>>();
+        vertices = new ArrayList<>();
+        edges = new ArrayList<>();
     }
 
     public Graph(List<Vertex<T>> vertices, List<Edge<T>> edges){
@@ -47,7 +47,7 @@ public class Graph<T> {
     }
 
     public boolean addEdge(Vertex<T> from, Vertex<T> to, int cost){
-        Edge<T> edge = new Edge<T>(from, to, cost);
+        Edge<T> edge = new Edge<>(from, to, cost);
         if (!from.outgoingContains(to))
             return false;
         else{
