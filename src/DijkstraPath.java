@@ -34,7 +34,7 @@ public class DijkstraPath<E> implements Path<E> {
         while (!stack.isEmpty()) {
             if (from.equals(to)) {
                 path.add(from);
-                break;
+                return;
             } else {
                 for (Vertex v : g) {
                     if (v.getOutgoing().equals(to)) {
