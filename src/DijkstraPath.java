@@ -8,7 +8,6 @@ public class DijkstraPath<E> implements Path<E> {
 
     private Graph<E> g;
     private List<E> path;
-    private Iterator<E> i;
 
     public DijkstraPath(Graph<E> g){
         this.g=g;
