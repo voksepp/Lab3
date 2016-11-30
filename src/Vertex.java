@@ -11,6 +11,7 @@ public class Vertex<T>{
         incoming = new ArrayList<Edge<T>>();
         outgoing = new ArrayList<Edge<T>>();
     }
+
     public boolean addEdge(Edge<T> edge){
         if(edge.getFrom() == this)
             outgoing.add(edge);
@@ -36,6 +37,7 @@ public class Vertex<T>{
     public boolean outgoingContains (Edge<T> edge){
         return outgoing.contains(edge);
     }
+
     public boolean outgoingContains (Vertex<T> vertex){
         for (Edge<T> edge : outgoing){
             if (edge.getTo() == vertex)
