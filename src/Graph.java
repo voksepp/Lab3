@@ -37,13 +37,14 @@ public class Graph<T> {
     }
 
     public boolean addEdge(Vertex<T> from, Vertex<T> to, int cost){
-
         Edge<T> edge = new Edge<T>(from, to, cost);
         if (from.getEdges(to) != null)
             return false;
-
-
-
-        return
+        else{
+            from.addEdge(edge);
+            to.addEdge(edge);
+            edges.add(edge);
+            return true;
+        }
     }
 }
