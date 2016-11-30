@@ -52,11 +52,9 @@ public class Lab3 {
             g.addVertex(new Vertex(s.getName()));
         }
         for (BLineTable bLT : lines){
-
             BLineStop[] stopArray = bLT.getStops();
-            Edge e = new Edge()
-            for (int i = 1; i<stopArray.length; i++){
-
+            for (int i = 0; i<stopArray.length; i++){
+                g.addEdge(g.getVertex(stopArray[i].getName()), g.getVertex(stopArray[i+1].getName()), stopArray[i+1].getTime());
             }
         }
     }

@@ -42,6 +42,10 @@ public class Graph<T> {
         return added;
     }
 
+    public Vertex<T> getVertex (String name){
+        return nameMap.get(name);
+    }
+
     public boolean addEdge(Vertex<T> from, Vertex<T> to, int cost){
         Edge<T> edge = new Edge<T>(from, to, cost);
         if (!from.outgoingContains(to))
