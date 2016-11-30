@@ -22,7 +22,8 @@ public class Graph<T> {
 
     public void setStops(){
         for(T bLT : lineTable){
-            //Checka vad hållplatserna heter och gör edges
+            //TODO: Checka vad hållplatserna heter och gör edges
+
         }
     }
 }
