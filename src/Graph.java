@@ -13,8 +13,8 @@ public class Graph<T> {
         edges = new ArrayList<Edge<T>>();
     }
 
-    public Graph(List<Vertex<T>> vertecies, List<Edge<T>> edges){
-        this.vertices = vertecies;
+    public Graph(List<Vertex<T>> vertices, List<Edge<T>> edges){
+        this.vertices = verticies;
         this.edges = edges;
     }
 
