@@ -1,3 +1,4 @@
+import Lab3Help.BLineStop;
 import Lab3Help.BLineTable;
 import Lab3Help.BStop;
 import Lab3Help.Path;
@@ -7,8 +8,20 @@ import java.util.PriorityQueue;
 
 public class DijkstraPath<E> implements Path<E> {
 
-    public DijkstraPath(List<BStop> stops, List<BLineTable> lines){
+    private Graph g;
 
+    public DijkstraPath(List<BStop> stops, List<BLineTable> lines){
+        Graph g = new Graph();
+
+        for (BStop s : stops){
+            g.addVertex(new Vertex(s.getName()));
+        }
+        for (BLineTable bLT : lines){
+            BLineStop[] stopArray = bLT.getStops();
+            for (int i = 0; i<stopArray.length; i++){
+                g.addEdge(g.getVertex(stopArray[i].getName()), g.getVertex(stopArray[i+1].getName()), stopArray[i+1].getTime());
+            }
+        }
     }
 
     /**

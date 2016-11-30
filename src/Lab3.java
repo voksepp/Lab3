@@ -43,18 +43,4 @@ public class Lab3 {
             }
         }*/
     }
-
-    public void buildGraph2(List<BStop> stops, List<BLineTable> lines){
-        Graph g = new Graph();
-
-        for (BStop s : stops){
-            g.addVertex(new Vertex(s.getName()));
-        }
-        for (BLineTable bLT : lines){
-            BLineStop[] stopArray = bLT.getStops();
-            for (int i = 0; i<stopArray.length; i++){
-                g.addEdge(g.getVertex(stopArray[i].getName()), g.getVertex(stopArray[i+1].getName()), stopArray[i+1].getTime());
-            }
-        }
-    }
 }
