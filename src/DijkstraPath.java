@@ -3,6 +3,7 @@ import Lab3Help.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Stack;
 
 public class DijkstraPath<E> implements Path<E> {
 
@@ -28,16 +29,21 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to) {
-        if(from.equals(to)){
-            path.add(from);
-        }
-        else{
-            for (Vertex v : g) {
-                if(v.getOutgoing().equals(to)) {
-                    path.add();
-                    return;
-                }
+        Stack<E> stack = new Stack<E>();
+        stack.add(from);
+        while (!stack.isEmpty()) {
+            if (from.equals(to)) {
+                path.add(from);
+                break;
+            } else {
+                for (Vertex v : g) {
+                    if (v.getOutgoing().equals(to)) {
+                        path.add();
+                        return;
+                    }
 
+
+                }
             }
         }
 
