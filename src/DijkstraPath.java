@@ -33,8 +33,10 @@ public class DijkstraPath<E> implements Path<E> {
         }
         else{
             for (Vertex v : g) {
-                if(v.getOutgoing().equals(to))
+                if(v.getOutgoing().equals(to)) {
+                    path.add();
                     return;
+                }
 
             }
         }
