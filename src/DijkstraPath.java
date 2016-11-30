@@ -50,22 +50,6 @@ public class DijkstraPath<E> implements Path<E> {
             }
         }
         //Returnera dist?
-
-
-
-        /*while (!prioritetskön.isEmpty()) {
-            if (from.equals(to)) {
-                path.add(from);
-                return;
-            } else {
-                for (Vertex v : g.getVertices()) {
-                    if (v.getOutgoing().equals(to)) {
-                        //path.add();
-                        return;
-                    }
-                }
-            }
-        }*/
     }
 
     /**
