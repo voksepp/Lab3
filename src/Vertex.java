@@ -13,6 +13,11 @@ public class Vertex<T> implements Comparable<Vertex>{
     public boolean addEdge(Edge<T> edge){
         if(edge.getFrom() == this)
             outgoing.add(edge);
+        if(edge.getTo() == this)
+            incoming.add(edge);
+        else
+            return false;
+        return true;
     }
 
     public String getName(){
