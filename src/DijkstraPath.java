@@ -2,26 +2,20 @@ import Lab3Help.BLineStop;
 import Lab3Help.BLineTable;
 import Lab3Help.BStop;
 import Lab3Help.Path;
+
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class DijkstraPath<E> implements Path<E> {
 
-    private Graph g;
+    private Graph<E> g;
+    private Comparator<E> c;
 
-    public DijkstraPath(List<BStop> stops, List<BLineTable> lines){
-        Graph g = new Graph();
-
-        for (BStop s : stops){
-            g.addVertex(new Vertex(s.getName()));
-        }
-        for (BLineTable bLT : lines){
-            BLineStop[] stopArray = bLT.getStops();
-            for (int i = 0; i<stopArray.length; i++){
-                g.addEdge(g.getVertex(stopArray[i].getName()), g.getVertex(stopArray[i+1].getName()), stopArray[i+1].getTime());
-            }
-        }
+    public DijkstraPath(Graph<E> g, Comparator<E> c){
+        this.g=g;
+        this.c=c;
     }
 
     /**

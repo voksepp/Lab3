@@ -1,4 +1,4 @@
-public class Edge<T> {
+public class Edge<T> implements Comparable<Edge<T>>{
     private final Vertex<T> from;
     private final Vertex<T> to;
     private final int cost;
@@ -17,5 +17,10 @@ public class Edge<T> {
     }
     public Vertex<T> getFrom(){
         return from;
+    }
+
+    @Override
+    public int compareTo(Edge<T> o) {
+        return this.getCost() - o.getCost();
     }
 }
