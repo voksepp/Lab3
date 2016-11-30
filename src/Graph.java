@@ -26,4 +26,17 @@ public class Graph<T> {
 
         }
     }
+
+    public boolean isEmpty(){
+        return vertices.isEmpty();
+    }
+
+    public boolean addVertex(Vertex<T> vertex){
+        boolean added = false;
+
+        if (!vertices.contains(vertex))
+            added = vertices.add(vertex);
+
+        return added;
+    }
 }
