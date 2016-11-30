@@ -1,12 +1,19 @@
 import Lab3Help.Path;
+
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class DijkstraPath<E> implements Path<E> {
 
     private Graph<E> g;
+    private List<E> path;
+    private Iterator<E> i;
 
     public DijkstraPath(Graph<E> g){
         this.g=g;
+        path = new ArrayList<E>();
     }
 
     /**
@@ -24,6 +31,7 @@ public class DijkstraPath<E> implements Path<E> {
     @Override
     public void computePath(E from, E to) {
 
+        i = path.iterator();
     }
 
     /**
