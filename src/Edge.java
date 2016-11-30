@@ -10,4 +10,12 @@ public class Edge<T> {
         this.label = label;
         this.cost = cost;
     }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public int getCost() {
+        return cost;
+    }
 }

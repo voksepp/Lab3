@@ -11,9 +11,11 @@ public class Vertex<E> implements Comparable<Vertex>{
     public String getName(){
         return name;
     }
+
     public ArrayList<Vertex> getAdjList(){
         return adjList;
     }
+
     @Override
     public int compareTo(Vertex o) {
         return 0;
