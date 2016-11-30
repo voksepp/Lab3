@@ -53,10 +53,8 @@ public class DijkstraPath<E> implements Path<E> {
         distanceMap.put((Vertex<E>) from, 0);
 
         visitedVertices = null; //Behövs denna?
-        while (!list.isEmpty()){
-            for (Vertex v : list) {
 
-            }
+        while (!list.isEmpty()){
             //TODO: Vilket element u i list har kortast distance?
             visitedVertices.add(Element u);
             for(Vertex v : Grannar till u *{
