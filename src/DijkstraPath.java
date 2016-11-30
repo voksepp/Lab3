@@ -5,13 +5,11 @@ public class DijkstraPath<E> implements Path<E> {
 
     private final List<E> path;
     private final PriorityQueue<Vertex<E>> pq;
-    private final HashMap<Vertex<E>, Integer> distanceMap;
 
     public DijkstraPath(Graph<E> g){
         path = new ArrayList<>();
         pq = new PriorityQueue<>();
         pq.addAll(g.getVertices());
-        distanceMap = new HashMap<>();
     }
 
     /**
