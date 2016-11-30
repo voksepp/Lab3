@@ -9,7 +9,10 @@ public class DijkstraPath<E> implements Path<E> {
 
     public DijkstraPath(Graph<E> g){
         path = new ArrayList<>();
-        pq = new PriorityQueue<>(g.getVertices());
+        pq = new PriorityQueue<>();
+        for (Vertex<E> v: g.getVertices()){
+            pq.add(v);
+        }
         distanceMap = new HashMap<>();
     }
 
