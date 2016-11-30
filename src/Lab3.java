@@ -19,7 +19,13 @@ public class Lab3 {
 
         Graph graph = new Graph();
 
-        HashSet<BLineTable> visitedStops = new HashSet<BLineTable>();
+        for(BLineTable blt : lines){
+            for (BStop bst : stops){
+                graph.addVertex(new Vertex(stops.toString()));
+            }
+        }
+
+        /*HashSet<BLineTable> visitedStops = new HashSet<BLineTable>();
 
         ArrayDeque<BLineTable> stopsStack = new ArrayDeque<BLineTable>();
         stopsStack.add(lines.get(0));
@@ -34,6 +40,6 @@ public class Lab3 {
                     stopsStack.add(edge.getTo());
                 }
             }
-        }
+        }*/
     }
 }
