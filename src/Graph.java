@@ -21,12 +21,8 @@ public class Graph<T> {
     }
 
     public void setStops(){
-        for(BStop bSt : stops){
-            for(BLineTable bLT : lines){
-                if(/*Hållplatsen passeras av den linjen*/){
-                    //Gör en edge från den till nästa. Hur hittar
-                }
-            }
+        for(T bLT : lineTable){
+            //Checka vad hållplatserna heter och gör edges
         }
     }
 }
