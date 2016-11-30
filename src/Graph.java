@@ -29,6 +29,10 @@ public class Graph<T> {
         return edges;
     }
 
+    public HashMap<String, Vertex<T>> getNameMap() {
+        return nameMap;
+    }
+
     public boolean addVertex(Vertex<T> vertex){
         boolean added = false;
         if (!vertices.contains(vertex))
