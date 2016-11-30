@@ -31,15 +31,15 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to) { //Ett test från pseudokoden på http://math.mit.edu/~rothvoss/18.304.3PM/Presentations/1-Melissa.pdf
-        List<Vertex<E>> aq;
+        List<Vertex<E>> list;
         Stack<E> visitedVertices;
         //TODO: Sätt distance till "from" till 0
         for(Vertex v : g.getVertices()){
             //TODO: Sätt alla andra distance till infinity
         }
         visitedVertices = null; //Behövs denna?
-        aq = g.getVertices();
-        while (!aq.isEmpty()){
+        list = g.getVertices();
+        while (!list.isEmpty()){
             //TODO: Vilket element u i aq har kortast distance?
             visitedVertices.add(/*Element u*/);
             for(Vertex v : /*Grannar till u */){
