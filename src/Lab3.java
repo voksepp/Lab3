@@ -19,10 +19,10 @@ public class Lab3 {
 
         Graph graph = new Graph();
 
+        HashSet<BLineTable> visitedStops = new HashSet<BLineTable>();
+
         ArrayDeque<BLineTable> stopsStack = new ArrayDeque<BLineTable>();
         stopsStack.add(lines.get(0));
-
-        HashSet<BLineTable> visitedStops = new HashSet<BLineTable>();
 
         while (!stopsStack.isEmpty()){
             BLineTable bLT = stopsStack.pop();
