@@ -20,13 +20,13 @@ public class Graph<T> {
         this.lineTable = lineTable;
     }
 
-    public void setStops(){
+    /*public void setStops(){
         for(BStop bSt : stops){
             for(BLineTable bLT : lines){
-                if(/*Hållplatsen passeras av den linjen*/){
+                if(Hållplatsen passeras av den linjen){
                     //Gör en edge från den till nästa. Hur hittar
                 }
             }
         }
-    }
+    }*/
 }
