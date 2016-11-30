@@ -12,4 +12,10 @@ public class Edge<T> {
     public int getCost() {
         return cost;
     }
+    public Vertex<T> getTo(){
+        return to;
+    }
+    public Vertex<T> getFrom(){
+        return from;
+    }
 }

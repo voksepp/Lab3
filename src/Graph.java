@@ -29,6 +29,10 @@ public class Graph<T> {
         return vertices;
     }
 
+    public List<Edge<T>> getEdges(){
+        return edges;
+    }
+
     public boolean addVertex(Vertex<T> vertex){
         boolean added = false;
         if (!vertices.contains(vertex))
