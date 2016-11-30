@@ -1,14 +1,12 @@
 import Lab3Help.Path;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class DijkstraPath<E> implements Path<E> {
 
     private Graph<E> g;
     private List<E> path;
+    private PriorityQueue<E> pq;
 
     public DijkstraPath(Graph<E> g){
         this.g=g;
@@ -41,12 +39,9 @@ public class DijkstraPath<E> implements Path<E> {
                         path.add();
                         return;
                     }
-
-
                 }
             }
         }
-
     }
 
     /**
