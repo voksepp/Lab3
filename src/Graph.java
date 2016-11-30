@@ -10,6 +10,7 @@ public class Graph<T> {
     public Graph(){
         vertices = new ArrayList<>();
         edges = new ArrayList<>();
+        nameMap = new HashMap<>();
     }
 
     public boolean isEmpty(){
