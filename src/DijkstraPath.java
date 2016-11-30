@@ -44,58 +44,7 @@ public class DijkstraPath<E> implements Path<E> {
             }
         }
     }
-    /*public void computePath(E from, E to) { //Ett test från pseudokoden på http://math.mit.edu/~rothvoss/18.304.3PM/Presentations/1-Melissa.pdf
-        List<Vertex<E>> list = g.getVertices();
-        Stack<E> visitedVertices;
-        for(Vertex v : list){
-            distanceMap.put(v, Integer.MAX_VALUE);
-        }
-        distanceMap.put((Vertex<E>) from, 0);
 
-        visitedVertices = null; //Behövs denna?
-
-        while (!list.isEmpty()){
-            //TODO: Vilket element u i list har kortast distance?
-            visitedVertices.add(Element u);
-            for(Vertex v : Grannar till u *{
-                if(Distance[v] > Distance[u] && w(u,v) ){ //Om en ny kortaste väg funnen
-                    //v = u + w(uv);
-                }
-            }
-        }
-        //Returnera dist?
-
-
-
-        /*while (!prioritetskön.isEmpty()) {
-            if (from.equals(to)) {
-                path.add(from);
-                return;
-            } else {
-                for (Vertex v : g.getVertices()) {
-                    if (v.getOutgoing().equals(to)) {
-                        //path.add();
-                        return;
-                    }
-                }
-            }
-        }/*
-    }
-/*
-
-
-    /**
-     * Returns an iterator over the nodes in the path.
-     * <p>
-     * If a path has been found the first node in the iterator is the
-     * argument <code>from</code> passed to <code>computePath</code> and
-     * the last node is <code>to</code>.
-     * <p>
-     * If no path was found or if no call to computePath has been made the
-     * iterator is empty.
-     *
-     * @return An iterator over the computed path.
-     */
     @Override
     public Iterator<E> getPath() {
         return path.iterator();
