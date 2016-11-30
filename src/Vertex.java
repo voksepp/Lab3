@@ -5,13 +5,11 @@ public class Vertex<T>{
     private List<Edge<T>> incoming;
     private List<Edge<T>> outgoing;
     private final String name;
-    private boolean visited;
 
     public Vertex(String name) {
         this.name = name;
         incoming = new ArrayList<>();
         outgoing = new ArrayList<>();
-        visited = false;
     }
     public boolean addEdge(Edge<T> edge){
         if(edge.getFrom() == this)
@@ -33,18 +31,6 @@ public class Vertex<T>{
 
     public List<Edge<T>> getOutgoing(){
         return outgoing;
-    }
-
-    public boolean getVisited(){
-        return visited;
-    }
-
-    public void setVisited(){
-        visited = true;
-    }
-
-    public void clearVisited(){
-        visited = false;
     }
 
     public boolean outgoingContains (Edge<T> edge){
