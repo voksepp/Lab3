@@ -23,7 +23,10 @@ public class Lab3 {
 
         dp.computePath(fromStop, toStop);
 
-        if(dp.getPathLength() > 0){
+        if(dp.getPathLength() == 0){
+            System.out.println("Det finns ingen väg från " + from + " till " + to);
+        }
+        else if(dp.getPathLength() > 0){
             System.out.println(dp.getPathLength());
             while (dp.getPath().hasNext())
                 System.out.println(dp.getPath().next());
@@ -32,9 +35,5 @@ public class Lab3 {
             System.out.println(0);
             System.out.println(args[2]);
         }
-        else if(false ){ //TODO:fixa villkor
-            System.out.println("Det finns ingen väg från " + from + " till " + to);
-        }
-
     }
 }
