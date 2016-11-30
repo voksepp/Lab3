@@ -2,7 +2,7 @@ import Lab3Help.*;
 import java.io.IOException;
 import java.util.List;
 
-public class Lab3 {
+class Lab3 {
 
     public static void main (String[] args) throws IOException, MalformedData {
         if (args.length != 4)

@@ -1,4 +1,4 @@
-public class Edge<T> implements Comparable<Edge<T>>{
+class Edge<T> implements Comparable<Edge<T>>{
     private final Vertex<T> from;
     private final Vertex<T> to;
     private final int cost;

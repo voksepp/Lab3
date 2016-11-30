@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Graph<T> {
-    private List<Vertex<T>> vertices;
-    private List<Edge<T>> edges;
+class Graph<T> {
+    private final List<Vertex<T>> vertices;
+    private final List<Edge<T>> edges;
     private HashMap<String, Vertex<T>> nameMap;
 
     public Graph(){

@@ -2,9 +2,9 @@ import Lab3Help.*;
 import java.util.Iterator;
 import java.util.List;
 
-public class DijkstraStringPath implements Path<String> {
+class DijkstraStringPath implements Path<String> {
 
-    private DijkstraPath d;
+    private final DijkstraPath d;
 
     public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
         Graph g = new Graph();

@@ -1,15 +1,14 @@
 import Lab3Help.Path;
 import java.util.*;
 
-public class DijkstraPath<E> implements Path<E> {
+class DijkstraPath<E> implements Path<E> {
 
-    private List<E> path;
-    private PriorityQueue<Vertex<E>> pq;
-    private HashMap<Vertex<E>, Integer> distanceMap;
+    private final List<E> path;
+    private final PriorityQueue<Vertex<E>> pq;
+    private final HashMap<Vertex<E>, Integer> distanceMap;
 
     public DijkstraPath(Graph<E> g){
-        Graph<E> g1 = g;
-        path = new ArrayList<E>();
+        path = new ArrayList<>();
         pq = new PriorityQueue<>(g.getVertices());
         distanceMap = new HashMap<>();
     }

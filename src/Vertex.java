@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vertex<T>{
-    private List<Edge<T>> incoming;
-    private List<Edge<T>> outgoing;
+    private final List<Edge<T>> incoming;
+    private final List<Edge<T>> outgoing;
     private final String name;
 
     public Vertex(String name) {
