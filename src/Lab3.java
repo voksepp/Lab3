@@ -33,7 +33,7 @@ public class Lab3 {
             System.out.println(args[2]);
         }
         else if( //TODO: NOPATH ){
-            System.out.println("Det finns ingen väg från " + args[]);
+            System.out.println("Det finns ingen väg från " + from + " till " + to);
         }
 
     }
