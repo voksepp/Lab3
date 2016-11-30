@@ -6,7 +6,7 @@ public class Graph<T> {
     private List<Edge<T>> edges;
 
     public Graph(){
-        vertices = new ArrayList<Vertex<T>>;
+        vertices = new ArrayList<Vertex<T>>();
         edges = new ArrayList<Edge<T>>();
     }
 
