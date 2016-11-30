@@ -29,13 +29,14 @@ public class DijkstraPath<E> implements Path<E> {
      * @param to
      */
     @Override
-    public void computePath(E from, E to) {
-        Stack<E> visitedVertices = new Stack<E>();
-        visitedVertices.add(from);
+    public void computePath(E from, E to) { //Ett test från http://math.mit.edu/~rothvoss/18.304.3PM/Presentations/1-Melissa.pdf
+        Stack<E> visitedVertices;
         //TODO: Sätt distance till "from" till 0
         for(Vertex v : g.getVertices()){
             //TODO: Sätt alla andra distance till infinity
         }
+        visitedVertices = null; //Behövs denna?
+
 
 
         /*while (!prioritetskön.isEmpty()) {
