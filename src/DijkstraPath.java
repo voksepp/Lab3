@@ -1,7 +1,7 @@
 import Lab3Help.Path;
 import java.util.*;
 
-class DijkstraPath<E> implements Path<E> {
+public class DijkstraPath<E> implements Path<E> {
 
     private final List<E> path;
     private final PriorityQueue<Vertex<E>> pq;
