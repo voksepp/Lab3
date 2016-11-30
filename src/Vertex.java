@@ -35,6 +35,18 @@ public class Vertex<T>{
         return outgoing;
     }
 
+    public boolean getVisited(){
+        return visited;
+    }
+
+    public void setVisited(){
+        visited = true;
+    }
+
+    public void clearVisited(){
+        visited = false;
+    }
+
     public boolean outgoingContains (Edge<T> edge){
         return outgoing.contains(edge);
     }
