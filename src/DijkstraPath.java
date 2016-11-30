@@ -38,7 +38,7 @@ public class DijkstraPath<E> implements Path<E> {
         for(Vertex v : g.getVertices()){
             distanceMap.put(v, Double.POSITIVE_INFINITY);
         }
-        distanceMap.put(from, 0);
+        distanceMap.put((Vertex<E>) from, 0.0);
 
         visitedVertices = null; //Behövs denna?
         list = g.getVertices();
