@@ -10,6 +10,10 @@ public class Vertex<T> implements Comparable<Vertex>{
         this.incoming = incoming;
         this.outgoing = outgoing;
     }
+    public boolean addEdge(){
+
+    }
+
     public String getName(){
         return name;
     }
