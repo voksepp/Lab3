@@ -1,20 +1,25 @@
 import java.util.ArrayList;
 
-public class Vertex<E> implements Comparable<Vertex>{
-    private ArrayList<Vertex> incoming;
-    private ArrayList<Vertex> outgoing;
+public class Vertex<T> implements Comparable<Vertex>{
+    private ArrayList<Vertex<T>> incoming;
+    private ArrayList<Vertex<T>> outgoing;
     private final String name;
 
-    public Vertex(String name, ArrayList<Vertex> adjList) {
+    public Vertex(String name, ArrayList<Vertex<T>> incoming, ArrayList<Vertex<T>> outgoing) {
         this.name = name;
-        this.adjList = adjList;
+        this.incoming = incoming;
+        this.outgoing = outgoing;
     }
     public String getName(){
         return name;
     }
 
-    public ArrayList<Vertex> getAdjList(){
-        return adjList;
+    public ArrayList<Vertex<T>> getIncoming(){
+        return incoming;
+    }
+
+    public ArrayList<Vertex<T>> getOutgoing(){
+        return outgoing;
     }
 
     @Override
