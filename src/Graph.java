@@ -14,7 +14,7 @@ public class Graph<T> {
     }
 
     public Graph(List<Vertex<T>> vertices, List<Edge<T>> edges){
-        this.vertices = verticies;
+        this.vertices = vertices;
         this.edges = edges;
     }
 
