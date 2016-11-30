@@ -29,7 +29,7 @@ public class DijkstraPath<E> implements Path<E> {
     @Override
     public void computePath(E from, E to) {
         if(from.equals(to)){
-            return;
+            path.add(from);
         }
         else{
             for (Vertex v : g) {
