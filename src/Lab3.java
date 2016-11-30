@@ -10,10 +10,9 @@ public class Lab3 {
         Lab3File fileParser = new Lab3File();
         List<BStop> stops = fileParser.readStops("stops-gbg.txt");
         List<BLineTable> lines = fileParser.readLines("lines-gbg.txt");
-        //new GUI(stops, lines, new DijkstraStringPath(stops, lines));
+        new GUI(stops, lines, new DijkstraStringPath(stops, lines));
         System.out.println(stops);
         System.out.println(lines);
-        //Graph graph = new Graph(stops, lines);
 
     }
 

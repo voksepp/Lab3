@@ -4,7 +4,7 @@ import Lab3Help.Path;
 import java.util.Iterator;
 import java.util.List;
 
-public class DijkstraStringPath /*implements Path<String>*/ {
+public class DijkstraStringPath implements Path<String> {
 
     private final DijkstraPath d = new DijkstraPath();
     private final Graph g;
@@ -25,10 +25,10 @@ public class DijkstraStringPath /*implements Path<String>*/ {
      * @param from
      * @param to
      */
-    /*@Override
+    @Override
     public void computePath(String from, String to) {
         d.computePath(from, to);
-    }*/
+    }
 
     /**
      * Returns an iterator over the nodes in the path.
@@ -42,10 +42,10 @@ public class DijkstraStringPath /*implements Path<String>*/ {
      *
      * @return An iterator over the computed path.
      */
-    /*@Override
+    @Override
     public Iterator<String> getPath() {
         return d.getPath();
-    }*/
+    }
 
     /**
      * Returns the length of the computed path, that is, the sum of the
@@ -57,8 +57,8 @@ public class DijkstraStringPath /*implements Path<String>*/ {
      *
      * @return The length of the computed path.
      */
-    /*@Override
+    @Override
     public int getPathLength() {
-        return d.computePath();
-    }*/
+        //return d.computePath();
+    }
 }
