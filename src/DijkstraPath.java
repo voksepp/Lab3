@@ -5,7 +5,7 @@ public class DijkstraPath<E> implements Path<E> {
 
     private Graph<E> g;
     private List<E> path;
-    private PriorityQueue<Edge<E>> pq;
+    private PriorityQueue<Vertex<E>> pq;
     private HashMap<Vertex<E>, Integer> distanceMap;
 
 
@@ -13,7 +13,7 @@ public class DijkstraPath<E> implements Path<E> {
     public DijkstraPath(Graph<E> g){
         this.g=g;
         path = new ArrayList<E>();
-        pq = new PriorityQueue<>(g.getEdges());
+        pq = new PriorityQueue<>(g.getVertices());
         distanceMap = new HashMap<>();
     }
 
@@ -30,7 +30,21 @@ public class DijkstraPath<E> implements Path<E> {
      * @param to
      */
     @Override
-    public void computePath(E from, E to) { //Ett test från pseudokoden på http://math.mit.edu/~rothvoss/18.304.3PM/Presentations/1-Melissa.pdf
+    public void computePath(E from, E to){
+        while(pq.isEmpty()){
+            Vertex<E> n = pq.remove();
+            for (Edge<E> e : n.getOutgoing()){
+                Vertex<E> adj = e.getTo();
+                Integer newPossibleCost = e.getCost() + distanceMap.get(n);
+                if (newPossibleCost < distanceMap.get(adj)){
+                    distanceMap.replace(adj, newPossibleCost);
+                    pq.remove(adj);
+                    pq.add(adj);
+                }
+            }
+        }
+    }
+    /*public void computePath(E from, E to) { //Ett test från pseudokoden på http://math.mit.edu/~rothvoss/18.304.3PM/Presentations/1-Melissa.pdf
         List<Vertex<E>> list = g.getVertices();
         Stack<E> visitedVertices;
         for(Vertex v : list){
@@ -44,9 +58,9 @@ public class DijkstraPath<E> implements Path<E> {
 
             }
             //TODO: Vilket element u i list har kortast distance?
-            visitedVertices.add(/*Element u*/);
-            for(Vertex v : /*Grannar till u */){
-                if(/*Distance[v] > Distance[u] && w(u,v) */){ //Om en ny kortaste väg funnen
+            visitedVertices.add(Element u);
+            for(Vertex v : Grannar till u *{
+                if(Distance[v] > Distance[u] && w(u,v) ){ //Om en ny kortaste väg funnen
                     //v = u + w(uv);
                 }
             }
@@ -67,8 +81,10 @@ public class DijkstraPath<E> implements Path<E> {
                     }
                 }
             }
-        }*/
+        }/*
     }
+/*
+
 
     /**
      * Returns an iterator over the nodes in the path.
