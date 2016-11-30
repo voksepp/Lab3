@@ -3,18 +3,16 @@ import Lab3Help.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.PriorityQueue;
+import java.util.Stack;
 
 public class DijkstraPath<E> implements Path<E> {
 
     private Graph<E> g;
     private List<E> path;
-    private PriorityQueue<E> pq;
 
     public DijkstraPath(Graph<E> g){
         this.g=g;
         path = new ArrayList<E>();
-        pq = new PriorityQueue<E>()
     }
 
     /**
@@ -31,16 +29,21 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to) {
-        if(from.equals(to)){
-            path.add(from);
-        }
-        else{
-            for (Vertex v : g) {
-                if(v.getOutgoing().equals(to)) {
-                    path.add();
-                    return;
-                }
+        Stack<E> stack = new Stack<E>();
+        stack.add(from);
+        while (!stack.isEmpty()) {
+            if (from.equals(to)) {
+                path.add(from);
+                break;
+            } else {
+                for (Vertex v : g) {
+                    if (v.getOutgoing().equals(to)) {
+                        path.add();
+                        return;
+                    }
 
+
+                }
             }
         }
 
