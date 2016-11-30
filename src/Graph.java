@@ -1,17 +1,15 @@
 import Lab3Help.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Graph {
+public class Graph<T> {
+    private List<Vertex<T>> vertices;
+    private List<Edge<T>> edges;
 
-
-    //private List<Node> nodes;
-    private List<BStop> stops;
-    private List<BLineTable> lines;
-
-    public Graph(List<BStop> stops, List<BLineTable> lines){
-        this.stops = stops;
-        this.lines = lines;
+    public Graph(){
+        vertices = new ArrayList<Vertex<T>>;
+        edges = new ArrayList<Edge<T>>();
     }
 
     public void setStops(){

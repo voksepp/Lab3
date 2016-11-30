@@ -9,7 +9,7 @@ public class Lab3 {
         List<BStop> stops = fileParser.readStops("stops-gbg.txt");
         List<BLineTable> lines = fileParser.readLines("lines-gbg.txt");
         new GUI(stops, lines, new DijkstraStringPath(stops, lines));
-        Graph graph = new Graph(stops, lines);
+        //Graph graph = new Graph(stops, lines);
 
     }
 }
