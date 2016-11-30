@@ -5,11 +5,13 @@ public class Vertex<T> implements Comparable<Vertex<T>>{
     private final List<Edge<T>> incoming;
     private final List<Edge<T>> outgoing;
     private final String name;
+    private int distance;
 
     public Vertex(String name) {
         this.name = name;
         incoming = new ArrayList<>();
         outgoing = new ArrayList<>();
+        distance = Integer.MAX_VALUE;
     }
     public boolean addEdge(Edge<T> edge){
         if(edge.getFrom() == this)
@@ -46,9 +48,16 @@ public class Vertex<T> implements Comparable<Vertex<T>>{
     public boolean equals(Vertex o) {
         return name.equals(o.getName());
     }
+    public int getDistance(){
+        return distance;
+    }
+
+    public void setDistance(int distance){
+        this.distance = distance;
+    }
 
     @Override
     public int compareTo(Vertex<T> o) {
-
+        return this.distance - o.getDistance();
     }
 }

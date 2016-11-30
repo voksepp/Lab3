@@ -28,13 +28,14 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to){
+        //TODO: set distance start: 0, alla andra: INF
         while(!pq.isEmpty()){
             Vertex<E> n = pq.remove();
             for (Edge<E> e : n.getOutgoing()){
                 Vertex<E> adj = e.getTo();
-                Integer newPossibleCost = e.getCost() + distanceMap.get(n);
-                if (newPossibleCost < distanceMap.get(adj)){
-                    distanceMap.replace(adj, newPossibleCost);
+                Integer newPossibleCost = e.getCost() + n.getDistance();
+                if (newPossibleCost < adj.getDistance()){
+                    adj.setDistance(newPossibleCost);
                     pq.remove(adj);
                     pq.add(adj);
                 }
