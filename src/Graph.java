@@ -25,4 +25,17 @@ public class Graph<T> {
             //Checka vad hållplatserna heter och gör edges
         }
     }
+
+    public boolean isEmpty(){
+        return vertices.isEmpty();
+    }
+
+    public boolean addVertex(Vertex<T> vertex){
+        boolean added = false;
+
+        if (!vertices.contains(vertex))
+            added = vertices.add(vertex);
+
+        return added;
+    }
 }
