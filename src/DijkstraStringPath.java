@@ -57,6 +57,6 @@ public class DijkstraStringPath implements Path<String> {
      */
     @Override
     public int getPathLength() {
-        //return d.computePath();
+        return d.computePath();
     }
 }
