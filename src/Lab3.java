@@ -1,5 +1,6 @@
 import Lab3Help.*;
 import java.io.IOException;
+import java.util.ArrayDeque;
 import java.util.List;
 
 public class Lab3 {
@@ -15,8 +16,16 @@ public class Lab3 {
 
     public void buildGraph(List<BStop> stops, List<BLineTable> lines){
 
+        ArrayDeque<BLineTable> stopsStack = new ArrayDeque<BLineTable>();
+        stopsStack.add(lines.get(0));
+
+        while (!stopsStack.isEmpty()){
+
+        }
         for(BLineTable blt : lines){
             //TODO: Gör edges mellan vertices
+
+
         }
     }
 }
