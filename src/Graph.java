@@ -30,6 +30,14 @@ public class Graph<T> {
         return vertices.isEmpty();
     }
 
+    public int size(){
+        return vertices.size();
+    }
+
+    public List<Vertex<T>> getVertices(){
+        return vertices;
+    }
+
     public boolean addVertex(Vertex<T> vertex){
         boolean added = false;
 
