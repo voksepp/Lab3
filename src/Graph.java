@@ -41,10 +41,14 @@ public class Graph<T> {
 
     public boolean addVertex(Vertex<T> vertex){
         boolean added = false;
-
         if (!vertices.contains(vertex))
             added = vertices.add(vertex);
-
         return added;
+    }
+
+    public boolean addEdge(Vertex<T> from, Vertex<T> to, int cost){
+
+        Edge<T> edge = new Edge<T>(from, to, cost);
+
     }
 }
