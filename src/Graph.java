@@ -16,12 +16,9 @@ public class Graph<T> {
         for(BStop bSt : stops){
             for(BLineTable bLT : lines){
                 if(/*Hållplatsen passeras av den linjen*/){
-
+                    //Gör en edge från den till nästa. Hur hittar
                 }
             }
         }
-
     }
-
-
 }
