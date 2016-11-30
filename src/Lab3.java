@@ -12,4 +12,11 @@ public class Lab3 {
         //Graph graph = new Graph(stops, lines);
 
     }
+
+    public void buildGraph(List<BStop> stops, List<BLineTable> lines){
+
+        for(BLineTable blt : lines){
+            //TODO: Gör edges mellan vertices
+        }
+    }
 }
