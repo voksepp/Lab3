@@ -1,7 +1,5 @@
 import Lab3Help.*;
 import java.io.IOException;
-import java.util.ArrayDeque;
-import java.util.HashSet;
 import java.util.List;
 
 public class Lab3 {
@@ -11,37 +9,5 @@ public class Lab3 {
         List<BStop> stops = fileParser.readStops("stops-gbg.txt");
         List<BLineTable> lines = fileParser.readLines("lines-gbg.txt");
         new GUI(stops, lines, new DijkstraStringPath(stops, lines));
-        //System.out.println(stops);
-        //System.out.println(lines);
-
-    }
-
-
-    public void buildGraph(List<BStop> stops, List<BLineTable> lines){
-
-        Graph graph = new Graph();
-
-        for(BLineTable blt : lines){
-            for (BStop bst : stops){
-                graph.addVertex(new Vertex(stops.toString()));
-            }
-        }
-
-        /*HashSet<BLineTable> visitedStops = new HashSet<BLineTable>();
-
-        ArrayDeque<BLineTable> stopsStack = new ArrayDeque<BLineTable>();
-        stopsStack.add(lines.get(0));
-
-        while (!stopsStack.isEmpty()){
-            BLineTable bLT = stopsStack.pop();
-
-            if(!visitedStops.contains(bLT)){
-                visitedStops.add(bLT);
-                for (Edge edge : graph.getEdges()){ //För varje edge från hållplatsen
-                    //Gör edges från hållplatsen bös bös
-                    stopsStack.add(edge.getTo());
-                }
-            }
-        }*/
     }
 }
