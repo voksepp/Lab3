@@ -29,8 +29,9 @@ public class Lab3 {
 
             if(!visitedStops.contains(bLT)){
                 visitedStops.add(bLT);
-                for (Object edge : graph.getEdges()){ //För varje edge från hållplatsen
+                for (Edge edge : graph.getEdges()){ //För varje edge från hållplatsen
                     //Gör edges från hållplatsen bös bös
+                    stopsStack.add(edge.getTo());
                 }
             }
         }
