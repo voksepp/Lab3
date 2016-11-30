@@ -6,8 +6,11 @@ import java.util.List;
 
 public class DijkstraStringPath implements Path<String> {
 
-    public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
+    private final DijkstraPath d = new DijkstraPath();
+    private final Graph g;
 
+    public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
+        g = new Graph(stops, lines);
     }
 
     /**
@@ -24,7 +27,7 @@ public class DijkstraStringPath implements Path<String> {
      */
     @Override
     public void computePath(String from, String to) {
-
+        d.computePath(from, to);
     }
 
     /**
@@ -41,7 +44,7 @@ public class DijkstraStringPath implements Path<String> {
      */
     @Override
     public Iterator<String> getPath() {
-        return null;
+        return d.getPath();
     }
 
     /**
@@ -56,6 +59,6 @@ public class DijkstraStringPath implements Path<String> {
      */
     @Override
     public int getPathLength() {
-        return 0;
+        return d.computePath();
     }
 }
