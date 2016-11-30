@@ -53,6 +53,11 @@ public class Lab3 {
         }
         for (BLineTable bLT : lines){
 
+            BLineStop[] stopArray = bLT.getStops();
+
+            for (int i = 0; i<stopArray.length; i++){
+
+            }
         }
     }
 }
