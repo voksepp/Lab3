@@ -3,15 +3,12 @@ import java.util.*;
 
 public class DijkstraPath<E> implements Path<E> {
 
-    private Graph<E> g;
     private List<E> path;
     private PriorityQueue<Vertex<E>> pq;
     private HashMap<Vertex<E>, Integer> distanceMap;
 
-
-
     public DijkstraPath(Graph<E> g){
-        this.g=g;
+        Graph<E> g1 = g;
         path = new ArrayList<E>();
         pq = new PriorityQueue<>(g.getVertices());
         distanceMap = new HashMap<>();
