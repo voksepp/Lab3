@@ -1,6 +1,7 @@
 import Lab3Help.*;
 import java.io.IOException;
 import java.util.ArrayDeque;
+import java.util.HashSet;
 import java.util.List;
 
 public class Lab3 {
@@ -16,16 +17,22 @@ public class Lab3 {
 
     public void buildGraph(List<BStop> stops, List<BLineTable> lines){
 
+        Graph graph = new Graph();
+
+        HashSet<BLineTable> visitedStops = new HashSet<BLineTable>();
+
         ArrayDeque<BLineTable> stopsStack = new ArrayDeque<BLineTable>();
         stopsStack.add(lines.get(0));
 
         while (!stopsStack.isEmpty()){
+            BLineTable bLT = stopsStack.pop();
 
-        }
-        for(BLineTable blt : lines){
-            //TODO: Gör edges mellan vertices
-
-
+            if(!visitedStops.contains(bLT)){
+                visitedStops.add(bLT);
+                for (Object edge : graph.getEdges()){ //För varje edge från hållplatsen
+                    //Gör edges från hållplatsen bös bös
+                }
+            }
         }
     }
 }
