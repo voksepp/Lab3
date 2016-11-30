@@ -18,6 +18,7 @@ public class Lab3 {
     public void buildGraph(List<BStop> stops, List<BLineTable> lines){
 
         Graph graph = new Graph();
+
         ArrayDeque<BLineTable> stopsStack = new ArrayDeque<BLineTable>();
         stopsStack.add(lines.get(0));
 
@@ -25,17 +26,13 @@ public class Lab3 {
 
         while (!stopsStack.isEmpty()){
             BLineTable bLT = stopsStack.pop();
+
             if(!visitedStops.contains(bLT)){
                 visitedStops.add(bLT);
                 for (Object edge : graph.getEdges()){ //För varje edge från hållplatsen
                     //Gör edges från hållplatsen bös bös
                 }
             }
-        }
-        for(BLineTable blt : lines){
-            //TODO: Gör edges mellan vertices
-
-
         }
     }
 }
