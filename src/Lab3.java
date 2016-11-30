@@ -51,6 +51,8 @@ public class Lab3 {
         for (BStop s : stops){
             g.addVertex(new Vertex(s.getName()));
         }
-        for ()
+        for (BLineTable bLT : lines){
+
+        }
     }
 }
