@@ -6,7 +6,7 @@ public class DijkstraPath<E> implements Path<E> {
     private Graph<E> g;
     private List<E> path;
     private PriorityQueue<Edge<E>> pq;
-    private HashMap<Vertex<E>, Double> distanceMap;
+    private HashMap<Vertex<E>, Integer> distanceMap;
 
 
 
@@ -34,9 +34,9 @@ public class DijkstraPath<E> implements Path<E> {
         List<Vertex<E>> list = g.getVertices();
         Stack<E> visitedVertices;
         for(Vertex v : list){
-            distanceMap.put(v, Double.POSITIVE_INFINITY);
+            distanceMap.put(v, Integer.MAX_VALUE);
         }
-        distanceMap.put((Vertex<E>) from, 0.0);
+        distanceMap.put((Vertex<E>) from, 0);
 
         visitedVertices = null; //Behövs denna?
         while (!list.isEmpty()){
