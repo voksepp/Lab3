@@ -31,7 +31,7 @@ public class DijkstraPath<E> implements Path<E> {
     @Override
     public void computePath(E from, E to) {
 
-        i = path.iterator();
+
     }
 
     /**
@@ -48,7 +48,8 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public Iterator<E> getPath() {
-        return null;
+        i = path.iterator();
+        return i;
     }
 
     /**
@@ -63,6 +64,6 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public int getPathLength() {
-        return 0;
+        return path.size();
     }
 }
