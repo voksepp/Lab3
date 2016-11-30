@@ -4,11 +4,10 @@ import java.util.List;
 
 public class DijkstraStringPath implements Path<String> {
 
-    private final DijkstraPath d = new DijkstraPath();
-    private final Graph g;
+    private final DijkstraPath d;
 
     public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
-        g = new Graph(stops, lines);
+        d = new DijkstraPath(stops, lines);
     }
 
     /**
