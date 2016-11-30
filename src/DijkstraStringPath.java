@@ -4,7 +4,7 @@ import java.util.List;
 
 public class DijkstraStringPath implements Path<String> {
 
-    private final DijkstraPath d;
+    private DijkstraPath d;
 
     public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
         d = new DijkstraPath(stops, lines);
