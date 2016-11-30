@@ -28,11 +28,11 @@ public class Lab3 {
             while (dp.getPath().hasNext())
                 System.out.println(dp.getPath().next());
         }
-        else if(args[2] == args[3]){
+        else if(args[2].equals(args[3])){
             System.out.println(0);
             System.out.println(args[2]);
         }
-        else if( //TODO: NOPATH ){
+        else if(false ){ //TODO:fixa villkor
             System.out.println("Det finns ingen väg från " + from + " till " + to);
         }
 
