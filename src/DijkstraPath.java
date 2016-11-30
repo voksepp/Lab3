@@ -27,7 +27,7 @@ class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to){
-        while(pq.isEmpty()){
+        while(!pq.isEmpty()){
             Vertex<E> n = pq.remove();
             for (Edge<E> e : n.getOutgoing()){
                 Vertex<E> adj = e.getTo();
