@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Graph<T> {
     private List<Vertex<T>> vertices;
     private List<Edge<T>> edges;
+    private HashMap<String, Vertex<T>> nameMap;
 
     public Graph(){
         vertices = new ArrayList<Vertex<T>>();
@@ -35,6 +37,8 @@ public class Graph<T> {
         boolean added = false;
         if (!vertices.contains(vertex))
             added = vertices.add(vertex);
+            if(added)
+                nameMap.put(vertex.getName(), vertex);
         return added;
     }
 
