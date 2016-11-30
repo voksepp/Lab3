@@ -8,6 +8,7 @@ public class DijkstraPath<E> implements Path<E> {
     private Graph<E> g;
     private List<E> path;
     private PriorityQueue<Edge<E>> pq;
+    private HashMap<E, Double> distanceMap;
 
 
 
@@ -15,6 +16,7 @@ public class DijkstraPath<E> implements Path<E> {
         this.g=g;
         path = new ArrayList<E>();
         pq = new PriorityQueue<>(g.getEdges());
+        distanceMap = new HashMap<E, Double>();
     }
 
     /**
@@ -33,10 +35,11 @@ public class DijkstraPath<E> implements Path<E> {
     public void computePath(E from, E to) { //Ett test från pseudokoden på http://math.mit.edu/~rothvoss/18.304.3PM/Presentations/1-Melissa.pdf
         List<Vertex<E>> list;
         Stack<E> visitedVertices;
-        //TODO: Sätt distance till "from" till 0
         for(Vertex v : g.getVertices()){
-            //TODO: Sätt alla andra distance till infinity
+            distanceMap.put(v, Double.POSITIVE_INFINITY);
         }
+        distanceMap.put(from, 0);
+
         visitedVertices = null; //Behövs denna?
         list = g.getVertices();
         while (!list.isEmpty()){
