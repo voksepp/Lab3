@@ -42,7 +42,7 @@ public class Graph<T> {
 
     public boolean addEdge(Vertex<T> from, Vertex<T> to, int cost){
         Edge<T> edge = new Edge<T>(from, to, cost);
-        if (from.getEdges(to) != null)
+        if (!from.outgoingContains(to))
             return false;
         else{
             from.addEdge(edge);

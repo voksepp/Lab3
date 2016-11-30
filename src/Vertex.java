@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Vertex<T> implements Comparable<Vertex>{
-    private ArrayList<Edge<T>> incoming;
-    private ArrayList<Edge<T>> outgoing;
+    private List<Edge<T>> incoming;
+    private List<Edge<T>> outgoing;
     private final String name;
 
     public Vertex(String name) {
@@ -24,12 +25,23 @@ public class Vertex<T> implements Comparable<Vertex>{
         return name;
     }
 
-    public ArrayList<Edge<T>> getIncoming(){
+    public List<Edge<T>> getIncoming(){
         return incoming;
     }
 
-    public ArrayList<Edge<T>> getOutgoing(){
+    public List<Edge<T>> getOutgoing(){
         return outgoing;
+    }
+
+    public boolean outgoingContains (Edge<T> edge){
+        return outgoing.contains(edge);
+    }
+    public boolean outgoingContains (Vertex<T> vertex){
+        for (Edge<T> edge : outgoing){
+            if (edge.getTo() == vertex)
+                return true;
+        }
+        return false;
     }
 
     @Override
