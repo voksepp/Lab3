@@ -43,7 +43,6 @@ public class Vertex<T>{
         }
         return false;
     }
-    @Override
     public boolean equals(Vertex o) {
         return name.equals(o.getName());
     }
