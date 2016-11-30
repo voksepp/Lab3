@@ -48,8 +48,7 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public Iterator<E> getPath() {
-        i = path.iterator();
-        return i;
+        return path.iterator();
     }
 
     /**
