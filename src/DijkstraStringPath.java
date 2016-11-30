@@ -19,7 +19,7 @@ public class DijkstraStringPath implements Path<String> {
             }
         }
 
-        d = new DijkstraPath(g, );
+        d = new DijkstraPath(g);
     }
 
     /**
