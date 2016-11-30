@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertex<T>{
+public class Vertex<T> implements Comparable<Vertex>{
     private List<Edge<T>> incoming;
     private List<Edge<T>> outgoing;
     private final String name;
@@ -42,5 +42,9 @@ public class Vertex<T>{
                 return true;
         }
         return false;
+    }
+    @Override
+    public int compareTo(Vertex o) {
+        return 0;
     }
 }

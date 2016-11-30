@@ -44,8 +44,11 @@ public class Lab3 {
     }
 
     public void buildGraph2(List<BStop> stops, List<BLineTable> lines){
-        for (BStop stop : stops){
+        Graph g = new Graph();
 
+        for (BStop s : stops){
+            g.addVertex(new Vertex(s.getName()));
         }
+        for ()
     }
 }
