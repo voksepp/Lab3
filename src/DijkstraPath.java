@@ -7,13 +7,14 @@ public class DijkstraPath<E> implements Path<E> {
 
     private Graph<E> g;
     private List<E> path;
-    private PriorityQueue<E> pq;
+    private PriorityQueue<Edge<E>> pq;
 
 
 
     public DijkstraPath(Graph<E> g){
         this.g=g;
         path = new ArrayList<E>();
+        pq = new PriorityQueue<>(g.getEdges());
     }
 
     /**
