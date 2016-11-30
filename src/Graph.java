@@ -12,11 +12,6 @@ public class Graph<T> {
         edges = new ArrayList<>();
     }
 
-    public Graph(List<Vertex<T>> vertices, List<Edge<T>> edges){
-        this.vertices = vertices;
-        this.edges = edges;
-    }
-
     public boolean isEmpty(){
         return vertices.isEmpty();
     }
