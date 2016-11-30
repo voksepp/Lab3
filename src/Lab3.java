@@ -11,7 +11,19 @@ public class Lab3 {
         Lab3File fileParser = new Lab3File();
         List<BStop> stops = fileParser.readStops("stops-gbg.txt");
         List<BLineTable> lines = fileParser.readLines("lines-gbg.txt");
-        Graph g = new Graph(stops, lines);
+
+        Graph g = new Graph();
+
+        for (BStop s : stops){
+            g.addVertex(new Vertex(s.getName()));
+        }
+        for (BLineTable bLT : lines){
+            BLineStop[] stopArray = bLT.getStops();
+            for (int i = 1; i<stopArray.length; i++){
+                g.addEdge(g.getVertex(stopArray[i-1].getName()), g.getVertex(stopArray[i].getName()), stopArray[i].getTime());
+            }
+        }
+
         DijkstraPath dp = new DijkstraPath(g);
 
         //new GUI(stops, lines, new DijkstraStringPath(stops, lines));
