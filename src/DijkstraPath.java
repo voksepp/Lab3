@@ -1,21 +1,12 @@
-import Lab3Help.BLineStop;
-import Lab3Help.BLineTable;
-import Lab3Help.BStop;
 import Lab3Help.Path;
-
-import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
-import java.util.PriorityQueue;
 
 public class DijkstraPath<E> implements Path<E> {
 
     private Graph<E> g;
-    private Comparator<E> c;
 
-    public DijkstraPath(Graph<E> g, Comparator<E> c){
+    public DijkstraPath(Graph<E> g){
         this.g=g;
-        this.c=c;
     }
 
     /**
