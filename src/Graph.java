@@ -18,13 +18,6 @@ public class Graph<T> {
         this.edges = edges;
     }
 
-    public void setStops(){
-        for(T bLT : lineTable){
-            //TODO: Checka vad hållplatserna heter och gör edges
-
-        }
-    }
-
     public boolean isEmpty(){
         return vertices.isEmpty();
     }
