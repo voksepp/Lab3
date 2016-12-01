@@ -27,13 +27,20 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to){
-        //TODO: set distance start: 0, alla andra: INF
+        path.clear();
         List<Vertex<E>> vertices = g.getVertices();
+
         for (Vertex v : vertices) {
             v.setDistance(Integer.MAX_VALUE);
         }
 
+        Vertex fromV = (Vertex) from;
+        fromV.setDistance(0);
+        vertices.remove((Vertex) from);
+        vertices.add(fromV);
+
         pq.addAll(vertices);
+
         while(!pq.isEmpty()){
             Vertex<E> n = pq.remove();
             for (Edge<E> e : n.getOutgoing()){
