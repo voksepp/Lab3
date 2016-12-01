@@ -28,7 +28,7 @@ public class Graph<V, E> {
             vertices.add(vertex);
     }
 
-    public boolean addEdge(V source, V target ){
+    public boolean addEdge(V source, V target, int cost){
 
     }
 }
