@@ -3,12 +3,31 @@ import java.util.*;
 
 public class DijkstraPath<E> implements Path<E> {
 
-    private final List<E> path = new ArrayList<E>();
-    private final PriorityQueue<Vertex<E>> pq = new PriorityQueue<>();
-    private Graph<E> g;
+    private final List<Vertex<E, Integer>> vertices;
+    private List<Edge<E,Integer>> edges;
+    private Set<Vertex<E,Integer>> settledNodes;
+    private Set<Vertex<E,Integer>> unSettledNodes;
+    private Map<Vertex<E,Integer>, Vertex<E,Integer>> predecessors;
+    private Map<Vertex<E,Integer>, Integer> distance;
 
-    public DijkstraPath(Graph g){
+
+    private final List<E> path = new ArrayList<E>();
+    private final PriorityQueue<Vertex> pq = new PriorityQueue<>();
+    private Graph<E, Integer> g;
+
+    public DijkstraPath(Graph<E,Integer> g){
         this.g=g;
+        this.vertices = new ArrayList<>(g.getVertices());
+        this.edges = new ArrayList<>();
+
+        for (Vertex<E, Integer> v : vertices){
+            List<Edge<E,Integer>> currList = v.getOutEdges();
+            for(Edge<E,Integer> edge : currList){
+                if(!this.edges.contains(edge)){
+                    this.edges.add(edge);
+                }
+            }
+        }
     }
 
     /**
@@ -26,6 +45,20 @@ public class DijkstraPath<E> implements Path<E> {
     @Override
     public void computePath(E from, E to){
         path.clear();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*
 
         List<Vertex<E>> vertices = g.getVertices();

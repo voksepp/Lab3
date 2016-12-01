@@ -13,10 +13,10 @@ public class Lab3 {
         List<BLineTable> lines = fileParser.readLines("lines-gbg.txt");
         //new GUI(stops, lines, new DijkstraStringPath(stops, lines));
 
-        Graph g = new Graph();
+        Graph<Vertex<String>> g = new Graph<>();
 
         for (BStop s : stops){
-            g.addVertex(new Vertex(s.getName()));
+            g.addVertex(new Vertex<>(s.getName()));
         }
         for (BLineTable bLT : lines){
             BLineStop[] stopArray = bLT.getStops();

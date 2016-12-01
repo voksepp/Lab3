@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertex<T> {
-    private final T name;
-    private List<Edge<T>> outEdges;
+public class Vertex<V,E> {
+    private final V name;
+    private List<Edge<V,E>> outEdges;
 
-    public Vertex(T name) {
+    public Vertex(V name) {
         this.name = name;
         outEdges = new ArrayList<>();
     }
-    public void addOutEdge(Edge<T> edge){
+    public void addOutEdge(Edge<V,E> edge){
         outEdges.add(edge);
     }
-    public List<Edge<T>> getOutEdges(){
+    public List<Edge<V,E>> getOutEdges(){
         return outEdges;
     }
-    public T getName(){
+    public V getName(){
         return name;
     }
     public String toString(){
