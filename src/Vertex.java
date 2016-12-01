@@ -4,10 +4,10 @@ import java.util.List;
 public class Vertex<T> implements Comparable<Vertex<T>>{
     private final List<Edge> incoming;
     private final List<Edge> outgoing;
-    private final String name;
+    private final T name;
     private int distance;
 
-    public Vertex(String name) {
+    public Vertex(T name) {
         this.name = name;
         incoming = new ArrayList<>();
         outgoing = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Vertex<T> implements Comparable<Vertex<T>>{
         return true;
     }
 
-    public String getName(){
+    public T getName(){
         return name;
     }
 
