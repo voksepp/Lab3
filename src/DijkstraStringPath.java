@@ -7,10 +7,10 @@ public class DijkstraStringPath implements Path<String> {
     private final DijkstraPath d;
 
     public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
-        Graph g = new Graph();
+        Graph<String> g = new Graph<>();
 
         for (BStop s : stops){
-            g.addVertex(new Vertex(s.getName()));
+            g.addVertex(new Vertex<>(s.getName()));
         }
         for (BLineTable bLT : lines){
             BLineStop[] stopArray = bLT.getStops();
@@ -18,8 +18,7 @@ public class DijkstraStringPath implements Path<String> {
                 g.addEdge(g.getVertex(stopArray[i-1].getName()), g.getVertex(stopArray[i].getName()), stopArray[i].getTime());
             }
         }
-
-        d = new DijkstraPath(g);
+        d = new DijkstraPath<String>(g);
     }
 
     /**

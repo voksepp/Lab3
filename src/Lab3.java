@@ -11,6 +11,7 @@ public class Lab3 {
         Lab3File fileParser = new Lab3File();
         List<BStop> stops = fileParser.readStops("stops-gbg.txt");
         List<BLineTable> lines = fileParser.readLines("lines-gbg.txt");
+        //new GUI(stops, lines, new DijkstraStringPath(stops, lines));
 
         Graph g = new Graph();
 
@@ -24,16 +25,14 @@ public class Lab3 {
             }
         }
 
-        DijkstraPath dp = new DijkstraPath(g);
+        DijkstraStringPath dp = new DijkstraStringPath(g);
 
-        //new GUI(stops, lines, new DijkstraStringPath(stops, lines));
+
 
         String from = args[2];
         String to = args[3];
-        Vertex fromStop = g.getVertex(from);
-        Vertex toStop = g.getVertex(to);
 
-        dp.computePath(fromStop, toStop);
+        dp.computePath(from, to);
 
         if(dp.getPathLength() == 0){
             System.out.println("Det finns ingen väg från " + from + " till " + to);
