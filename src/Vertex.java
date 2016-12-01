@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vertex<T> implements Comparable<Vertex<T>>{
-    private final List<Edge<T>> incoming;
-    private final List<Edge<T>> outgoing;
+    private final List<Edge> incoming;
+    private final List<Edge> outgoing;
     private final String name;
     private int distance;
 
@@ -13,7 +13,7 @@ public class Vertex<T> implements Comparable<Vertex<T>>{
         outgoing = new ArrayList<>();
         distance = Integer.MAX_VALUE;
     }
-    public boolean addEdge(Edge<T> edge){
+    public boolean addEdge(Edge edge){
         if(edge.getFrom() == this)
             outgoing.add(edge);
         if(edge.getTo() == this)
@@ -27,19 +27,19 @@ public class Vertex<T> implements Comparable<Vertex<T>>{
         return name;
     }
 
-    public List<Edge<T>> getIncoming(){
+    public List<Edge> getIncoming(){
         return incoming;
     }
 
-    public List<Edge<T>> getOutgoing(){
+    public List<Edge> getOutgoing(){
         return outgoing;
     }
 
-    public boolean outgoingContains (Edge<T> edge){
+    public boolean outgoingContains (Edge edge){
         return outgoing.contains(edge);
     }
     public boolean outgoingContains (Vertex<T> vertex){
-        for (Edge<T> edge : outgoing){
+        for (Edge edge : outgoing){
             if (edge.getTo() == vertex)
                 return true;
         }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Graph<T> {
     private final List<Vertex<T>> vertices;
-    private final List<Edge<T>> edges;
+    private final List<Edge> edges;
     private HashMap<String, Vertex<T>> nameMap;
 
     public Graph(){
