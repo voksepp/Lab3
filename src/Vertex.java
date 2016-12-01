@@ -21,5 +21,4 @@ public class Vertex<T> {
     public String toString(){
         return name.toString();
     }
-
 }
