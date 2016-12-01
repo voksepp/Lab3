@@ -44,51 +44,8 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to){
-        path.clear();
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-
-        List<Vertex<E>> vertices = g.getVertices();
-
-        for (Vertex v : vertices) {
-            v.setDistance(Integer.MAX_VALUE);
-        }
-
-        Vertex fromV = (Vertex) from;
-        fromV.setDistance(0);
-        vertices.remove(from);
-        vertices.add(fromV);
-
-        path.add(from);
-        pq.addAll(vertices);
-
-        while(!pq.isEmpty()){
-            Vertex<E> n = pq.remove();
-            for (Edge<E> e : n.getOutgoing()){
-                Vertex<E> adj = e.getTo();
-                Integer newPossibleCost = e.getCost() + n.getDistance();
-                if (newPossibleCost < adj.getDistance()){
-                    adj.setDistance(newPossibleCost);
-                    pq.remove(adj);
-                    pq.add(adj);
-                }
-            }
-        }
-        path.add(to);
-        */
     }
 
     @Override
