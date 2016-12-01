@@ -1,16 +1,14 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class Graph<T> {
-    private final List<Vertex<T>> vertices;
-    private final List<Edge> edges;
-    private HashMap<String, Vertex<T>> nameMap;
+public class Graph<V, E> {
+    private Map<V, Vertex<V>> vMap = new HashMap<>();
+    private List<V> vertices;
 
     public Graph(){
         vertices = new ArrayList<>();
-        edges = new ArrayList<>();
-        nameMap = new HashMap<>();
     }
 
     public boolean isEmpty(){
@@ -21,36 +19,16 @@ public class Graph<T> {
         return vertices.size();
     }
 
-    public List<Vertex<T>> getVertices(){
+    public List<V> getVertices(){
         return vertices;
     }
 
-    public List<Edge<T>> getEdges(){
-        return edges;
-    }
-
-    public boolean addVertex(Vertex<T> vertex){
-        boolean added = false;
+    public void addVertex(V vertex){
         if (!vertices.contains(vertex))
-            added = vertices.add(vertex);
-            if(added)
-                nameMap.put(vertex.getName(), vertex);
-        return added;
+            vertices.add(vertex);
     }
 
-    public Vertex<T> getVertex (String name){
-        return nameMap.get(name);
-    }
+    public boolean addEdge(V source, V target ){
 
-    public boolean addEdge(Vertex<T> from, Vertex<T> to, int cost){
-        Edge<T> edge = new Edge<>(from, to, cost);
-        if (!from.outgoingContains(to))
-            return false;
-        else{
-            from.addEdge(edge);
-            to.addEdge(edge);
-            edges.add(edge);
-            return true;
-        }
     }
 }

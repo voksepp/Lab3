@@ -1,9 +1,9 @@
-public class Edge implements Comparable<Edge>{
-    private final Vertex from;
-    private final Vertex to;
+public class Edge<V> implements Comparable<Edge>{
+    private final Vertex<V> from;
+    private final Vertex<V> to;
     private final int cost;
 
-    public Edge(Vertex from, Vertex to, int cost){
+    public Edge(Vertex<V> from, Vertex<V> to, int cost){
         this.from = from;
         this.to = to;
         this.cost = cost;
@@ -12,10 +12,10 @@ public class Edge implements Comparable<Edge>{
     public int getCost() {
         return cost;
     }
-    public Vertex getTo(){
+    public Vertex<V> getTo(){
         return to;
     }
-    public Vertex getFrom(){
+    public Vertex<V> getFrom(){
         return from;
     }
 
