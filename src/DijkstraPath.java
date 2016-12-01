@@ -5,8 +5,8 @@ public class DijkstraPath<E> implements Path<E> {
 
     private final List<Vertex<E, Integer>> vertices;
     private List<Edge<E,Integer>> edges;
-    private Set<Vertex<E,Integer>> settledNodes;
-    private Set<Vertex<E,Integer>> unSettledNodes;
+    private Set<Vertex<E,Integer>> settledVertices;
+    private Set<Vertex<E,Integer>> unSettledVertices;
     private Map<Vertex<E,Integer>, Vertex<E,Integer>> predecessors;
     private Map<Vertex<E,Integer>, Integer> distance;
 
@@ -39,13 +39,49 @@ public class DijkstraPath<E> implements Path<E> {
      * Precondition: The underlying graph must not contain any negative
      * edge weights.
      *
-     * @param from
-     * @param to
+     * @param fromE
+     * @param toE
      */
     @Override
-    public void computePath(E from, E to){
-        
+    public void computePath(E fromE, E toE){
+        this.settledVertices = new HashSet<>();
+        this.unSettledVertices = new HashSet<>();
+        this.predecessors = new HashMap<>();
+        this.distance = new HashMap<>();
 
+        Vertex from = g.findVertex(fromE);
+        Vertex to = g.findVertex(toE);
+
+
+        distance.put(from, 0);
+        unSettledVertices.add(from);
+
+        while(unSettledVertices.size() > 0){
+            Vertex<E, Integer> vertex = getMin(unSettledVertices);
+            settledVertices.add(vertex);
+            unSettledVertices.remove(vertex);
+            findMinDistances(vertex);
+        }
+
+    }
+
+    private void findMinDistances (Vertex<E, Integer> node){
+        List<Vertex<E, Integer>> adjVertices = getNeighbors(node);
+        for (Vertex target : adjVertices){
+            if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)){
+                distance.put(target, getShortestDistance(node) + getDistance(node, target));
+                predecessors.put(target, node);
+                unSettledVertices.add(target);
+            }
+        }
+    }
+
+    private int getDistance (Vertex<E, Integer> node, Vertex<E, Integer> target){
+        for (Edge<E,Integer> edge : edges) {
+            if (edge.getFrom().equals(node) && edge.getTo().equals(target)) {
+                return edge.getCost();
+            }
+        }
     }
 
     @Override
