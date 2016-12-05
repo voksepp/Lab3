@@ -55,4 +55,8 @@ public class Graph<E> {
             v.setMax();
         }
     }
+
+    public List<Edge<E>> getOutgoing(Vertex<E> v) {
+        return adjList.get(v);
+    }
 }

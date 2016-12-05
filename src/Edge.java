@@ -1,9 +1,9 @@
-public class Edge<E>{
+public class Edge<E> {
     private final Vertex<E> from;
     private final Vertex<E> to;
     private final int cost;
 
-    public Edge(Vertex<E> from, Vertex<E> to, int cost){
+    public Edge(Vertex<E> from, Vertex<E> to, int cost) {
         this.from = from;
         this.to = to;
         this.cost = cost;
@@ -12,10 +12,12 @@ public class Edge<E>{
     public int getCost() {
         return cost;
     }
-    public Vertex<E> getTo(){
+
+    public Vertex<E> getTo() {
         return to;
     }
-    public Vertex<E> getFrom(){
+
+    public Vertex<E> getFrom() {
         return from;
     }
 }

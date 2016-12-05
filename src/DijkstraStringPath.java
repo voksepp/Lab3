@@ -1,21 +1,25 @@
-import Lab3Help.*;
+import Lab3Help.BLineStop;
+import Lab3Help.BLineTable;
+import Lab3Help.BStop;
+import Lab3Help.Path;
+
 import java.util.Iterator;
 import java.util.List;
 
 public class DijkstraStringPath implements Path<String> {
 
-    private final DijkstraPath d;
+    private final DijkstraPath<String> d;
 
-    public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
+    public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines) {
         Graph<String> g = new Graph<>();
 
-        for (BStop s : stops){
+        for (BStop s : stops) {
             g.addVertex(s.getName());
         }
-        for (BLineTable bLT : lines){
+        for (BLineTable bLT : lines) {
             BLineStop[] stopArray = bLT.getStops();
-            for (int i = 1; i<stopArray.length; i++){
-                g.addEdge(stopArray[i-1].getName(), stopArray[i].getName(), stopArray[i].getTime());
+            for (int i = 1; i < stopArray.length; i++) {
+                g.addEdge(stopArray[i - 1].getName(), stopArray[i].getName(), stopArray[i].getTime());
             }
         }
         d = new DijkstraPath<>(g);
