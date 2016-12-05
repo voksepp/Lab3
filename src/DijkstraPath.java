@@ -32,7 +32,7 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to){
-        destination = from;
+        destination = g.from;
         origin = to;
     }
 
