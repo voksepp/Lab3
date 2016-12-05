@@ -6,7 +6,7 @@ public class DijkstraPath<E> implements Path<E> {
     private List<Vertex<E, Integer>> vertices;
     private List<Edge<E,Integer>> edges;
     private List<E> path = new ArrayList<>();
-    private final PriorityQueue<Vertex> pq = new PriorityQueue<>();
+    private PriorityQueue<Vertex> pq = new PriorityQueue<>();
     private Graph<E, Integer> g;
     private Vertex<E, Integer> destination;
     private Vertex<E, Integer> origin;
