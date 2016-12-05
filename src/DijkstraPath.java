@@ -11,9 +11,10 @@ public class DijkstraPath<E> implements Path<E> {
     private Vertex<E, Integer> destination;
     private Vertex<E, Integer> origin;
     private Comparator<Vertex<E, Integer>> comp;
+    private Map<Vertex<E, Integer>, Integer> distances;
+
 
     public DijkstraPath(Graph<E,Integer> g, Comparator<Vertex<E, Integer>> comp) {
-        private Map<Vertex<E, Integer>, Integer> distances;
     }
 
     public DijkstraPath(Graph<E,Integer> g){
