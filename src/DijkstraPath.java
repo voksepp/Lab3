@@ -41,8 +41,6 @@ public class DijkstraPath<E> implements Path<E> {
         destination = g.getVertex(from);
         origin = g.getVertex(to);
 
-        Vertex<E, Integer> fromNode = from;
-
         PriorityQueue<E> pq = new PriorityQueue<E>(comp);
 
 
