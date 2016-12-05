@@ -10,13 +10,16 @@ public class DijkstraPath<E> implements Path<E> {
     private Graph<E, Integer> g;
     private Vertex<E, Integer> destination;
     private Vertex<E, Integer> origin;
+    private Comparator<Vertex<V,E>> comp;
 
+    public DijkstraPath(Graph<E,Integer> g, Comparator<Vertex<V,E>> comp){
     private Map<Vertex<E,Integer>, Integer> distances;
 
     public DijkstraPath(Graph<E,Integer> g){
         this.g=g;
         this.vertices = new ArrayList<>(g.getVertices());
         this.edges = new ArrayList<>();
+        this.comp = comp;
 
     }
 
@@ -34,7 +37,16 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to){
+        destination = g.from;
+        origin = to;
 
+        PriorityQueue<E> pq = new PriorityQueue<E>(comp);
+
+        pq.add(from)
+
+        while(!pq.isEmpty()){
+            //TODO: Stuff
+        }
     }
 
     @Override
