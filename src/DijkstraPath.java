@@ -10,11 +10,11 @@ public class DijkstraPath<E> implements Path<E> {
     private final Graph<E> g;
     private Vertex<E> destination;
     private Vertex<E> origin;
-    private final Map<Vertex<E>, Integer> distances;
+    //behövs ej? private final Map<Vertex<E>, Integer> distances;
 
     public DijkstraPath(Graph<E> g){
         this.g=g;
-        distances = new HashMap<>();
+        // distances = new HashMap<>();
         path = new ArrayList<>();
         pq = new PriorityQueue<>();
     }
@@ -67,6 +67,7 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public int getPathLength() {
-        return distances.get(destination);
+        return destination.getDistance();
+        // return distances.get(destination);
     }
 }
