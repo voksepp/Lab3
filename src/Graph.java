@@ -19,11 +19,11 @@ public class Graph<V,E> {
         else return null;
     }
 
-    public Vertex<V,E> addVertex(V lab)  {
-        if(getVertex(lab) != null) return null;
-        Vertex<V,E> newGuy = new Vertex<>(lab);
-        vMap.put(lab, newGuy);
-        return newGuy;
+    public Vertex<V,E> addVertex(V name)  {
+        if(getVertex(name) != null) return null;
+        Vertex<V,E> newVertex = new Vertex<>(name);
+        vMap.put(name, newVertex);
+        return newVertex;
     }
 
     public List<Vertex<V,E>> getVertices() {
