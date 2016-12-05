@@ -36,7 +36,7 @@ public class Graph<V,E> {
         return vertexList;
     }
 
-    public Edge<V,E> addEdge(V from, E cost, V to){
+    public Edge<V,E> addEdge(V from, V to, E cost){
         if (from.equals(to))
             return null;
         Vertex<V,E> fromV = findVertex(from);
