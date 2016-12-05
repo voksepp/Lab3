@@ -3,6 +3,7 @@ import java.util.*;
 public class Graph<V,E> {
 
     private Map<V, Vertex<V,E>> vMap;
+    private Map<Vertex<V,E>, List<Vertex<V,E>>> adjList;
 
     public Graph(){
         vMap = new HashMap<>();
