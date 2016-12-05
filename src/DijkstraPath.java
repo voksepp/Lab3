@@ -3,16 +3,16 @@ import java.util.*;
 
 public class DijkstraPath<E> implements Path<E> {
 
-    private final List<Vertex<E, Integer>> vertices;
+    private List<Vertex<E, Integer>> vertices;
     private List<Edge<E,Integer>> edges;
     private List<E> path = new ArrayList<>();
     private final PriorityQueue<Vertex> pq = new PriorityQueue<>();
     private Graph<E, Integer> g;
     private Vertex<E, Integer> destination;
     private Vertex<E, Integer> origin;
-    private Comparator<Vertex<V,E>> comp;
+    private Comparator<Vertex<E, Integer>> comp;
 
-    public DijkstraPath(Graph<E,Integer> g, Comparator<Vertex<V,E>> comp) {
+    public DijkstraPath(Graph<E,Integer> g, Comparator<Vertex<E, Integer>> comp) {
         private Map<Vertex<E, Integer>, Integer> distances;
     }
 
