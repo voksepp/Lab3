@@ -39,6 +39,8 @@ public class DijkstraPath<E> implements Path<E> {
         destination = g.getVertex(from);
         origin = g.getVertex(to);
 
+        g.setMax();
+
         pq.add(origin);
 
 
