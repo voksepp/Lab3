@@ -11,7 +11,7 @@ public class DijkstraPath<E> implements Path<E> {
     private Map<Vertex<E,Integer>, Integer> distance;
 
 
-    private final List<E> path = new ArrayList<E>();
+    private List<E> path = new ArrayList<>();
     private final PriorityQueue<Vertex> pq = new PriorityQueue<>();
     private Graph<E, Integer> g;
 
@@ -62,6 +62,8 @@ public class DijkstraPath<E> implements Path<E> {
             unSettledVertices.remove(vertex);
             findMinDistances(vertex);
         }
+
+        path = getPath(to);
 
     }
 
@@ -117,14 +119,14 @@ public class DijkstraPath<E> implements Path<E> {
         }
     }
 
-    public LinkedList<Vertex<E,Integer>> getPath(Vertex<E,Integer> target) {
+    public ArrayList<Vertex<E,Integer>> getPath(Vertex<E,Integer> target) {
         //return null if target is null
         if(target == null) return null;
         //return null if this.edges or this.nodes is null
         if(this.edges == null || this.vertices == null) return null;
 
         //linked list which will be returned
-        LinkedList<Vertex<E,Integer>> path = new LinkedList<Vertex<E,Integer>>();
+        ArrayList<Vertex<E,Integer>> path = new ArrayList<Vertex<E,Integer>>();
         Vertex<E,Integer> step = target;
         // check if a path exists
         if (predecessors.get(step) == null) {
