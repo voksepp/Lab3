@@ -9,8 +9,10 @@ public class Lab3 {
             throw new IllegalArgumentException("Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB");
 
         Lab3File fileParser = new Lab3File();
-        List<BStop> stops = fileParser.readStops("stops-gbg.txt");
-        List<BLineTable> lines = fileParser.readLines("lines-gbg.txt");
+        List<BStop> stops = fileParser.readStops(args[0]);
+        List<BLineTable> lines = fileParser.readLines(args[1]);
+        String from = args[2];
+        String to = args[3];
         new GUI(stops, lines, new DijkstraStringPath(stops, lines));
 
         /*
