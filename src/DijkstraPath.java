@@ -35,11 +35,12 @@ public class DijkstraPath<E> implements Path<E> {
     public void computePath(E from, E to){
         path.clear();
         pq.clear();
+        g.setMax();
 
         destination = g.getVertex(from);
         origin = g.getVertex(to);
 
-        g.setMax();
+
 
         pq.add(origin);
 
