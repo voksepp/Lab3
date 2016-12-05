@@ -13,14 +13,14 @@ public class Graph<V,E> {
         return vMap.size();
     }
 
-    public Vertex<V,E> findVertex(V lab) {
-        Vertex<V,E> gotten = vMap.get(lab);
-        if(gotten != null) return gotten;
+    public Vertex<V,E> getVertex(V lab) {
+        Vertex<V,E> exists = vMap.get(lab);
+        if(exists != null) return exists;
         else return null;
     }
 
     public Vertex<V,E> addVertex(V lab)  {
-        if(findVertex(lab) != null) return null;
+        if(getVertex(lab) != null) return null;
         Vertex<V,E> newGuy = new Vertex<>(lab);
         vMap.put(lab, newGuy);
         return newGuy;
@@ -39,11 +39,10 @@ public class Graph<V,E> {
     public Edge<V,E> addEdge(V from, V to, E cost){
         if (from.equals(to))
             return null;
-        Vertex<V,E> fromV = findVertex(from);
-        Vertex<V,E> toV = findVertex(to);
+        Vertex<V,E> fromV = getVertex(from);
+        Vertex<V,E> toV = getVertex(to);
 
         Edge<V,E> e = new Edge<>(fromV, toV, cost);
-        fromV.addOutEdge(e);
 
         return e;
     }

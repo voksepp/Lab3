@@ -13,6 +13,9 @@ public class DijkstraPath<E> implements Path<E> {
     private Comparator<Vertex<V,E>> comp;
 
     public DijkstraPath(Graph<E,Integer> g, Comparator<Vertex<V,E>> comp){
+    private Map<Vertex<E,Integer>, Integer> distances;
+
+    public DijkstraPath(Graph<E,Integer> g){
         this.g=g;
         this.vertices = new ArrayList<>(g.getVertices());
         this.edges = new ArrayList<>();
