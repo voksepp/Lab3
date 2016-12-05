@@ -26,16 +26,6 @@ public class Graph<V,E> {
         return newVertex;
     }
 
-    public List<Vertex<V,E>> getVertices() {
-        ArrayList<Vertex<V,E>> vertexList = new ArrayList<>();
-        Collection<Vertex<V,E>> collection = vMap.values();
-        Iterator<Vertex<V,E>> it = collection.iterator();
-        while(it.hasNext()){
-            vertexList.add(it.next());
-        }
-        return vertexList;
-    }
-
     public Edge<V,E> addEdge(V from, V to, E cost){
         if (from.equals(to))
             return null;
