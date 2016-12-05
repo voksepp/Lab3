@@ -15,7 +15,7 @@ public class DijkstraStringPath implements Path<String> {
         for (BLineTable bLT : lines){
             BLineStop[] stopArray = bLT.getStops();
             for (int i = 1; i<stopArray.length; i++){
-                g.addEdge(stopArray[i-1].getName(), stopArray[i].getTime(), stopArray[i].getName());
+                g.addEdge(stopArray[i-1].getName(), stopArray[i].getName(), stopArray[i].getTime());
             }
         }
         d = new DijkstraPath<>(g);

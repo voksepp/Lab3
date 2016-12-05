@@ -11,6 +11,8 @@ public class DijkstraPath<E> implements Path<E> {
     private Vertex<E, Integer> destination;
     private Vertex<E, Integer> origin;
 
+    private Map<Vertex<E,Integer>, Integer> distances;
+
     public DijkstraPath(Graph<E,Integer> g){
         this.g=g;
         this.vertices = new ArrayList<>(g.getVertices());
@@ -32,8 +34,7 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public void computePath(E from, E to){
-        destination = g.from;
-        origin = to;
+
     }
 
     @Override
