@@ -1,11 +1,15 @@
-import Lab3Help.*;
+import Lab3Help.BLineTable;
+import Lab3Help.BStop;
+import Lab3Help.Lab3File;
+import Lab3Help.MalformedData;
+
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
 public class Lab3 {
 
-    public static void main (String[] args) throws IOException, MalformedData {
+    public static void main(String[] args) throws IOException, MalformedData {
         if (args.length != 4)
             throw new IllegalArgumentException("Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB");
 
@@ -20,16 +24,14 @@ public class Lab3 {
 
         dsp.computePath(from, to);
 
-        if(dsp.getPathLength() == 0){
+        if (dsp.getPathLength() == 0) {
             System.out.println("Det finns ingen väg från " + from + " till " + to);
-        }
-        else if(dsp.getPathLength() > 0){
+        } else if (dsp.getPathLength() > 0) {
             System.out.println(dsp.getPathLength());
             Iterator i = dsp.getPath();
             while (i.hasNext())
                 System.out.println(i.next().toString());
-        }
-        else if(args[2].equals(args[3])){
+        } else if (args[2].equals(args[3])) {
             System.out.println(0);
             System.out.println(args[2]);
         }

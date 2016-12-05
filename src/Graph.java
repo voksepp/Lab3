@@ -1,15 +1,17 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Graph<E> {
 
     private Map<E, Vertex<E>> vMap;
     private Map<Vertex<E>, List<Edge<E>>> adjList;
 
-    public Graph(){
+    public Graph() {
         vMap = new HashMap<>();
     }
 
-    public int size(){
+    public int size() {
         return vMap.size();
     }
 
@@ -21,15 +23,15 @@ public class Graph<E> {
             return null;
     }
 
-    public Vertex<E> addVertex(E data)  {
-        if(getVertex(data) != null)
+    public Vertex<E> addVertex(E data) {
+        if (getVertex(data) != null)
             return null;
         Vertex<E> newVertex = new Vertex<>(data);
         vMap.put(data, newVertex);
         return newVertex;
     }
 
-    public boolean addEdge(E from, E to, int cost){
+    public boolean addEdge(E from, E to, int cost) {
         if (from.equals(to))
             throw new IllegalArgumentException();
         Vertex<E> fromV = getVertex(from);
@@ -37,17 +39,19 @@ public class Graph<E> {
 
         Edge<E> e = new Edge<>(fromV, toV, cost);
 
-        if(!adjList.get(fromV).contains(e)) {
+        if (!adjList.get(fromV).contains(e)) {
             adjList.get(fromV).add(e);
             return true;
         }
         return false;
     }
-    public Map<E, Vertex<E>> getVertices(){
+
+    public Map<E, Vertex<E>> getVertices() {
         return vMap;
     }
-    public void setMax(){
-        for (Vertex<E> v : vMap.values()){
+
+    public void setMax() {
+        for (Vertex<E> v : vMap.values()) {
             v.setMax();
         }
     }
