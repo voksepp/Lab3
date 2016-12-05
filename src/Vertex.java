@@ -1,63 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertex<T> implements Comparable<Vertex<T>>{
-    private final List<Edge<T>> incoming;
-    private final List<Edge<T>> outgoing;
-    private final String name;
-    private int distance;
+public class Vertex<V,E> {
+    private final V name;
+    private List<Edge<V,E>> outEdges;
 
-    public Vertex(String name) {
+    public Vertex(V name) {
         this.name = name;
-        incoming = new ArrayList<>();
-        outgoing = new ArrayList<>();
-        distance = Integer.MAX_VALUE;
+        outEdges = new ArrayList<>();
     }
-    public boolean addEdge(Edge<T> edge){
-        if(edge.getFrom() == this)
-            outgoing.add(edge);
-        if(edge.getTo() == this)
-            incoming.add(edge);
-        else
-            return false;
-        return true;
+    public void addOutEdge(Edge<V,E> edge){
+        outEdges.add(edge);
     }
-
-    public String getName(){
+    public List<Edge<V,E>> getOutEdges(){
+        return outEdges;
+    }
+    public V getName(){
         return name;
     }
-
-    public List<Edge<T>> getIncoming(){
-        return incoming;
-    }
-
-    public List<Edge<T>> getOutgoing(){
-        return outgoing;
-    }
-
-    public boolean outgoingContains (Edge<T> edge){
-        return outgoing.contains(edge);
-    }
-    public boolean outgoingContains (Vertex<T> vertex){
-        for (Edge<T> edge : outgoing){
-            if (edge.getTo() == vertex)
-                return true;
-        }
-        return false;
-    }
-    public boolean equals(Vertex o) {
-        return name.equals(o.getName());
-    }
-    public int getDistance(){
-        return distance;
-    }
-
-    public void setDistance(int distance){
-        this.distance = distance;
-    }
-
-    @Override
-    public int compareTo(Vertex<T> o) {
-        return this.distance - o.getDistance();
+    public String toString(){
+        return name.toString();
     }
 }

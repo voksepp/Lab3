@@ -1,26 +1,21 @@
-public class Edge<T> implements Comparable<Edge<T>>{
-    private final Vertex<T> from;
-    private final Vertex<T> to;
-    private final int cost;
+public class Edge<V,E>{
+    private final Vertex<V,E> from;
+    private final Vertex<V,E> to;
+    private final E cost;
 
-    public Edge(Vertex<T> from, Vertex<T> to, int cost){
+    public Edge(Vertex<V,E> from, Vertex<V,E> to, E cost){
         this.from = from;
         this.to = to;
         this.cost = cost;
     }
 
-    public int getCost() {
+    public E getCost() {
         return cost;
     }
-    public Vertex<T> getTo(){
+    public Vertex<V,E> getTo(){
         return to;
     }
-    public Vertex<T> getFrom(){
+    public Vertex<V,E> getFrom(){
         return from;
-    }
-
-    @Override
-    public int compareTo(Edge<T> o) {
-        return this.getCost() - o.getCost();
     }
 }

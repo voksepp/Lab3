@@ -1,60 +1,49 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
-public class Graph<T> {
-    private final List<Vertex<T>> vertices;
-    private final List<Edge<T>> edges;
-    private HashMap<String, Vertex<T>> nameMap;
+public class Graph<V,E> {
+
+    private Map<V, Vertex<V,E>> vMap;
 
     public Graph(){
-        vertices = new ArrayList<>();
-        edges = new ArrayList<>();
-        nameMap = new HashMap<>();
-    }
-
-    public boolean isEmpty(){
-        return vertices.isEmpty();
+        vMap = new HashMap<>();
     }
 
     public int size(){
-        return vertices.size();
+        return vMap.size();
     }
 
-    public List<Vertex<T>> getVertices(){
-        return vertices;
+    public Vertex<V,E> findVertex(V lab) {
+        Vertex<V,E> gotten = vMap.get(lab);
+        if(gotten != null) return gotten;
+        else return null;
     }
 
-    public List<Edge<T>> getEdges(){
-        return edges;
+    public Vertex<V,E> addVertex(V lab)  {
+        if(findVertex(lab) != null) return null;
+        Vertex<V,E> newGuy = new Vertex<>(lab);
+        vMap.put(lab, newGuy);
+        return newGuy;
     }
 
-    public HashMap<String, Vertex<T>> getNameMap() {
-        return nameMap;
-    }
-
-    public boolean addVertex(Vertex<T> vertex){
-        boolean added = false;
-        if (!vertices.contains(vertex))
-            added = vertices.add(vertex);
-            if(added)
-                nameMap.put(vertex.getName(), vertex);
-        return added;
-    }
-
-    public Vertex<T> getVertex (String name){
-        return nameMap.get(name);
-    }
-
-    public boolean addEdge(Vertex<T> from, Vertex<T> to, int cost){
-        Edge<T> edge = new Edge<>(from, to, cost);
-        if (!from.outgoingContains(to))
-            return false;
-        else{
-            from.addEdge(edge);
-            to.addEdge(edge);
-            edges.add(edge);
-            return true;
+    public List<Vertex<V,E>> getVertices() {
+        ArrayList<Vertex<V,E>> vertexList = new ArrayList<>();
+        Collection<Vertex<V,E>> collection = vMap.values();
+        Iterator<Vertex<V,E>> it = collection.iterator();
+        while(it.hasNext()){
+            vertexList.add(it.next());
         }
+        return vertexList;
+    }
+
+    public Edge<V,E> addEdge(V from, E cost, V to){
+        if (from.equals(to))
+            return null;
+        Vertex<V,E> fromV = findVertex(from);
+        Vertex<V,E> toV = findVertex(to);
+
+        Edge<V,E> e = new Edge<>(fromV, toV, cost);
+        fromV.addOutEdge(e);
+
+        return e;
     }
 }

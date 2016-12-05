@@ -3,14 +3,31 @@ import java.util.*;
 
 public class DijkstraPath<E> implements Path<E> {
 
-    private final List<E> path;
-    private final PriorityQueue<Vertex<E>> pq;
-    private Graph<E> g;
+    private final List<Vertex<E, Integer>> vertices;
+    private List<Edge<E,Integer>> edges;
+    private Set<Vertex<E,Integer>> settledVertices;
+    private Set<Vertex<E,Integer>> unSettledVertices;
+    private Map<Vertex<E,Integer>, Vertex<E,Integer>> predecessors;
+    private Map<Vertex<E,Integer>, Integer> distance;
 
-    public DijkstraPath(Graph<E> g){
-        path = new ArrayList<>();
-        pq = new PriorityQueue<>();
-        this.g = g;
+
+    private final List<E> path = new ArrayList<E>();
+    private final PriorityQueue<Vertex> pq = new PriorityQueue<>();
+    private Graph<E, Integer> g;
+
+    public DijkstraPath(Graph<E,Integer> g){
+        this.g=g;
+        this.vertices = new ArrayList<>(g.getVertices());
+        this.edges = new ArrayList<>();
+
+        for (Vertex<E, Integer> v : vertices){
+            List<Edge<E,Integer>> currList = v.getOutEdges();
+            for(Edge<E,Integer> edge : currList){
+                if(!this.edges.contains(edge)){
+                    this.edges.add(edge);
+                }
+            }
+        }
     }
 
     /**
@@ -22,28 +39,47 @@ public class DijkstraPath<E> implements Path<E> {
      * Precondition: The underlying graph must not contain any negative
      * edge weights.
      *
-     * @param from
-     * @param to
+     * @param fromE
+     * @param toE
      */
     @Override
-    public void computePath(E from, E to){
-        //TODO: set distance start: 0, alla andra: INF
-        List<Vertex<E>> vertices = g.getVertices();
-        for (Vertex v : vertices) {
-            v.setDistance(Integer.MAX_VALUE);
+    public void computePath(E fromE, E toE){
+        this.settledVertices = new HashSet<>();
+        this.unSettledVertices = new HashSet<>();
+        this.predecessors = new HashMap<>();
+        this.distance = new HashMap<>();
+
+        Vertex from = g.findVertex(fromE);
+        Vertex to = g.findVertex(toE);
+
+
+        distance.put(from, 0);
+        unSettledVertices.add(from);
+
+        while(unSettledVertices.size() > 0){
+            Vertex<E, Integer> vertex = getMin(unSettledVertices);
+            settledVertices.add(vertex);
+            unSettledVertices.remove(vertex);
+            findMinDistances(vertex);
         }
 
-        pq.addAll(vertices);
-        while(!pq.isEmpty()){
-            Vertex<E> n = pq.remove();
-            for (Edge<E> e : n.getOutgoing()){
-                Vertex<E> adj = e.getTo();
-                Integer newPossibleCost = e.getCost() + n.getDistance();
-                if (newPossibleCost < adj.getDistance()){
-                    adj.setDistance(newPossibleCost);
-                    pq.remove(adj);
-                    pq.add(adj);
-                }
+    }
+
+    private void findMinDistances (Vertex<E, Integer> node){
+        List<Vertex<E, Integer>> adjVertices = getNeighbors(node);
+        for (Vertex target : adjVertices){
+            if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)){
+                distance.put(target, getShortestDistance(node) + getDistance(node, target));
+                predecessors.put(target, node);
+                unSettledVertices.add(target);
+            }
+        }
+    }
+
+    private int getDistance (Vertex<E, Integer> node, Vertex<E, Integer> target){
+        for (Edge<E,Integer> edge : edges) {
+            if (edge.getFrom().equals(node) && edge.getTo().equals(target)) {
+                return edge.getCost();
             }
         }
     }
