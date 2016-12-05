@@ -16,7 +16,7 @@ public class DijkstraPath<E> implements Path<E> {
         this.g=g;
         distances = new HashMap<>();
         path = new ArrayList<>();
-
+        pq = new PriorityQueue<>();
     }
 
     /**
@@ -34,10 +34,10 @@ public class DijkstraPath<E> implements Path<E> {
 
     public void computePath(E from, E to){
         path.clear();
+        pq.clear();
+
         destination = g.getVertex(from);
         origin = g.getVertex(to);
-
-        pq = new PriorityQueue<>();
 
         pq.add(origin);
 
