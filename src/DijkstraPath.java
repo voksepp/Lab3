@@ -44,6 +44,8 @@ public class DijkstraPath<E> implements Path<E> {
 
         while(!pq.isEmpty()){
             //TODO: Stuff
+
+            // använd denna metod: path.add(origin.getV());
         }
     }
 
