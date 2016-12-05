@@ -1,5 +1,6 @@
 import Lab3Help.*;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 public class Lab3 {
@@ -24,8 +25,9 @@ public class Lab3 {
         }
         else if(dsp.getPathLength() > 0){
             System.out.println(dsp.getPathLength());
-            while (dsp.getPath().hasNext())
-                System.out.println(dsp.getPath().next());
+            Iterator i = dsp.getPath();
+            while (i.hasNext())
+                System.out.println(i.next().toString());
         }
         else if(args[2].equals(args[3])){
             System.out.println(0);
