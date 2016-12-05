@@ -22,7 +22,8 @@ public class Graph<E> {
     }
 
     public Vertex<E> addVertex(E data)  {
-        if(getVertex(data) != null) return null;
+        if(getVertex(data) != null)
+            return null;
         Vertex<E> newVertex = new Vertex<>(data);
         vMap.put(data, newVertex);
         return newVertex;
