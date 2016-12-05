@@ -40,4 +40,7 @@ public class Graph<V,E> {
         }
         return false;
     }
+    public Map<V, Vertex<V,E>> getVertices(){
+        return vMap;
+    }
 }
