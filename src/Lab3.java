@@ -13,42 +13,23 @@ public class Lab3 {
         List<BLineTable> lines = fileParser.readLines(args[1]);
         String from = args[2];
         String to = args[3];
-        new GUI(stops, lines, new DijkstraStringPath(stops, lines));
+        //new GUI(stops, lines, new DijkstraStringPath(stops, lines));
 
-        /*
-        Graph<Vertex<String>> g = new Graph<>();
+        DijkstraStringPath dsp = new DijkstraStringPath(stops, lines);
 
-        for (BStop s : stops){
-            g.addVertex(new Vertex<>(s.getName()));
-        }
-        for (BLineTable bLT : lines){
-            BLineStop[] stopArray = bLT.getStops();
-            for (int i = 1; i<stopArray.length; i++){
-                g.addEdge(g.getVertex(stopArray[i-1].getName()), g.getVertex(stopArray[i].getName()), stopArray[i].getTime());
-            }
-        }
+        dsp.computePath(from, to);
 
-        DijkstraStringPath dp = new DijkstraStringPath(g);
-
-
-
-        String from = args[2];
-        String to = args[3];
-
-        dp.computePath(from, to);
-
-        if(dp.getPathLength() == 0){
+        if(dsp.getPathLength() == 0){
             System.out.println("Det finns ingen väg från " + from + " till " + to);
         }
-        else if(dp.getPathLength() > 0){
-            System.out.println(dp.getPathLength());
-            while (dp.getPath().hasNext())
-                System.out.println(dp.getPath().next());
+        else if(dsp.getPathLength() > 0){
+            System.out.println(dsp.getPathLength());
+            while (dsp.getPath().hasNext())
+                System.out.println(dsp.getPath().next());
         }
         else if(args[2].equals(args[3])){
             System.out.println(0);
             System.out.println(args[2]);
         }
-        */
     }
 }
