@@ -56,7 +56,7 @@ public class Graph<E> {
         }
     }
 
-    public List<Edge<E>> getOutgoing(Vertex<E> v) {
+    public List<Edge<E>> getOutgoingEdges(Vertex<E> v) {
         return adjList.get(v);
     }
 }
