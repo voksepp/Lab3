@@ -41,7 +41,6 @@ public class DijkstraPath<E> implements Path<E> {
 
         PriorityQueue<Vertex<E, Integer>> pq = new PriorityQueue<>();
 
-
         pq.add(origin);
 
 
