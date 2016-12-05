@@ -13,10 +13,6 @@ public class DijkstraPath<E> implements Path<E> {
     private Comparator<Vertex<E, Integer>> comp;
     private Map<Vertex<E, Integer>, Integer> distances;
 
-
-    public DijkstraPath(Graph<E,Integer> g, Comparator<Vertex<E, Integer>> comp) {
-    }
-
     public DijkstraPath(Graph<E,Integer> g){
         this.g=g;
         this.comp = comp;
