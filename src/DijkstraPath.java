@@ -67,6 +67,6 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public int getPathLength() {
-
+        return distances.get(destination);
     }
 }
