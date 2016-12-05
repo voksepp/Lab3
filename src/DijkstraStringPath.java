@@ -7,7 +7,7 @@ public class DijkstraStringPath implements Path<String> {
     private final DijkstraPath d;
 
     public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines){
-        Graph<String, Integer> g = new Graph<>();
+        Graph<String> g = new Graph<>();
 
         for (BStop s : stops){
             g.addVertex(s.getName());

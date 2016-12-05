@@ -6,13 +6,13 @@ public class DijkstraPath<E> implements Path<E> {
     //private List<Vertex<E, Integer>> vertices;
     //private List<Edge<E,Integer>> edges;
     private List<E> path;
-    private PriorityQueue<Vertex<E, Integer>> pq;
-    private final Graph<E, Integer> g;
-    private Vertex<E, Integer> destination;
-    private Vertex<E, Integer> origin;
-    private final Map<Vertex<E, Integer>, Integer> distances;
+    private PriorityQueue<Vertex<E>> pq;
+    private final Graph<E> g;
+    private Vertex<E> destination;
+    private Vertex<E> origin;
+    private final Map<Vertex<E>, Integer> distances;
 
-    public DijkstraPath(Graph<E,Integer> g){
+    public DijkstraPath(Graph<E> g){
         this.g=g;
         distances = new HashMap<>();
         path = new ArrayList<>();
