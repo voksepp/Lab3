@@ -19,10 +19,7 @@ public class DijkstraPath<E> implements Path<E> {
 
     public DijkstraPath(Graph<E,Integer> g){
         this.g=g;
-        //this.vertices = new ArrayList<>(g.getVertices());
-        //this.edges = new ArrayList<>();
         this.comp = comp;
-
     }
 
     /**
