@@ -1,19 +1,21 @@
 import Lab3Help.Path;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.PriorityQueue;
 
 public class DijkstraPath<E> implements Path<E> {
 
-    //private List<Vertex<E, Integer>> vertices;
-    //private List<Edge<E,Integer>> edges;
+    private final Graph<E> g;
     private List<E> path;
     private PriorityQueue<Vertex<E>> pq;
-    private final Graph<E> g;
     private Vertex<E> destination;
     private Vertex<E> origin;
     //behövs ej? private final Map<Vertex<E>, Integer> distances;
 
-    public DijkstraPath(Graph<E> g){
-        this.g=g;
+    public DijkstraPath(Graph<E> g) {
+        this.g = g;
         // distances = new HashMap<>();
         path = new ArrayList<>();
         pq = new PriorityQueue<>();
@@ -32,7 +34,7 @@ public class DijkstraPath<E> implements Path<E> {
      * @param to
      */
 
-    public void computePath(E from, E to){
+    public void computePath(E from, E to) {
         path.clear();
         pq.clear();
         g.setMax();
@@ -40,14 +42,10 @@ public class DijkstraPath<E> implements Path<E> {
         destination = g.getVertex(from);
         origin = g.getVertex(to);
 
-
-
         pq.add(origin);
 
-
-        while(!pq.isEmpty()){
+        while (!pq.isEmpty()) {
             //TODO: Stuff
-
             // använd denna metod: TODO:fixa
             path.add(origin.getData());
         }
