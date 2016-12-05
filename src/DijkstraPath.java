@@ -38,10 +38,10 @@ public class DijkstraPath<E> implements Path<E> {
      */
 
     public void computePath(E from, E to){
-        destination = g.from;
-        origin = to;
+        destination = g.getVertex(from);
+        origin = g.getVertex(to);
 
-        Node<E> fromNode = from;
+        Vertex<E, Integer> fromNode = from;
 
         PriorityQueue<E> pq = new PriorityQueue<E>(comp);
 
