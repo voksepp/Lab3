@@ -17,8 +17,8 @@ public class DijkstraPath<E> implements Path<E> {
 
     public DijkstraPath(Graph<E,Integer> g){
         this.g=g;
-        this.vertices = new ArrayList<>(g.getVertices());
-        this.edges = new ArrayList<>();
+        //this.vertices = new ArrayList<>(g.getVertices());
+        //this.edges = new ArrayList<>();
         this.comp = comp;
 
     }
@@ -35,14 +35,18 @@ public class DijkstraPath<E> implements Path<E> {
      * @param from
      * @param to
      */
-    @Override
+
     public void computePath(E from, E to){
         destination = g.from;
         origin = to;
 
+        Node<E> fromNode = from;
+
         PriorityQueue<E> pq = new PriorityQueue<E>(comp);
 
-        pq.add(from)
+
+        pq.add(from);
+
 
         while(!pq.isEmpty()){
             //TODO: Stuff
