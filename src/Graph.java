@@ -3,7 +3,7 @@ import java.util.*;
 public class Graph<V,E> {
 
     private Map<V, Vertex<V,E>> vMap;
-    private Map<Vertex<V,E>, List<Vertex<V,E>>> adjList;
+    private Map<Vertex<V,E>, List<Edge<V,E>>> adjList;
 
     public Graph(){
         vMap = new HashMap<>();
@@ -26,14 +26,18 @@ public class Graph<V,E> {
         return newVertex;
     }
 
-    public Edge<V,E> addEdge(V from, V to, E cost){
+    public boolean addEdge(V from, V to, E cost){
         if (from.equals(to))
-            return null;
+            throw new IllegalArgumentException();
         Vertex<V,E> fromV = getVertex(from);
         Vertex<V,E> toV = getVertex(to);
 
         Edge<V,E> e = new Edge<>(fromV, toV, cost);
 
-        return e;
+        if(!adjList.get(fromV).contains(e)) {
+            adjList.get(fromV).add(e);
+            return true;
+        }
+        return false;
     }
 }
