@@ -39,10 +39,10 @@ public class DijkstraPath<E> implements Path<E> {
         destination = g.getVertex(from);
         origin = g.getVertex(to);
 
-        PriorityQueue<E> pq = new PriorityQueue<E>();
+        PriorityQueue<Vertex<E, Integer>> pq = new PriorityQueue<>();
 
 
-        pq.add(from);
+        pq.add(origin);
 
 
         while(!pq.isEmpty()){
