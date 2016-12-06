@@ -11,8 +11,8 @@ public class Lab3 {
 
     /**
      *
-     * @param args
-     * @throws IOException
+     * @param args arguments written in the console
+     * @throws IOException if the inout or output is wrong
      * @throws MalformedData
      */
     public static void main(String[] args) throws IOException, MalformedData {
