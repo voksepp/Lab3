@@ -23,7 +23,7 @@ public void computePath(E from, E to) {
         origin.setDistance(0);                                          //  O(1)
         pq.add(origin);                                                 //  O(1)
 
-        while (!pq.isEmpty()) {                                         // O(E)
+        while (!pq.isEmpty()) {                                         // O(E) V^2
             Vertex<E> u = pq.poll();                                        // O(logE)
             for (Edge<E> e : g.getOutgoingEdges(u)) {                       // O(E)
                 Vertex<E> v = e.getDestination();                               // O(1)
