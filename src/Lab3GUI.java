@@ -12,8 +12,8 @@ public class Lab3GUI {
      * @throws MalformedData
      */
     public static void main(String[] args) throws IOException, MalformedData {
-        if (args.length != 4)
-            throw new IllegalArgumentException("Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB");
+        if (args.length != 2)
+            throw new IllegalArgumentException("Usage: java Lab3 stops.txt lines.txt");
 
         Lab3File fileParser = new Lab3File();
         List<BStop> stops = fileParser.readStops(args[0]);
