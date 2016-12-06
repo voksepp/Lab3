@@ -13,9 +13,9 @@ public void computePath(E from, E to) {
             return;
         }
 
-        for (Vertex<E> v : g.getVertices().values()) {                  //  O(XXX)
-            v.setMax();                                                 //  O(1)
-            previous.put(v, null);                                      //  O(1)
+        for (Vertex<E> v : g.getVertices().values()) {                  //  O(V)
+            v.setMax();                                                         //  O(1)
+            previous.put(v, null);                                              //  O(1)
         }
 
         origin.setDistance(0);                                          //  O(1)
