@@ -25,11 +25,11 @@ public class Lab3 {
         dsp.computePath(from, to);
         int pathLength = dsp.getPathLength();
 
-        if (pathLength == 0) {
-            System.out.println("Det finns ingen väg från " + from + " till " + to);
-        } else if (args[2].equals(args[3])) {
+        if (args[2].equals(args[3])) {
             System.out.println(0);
             System.out.println(args[2]);
+        } else if (pathLength == 0) {
+            System.out.println("Det finns ingen väg från " + from + " till " + to);
         } else if (pathLength > 0) {
             System.out.println(dsp.getPathLength());
             Iterator i = dsp.getPath();

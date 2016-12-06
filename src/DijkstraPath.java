@@ -113,6 +113,7 @@ public class DijkstraPath<E> implements Path<E> {
             path.add(u.getData());
             u = previous.get(u);
         }
+        path.add(origin.getData());
         Collections.reverse(path);
     }
 
