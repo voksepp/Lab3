@@ -3,19 +3,19 @@ V = amount of vertices
 E = amount of edges
 
 public void computePath(E from, E to) {
-        pq.clear();                                                     //  O(XXX)
-        path.clear();                                                   //  O(XXX)
+        pq.clear();                                                     //  O(V)
+        path.clear();                                                   //  O(V)
         destination = g.getVertex(to);                                  //  O(1)
         Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
         if (from.equals(to)) {                                          //  O(1)
-            path.add(from);                                                     //  O(1)
+            path.add(from);                                             //  O(1)
             return;
         }
 
         for (Vertex<E> v : g.getVertices().values()) {                  //  O(XXX)
-            v.setMax();                                                         //  O(1)
-            previous.put(v, null);                                              //  O(1)
+            v.setMax();                                                 //  O(1)
+            previous.put(v, null);                                      //  O(1)
         }
 
         origin.setDistance(0);                                          //  O(1)
