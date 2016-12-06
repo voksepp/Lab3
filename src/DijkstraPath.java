@@ -37,40 +37,45 @@ public class DijkstraPath<E> implements Path<E> {
      */
 
     public void computePath2(E from, E to) {
-        path.clear();       // förberedelser för ny path
         pq.clear();
-        g.setMax();         // sätter alla distance till INF
-        totalDistance = Integer.MAX_VALUE;
-        HashMap<Integer, Integer> distance = new HashMap<Integer, Integer>();
+        destination = g.getVertex(to);
+        origin = g.getVertex(from);
 
-        destination = g.getVertex(from);        // hittar vertices
-        origin = g.getVertex(to);
+        for (Vertex<E> v : g.getVertices().values()){
+            v.setDistance(Integer.MAX_VALUE);
+            previous.put(v, null);
+            pq.add(v);
+        }
 
         origin.setDistance(0);
 
-        pq.add(origin);     // lägger till source i prioritetskön
+        pq.add(origin);
 
-        while (!pq.isEmpty()) {
-            Vertex<E> currentVertex = pq.poll();
+        while (!pq.isEmpty()){
+            Vertex<E> u = pq.peek();
+            for (Vertex<E> ver : pq) {
+                if (ver.getDistance() < u.getDistance()){
+                    u = ver;
+                }
 
-            if(!visitedVertices.contains(currentVertex)){
-                visitedVertices.add(currentVertex);
-
-                for (Edge<E> nearest : g.getOutgoingEdges(currentVertex)) {
-                    //if(!visitedVertices.contains(nearest) )
-                    int tmp = currentVertex.getDistance() + nearest.getCost()/*Avståndet mellan currentVertex och nearest*/;
-                    if(tmp < nearest.getCost()){
-                        /*distance = tmp*/
-                        /*kom ihåg att föregångaren till denna nearest är currentVertex*/
-                    }
+            }
+            for (Edge<E> e : g.getOutgoingEdges(u)){
+                Vertex<E> v = e.getTo();
+                int alt = u.getDistance() + e.getCost();
+                if (alt < v.getDistance()){
+                    v.setDistance(alt);
+                    previous.put(v, u);
                 }
             }
         }
 
-
-        path.add(origin.getData()); // vertexens namn i path-listan
-
-        /*returnera distance[] och föregångare[]*/
+        path.clear();
+        Vertex<E> u = destination;
+        while (previous.get(u) != null){
+            path.add(u.getData());
+            u = previous.get(u);
+        }
+        Collections.reverse(path);
     }
 
     public void computePath(E from, E to){
