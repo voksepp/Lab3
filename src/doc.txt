@@ -2,6 +2,8 @@ Time complexity analysis: computePath
 V = amount of vertices
 E = amount of edges
 
+xx and xx in computePath has O(V) time complexity
+
 public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
         path.clear();                                                   //  O(V)
@@ -9,7 +11,7 @@ public void computePath(E from, E to) {
         Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
         if (from.equals(to)) {                                          //  O(1)
-            path.add(from);                                                 //  O(1)
+            path.add(from);                                             //  O(1)
             return;
         }
 
@@ -21,25 +23,26 @@ public void computePath(E from, E to) {
         origin.setDistance(0);                                          //  O(1)
         pq.add(origin);                                                 //  O(1)
 
-        while (!pq.isEmpty()) {                                         // O(V)
-            Vertex<E> u = pq.poll();                                        // O(1)
+        while (!pq.isEmpty()) {                                         // O(E)
+            Vertex<E> u = pq.poll();                                        // O(logE)
             for (Edge<E> e : g.getOutgoingEdges(u)) {                       // O(E)
                 Vertex<E> v = e.getDestination();                               // O(1)
                 int alt = u.getDistance() + e.getCost();                        // O(1)
                 if (alt < v.getDistance()) {                                    // O(1)
-                    v.setDistance(alt);                                             // O(1)
-                    previous.put(v, u);                                             // O(1)
-                    if (!pq.contains(v))                                            // O(V)
-                        pq.add(v);                                                      // O(log(V))
+                    v.setDistance(alt);                                         // O(1)
+                    previous.put(v, u);                                         // O(1)
+                    if (!pq.contains(v))                                        // O(1) HashMap
+                        pq.add(v);                                              // O(log(E))
                 }
             }
         }
 
         Vertex<E> u = destination;                                      //  O(1)
-        while (previous.get(u) != null) {                               //  O(1)
+        while (previous.get(u) != null) {                               //  O(V)
             path.add(u.getData());                                          // O(1)
             u = previous.get(u);                                            // O(1)
         }
         path.add(origin.getData());                                     //  O(1)
         Collections.reverse(path);                                      //  O(V)
     }
+
