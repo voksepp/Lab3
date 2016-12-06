@@ -1,23 +1,22 @@
 Time complexity analysis: computePath
 
 public void computePath(E from, E to) {
-        pq.clear();
-        path.clear();
-        destination = g.getVertex(to);
-        Vertex<E> origin = g.getVertex(from);
+        pq.clear();                                                     //  O(n)
+        path.clear();                                                   //  O(n)
+        destination = g.getVertex(to);                                  //  O(1)
+        Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
-        if (from.equals(to)) {
-            path.add(from);
+        if (from.equals(to)) {                                          //  O(1)
+            path.add(from);                                                     //  O(1)
             return;
         }
 
-        for (Vertex<E> v : g.getVertices().values()) {
-            v.setMax();
-            previous.put(v, null);
+        for (Vertex<E> v : g.getVertices().values()) {                  //  O(n)
+            v.setMax();                                                         //  O(1)
+            previous.put(v, null);                                              //  O(1)
         }
 
-        origin.setDistance(0);
-
+        origin.setDistance(0);                                          //  O(1)
         pq.add(origin);
 
         while (!pq.isEmpty()) {
