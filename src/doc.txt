@@ -5,7 +5,7 @@ E = amount of edges
 public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
         path.clear();                                                   //  O(V)
-        destination = g.getVertex(to);                                  //  O(1)
+        head = g.getVertex(to);                                  //  O(1)
         Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
         if (from.equals(to)) {                                          //  O(1)
@@ -35,7 +35,7 @@ public void computePath(E from, E to) {
             }
         }
 
-        Vertex<E> u = destination;                                      //  O(1)
+        Vertex<E> u = head;                                      //  O(1)
         while (previous.get(u) != null) {                               //  O(1)
             path.add(u.getData());                                          // O(1)
             u = previous.get(u);                                            // O(1)

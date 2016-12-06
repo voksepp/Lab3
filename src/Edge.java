@@ -1,17 +1,17 @@
 class Edge<E> {
-    private final Vertex<E> source;
-    private final Vertex<E> destination;
+    private final Vertex<E> tail;
+    private final Vertex<E> head;
     private final int cost;
 
     /**
      *  Constructor for the Edge class, takes three arguments which are set as class variables
-     * @param source source vertex
-     * @param destination destination vertex
+     * @param tail tail vertex
+     * @param head head vertex
      * @param cost weight of the edge
      */
-    public Edge(Vertex<E> source, Vertex<E> destination, int cost) {
-        this.source = source;
-        this.destination = destination;
+    public Edge(Vertex<E> tail, Vertex<E> head, int cost) {
+        this.tail = tail;
+        this.head = head;
         this.cost = cost;
     }
 
@@ -23,16 +23,16 @@ class Edge<E> {
     }
 
     /**
-     * @return the destination vertex
+     * @return the head vertex
      */
-    public Vertex<E> getDestination() {
-        return destination;
+    public Vertex<E> getHead() {
+        return head;
     }
 
     /**
-     * @return the source vertex
+     * @return the tail vertex
      */
-    public Vertex<E> getSource() {
-        return source;
+    public Vertex<E> getTail() {
+        return tail;
    }
 }
