@@ -11,11 +11,12 @@ public class DijkstraStringPath implements Path<String> {
     private DijkstraPath<String> d;
 
     /**
+     * DijkstraStringPath creates a DijkstraPath with Strings
      *
-     * @param stops
-     * @param lines
+     * @param stops a list of the stops from the text-file
+     * @param lines a list of the lines from the text-file
      */
-    public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines) {
+    DijkstraStringPath(List<BStop> stops, List<BLineTable> lines) {
         Graph<String> g = new Graph<>();
 
         for (BStop s : stops) {
@@ -39,8 +40,8 @@ public class DijkstraStringPath implements Path<String> {
      * Precondition: The underlying graph must not contain any negative
      * edge weights.
      *
-     * @param from
-     * @param to
+     * @param from the vertex of which to start from
+     * @param to the goal
      */
     @Override
     public void computePath(String from, String to) {
