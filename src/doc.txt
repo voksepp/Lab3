@@ -1,9 +1,10 @@
 Time complexity analysis: computePath
-n = amount of vertices
+V = amount of vertices
+E = amount of edges
 
 public void computePath(E from, E to) {
-        pq.clear();                                                     //  O(n)
-        path.clear();                                                   //  O(n)
+        pq.clear();                                                     //  O(XXX)
+        path.clear();                                                   //  O(XXX)
         destination = g.getVertex(to);                                  //  O(1)
         Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
@@ -35,10 +36,10 @@ public void computePath(E from, E to) {
         }
 
         Vertex<E> u = destination;                                      //  O(1)
-        while (previous.get(u) != null) {                               //  worst case: O(n)
+        while (previous.get(u) != null) {                               //  worst case: O(XXX)
             path.add(u.getData());
             u = previous.get(u);
         }
         path.add(origin.getData());                                     //  O(1)
-        Collections.reverse(path);                                      //  O(n)
+        Collections.reverse(path);                                      //  O(XXX)
     }
