@@ -42,6 +42,8 @@ public class DijkstraPath<E> implements Path<E> {
         destination = g.getVertex(from);        // hittar vertices
         origin = g.getVertex(to);
 
+        origin.setDistance(0);
+
         pq.add(origin);     // lägger till source i prioritetskön
 
         while (!pq.isEmpty()) {
