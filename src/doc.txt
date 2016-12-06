@@ -17,7 +17,7 @@ public void computePath(E from, E to) {
         }
 
         origin.setDistance(0);                                          //  O(1)
-        pq.add(origin);
+        pq.add(origin);                                                 //  O(1)
 
         while (!pq.isEmpty()) {
             Vertex<E> u = pq.poll();
@@ -33,11 +33,11 @@ public void computePath(E from, E to) {
             }
         }
 
-        Vertex<E> u = destination;
+        Vertex<E> u = destination;                                      //  O(1)
         while (previous.get(u) != null) {
             path.add(u.getData());
             u = previous.get(u);
         }
-        path.add(origin.getData());
-        Collections.reverse(path);
+        path.add(origin.getData());                                     //  O(1)
+        Collections.reverse(path);                                      //  O(n)
     }
