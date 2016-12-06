@@ -36,7 +36,7 @@ public class DijkstraPath<E> implements Path<E> {
      * @param to
      */
 
-    public void computePath(E from, E to) {
+    public void computePath2(E from, E to) {
         path.clear();       // förberedelser för ny path
         pq.clear();
         g.setMax();         // sätter alla distance till INF
@@ -73,8 +73,10 @@ public class DijkstraPath<E> implements Path<E> {
         /*returnera distance[] och föregångare[]*/
     }
 
-    public void computePath2(E from, E to){
+    public void computePath(E from, E to){
         pq.clear();
+        destination = g.getVertex(from);
+        origin = g.getVertex(to);
 
         for (Vertex<E> v : g.getVertices().values()){
             v.setDistance(Integer.MAX_VALUE);
