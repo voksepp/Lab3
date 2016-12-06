@@ -48,8 +48,6 @@ public class DijkstraPath<E> implements Path<E> {
 
         while (!pq.isEmpty()) {
             //TODO: Stuff
-            // använd denna metod: TODO:fixa
-
         }
 
         path.add(origin.getData()); // vertexens namn i path-listan
