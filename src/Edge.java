@@ -20,4 +20,8 @@ public class Edge<E> {
     public Vertex<E> getFrom() {
         return from;
     }
+
+    public boolean equals (Edge<E> o){
+        return from.equals(o.getFrom()) && to.equals(o.getTo()) && cost == o.getCost();
+    }
 }
