@@ -68,7 +68,10 @@ public class DijkstraPath<E> implements Path<E> {
             }
         }
 
+
         path.add(origin.getData()); // vertexens namn i path-listan
+
+        /*returnera distance[] och föregångare[]*/
     }
 
     /**
