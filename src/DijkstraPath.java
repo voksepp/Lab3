@@ -9,12 +9,9 @@ public class DijkstraPath<E> implements Path<E> {
     private PriorityQueue<Vertex<E>> pq;
     private Vertex<E> destination;
     private Vertex<E> origin;
-    private int totalDistance;
-    private HashSet<Vertex<E>> visitedVertices = new HashSet<>();
-    private HashMap<Vertex<E>, Vertex<E>> previous = new HashMap();
+    private HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
 
     /**
-     *
      * @param g
      */
     public DijkstraPath(Graph<E> g) {
@@ -23,19 +20,31 @@ public class DijkstraPath<E> implements Path<E> {
         pq = new PriorityQueue<>();
     }
 
-    public void computePath(E from, E to){
+    /**
+     * Computes the path from <code>from</code> to <code>to</code> (if any). Path
+     * information can be retrieved by subsequent calls to
+     * <code>getPath()</code> and <code>getPathLength()</code>. It must be
+     * possible to call this method any number of times.
+     * <p>
+     * Precondition: The underlying graph must not contain any negative
+     * edge weights.
+     *
+     * @param from
+     * @param to
+     */
+    public void computePath(E from, E to) {
         pq.clear();
         path.clear();
         destination = g.getVertex(to);
         origin = g.getVertex(from);
 
-        if (from.equals(to)){
+        if (from.equals(to)) {
             path.add(from);
             return;
         }
 
-        for (Vertex<E> v : g.getVertices().values()){
-            v.setDistance(Integer.MAX_VALUE);
+        for (Vertex<E> v : g.getVertices().values()) {
+            v.setMax();
             previous.put(v, null);
         }
 
@@ -43,12 +52,12 @@ public class DijkstraPath<E> implements Path<E> {
 
         pq.add(origin);
 
-        while (!pq.isEmpty()){
+        while (!pq.isEmpty()) {
             Vertex<E> u = pq.poll();
-            for (Edge<E> e : g.getOutgoingEdges(u)){
+            for (Edge<E> e : g.getOutgoingEdges(u)) {
                 Vertex<E> v = e.getTo();
                 int alt = u.getDistance() + e.getCost();
-                if (alt < v.getDistance()){
+                if (alt < v.getDistance()) {
                     v.setDistance(alt);
                     previous.put(v, u);
                     if (!pq.contains(v))
@@ -57,9 +66,8 @@ public class DijkstraPath<E> implements Path<E> {
             }
         }
 
-
         Vertex<E> u = destination;
-        while (previous.get(u) != null){
+        while (previous.get(u) != null) {
             path.add(u.getData());
             u = previous.get(u);
         }

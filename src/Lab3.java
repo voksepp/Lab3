@@ -9,6 +9,12 @@ import java.util.List;
 
 public class Lab3 {
 
+    /**
+     *
+     * @param args
+     * @throws IOException
+     * @throws MalformedData
+     */
     public static void main(String[] args) throws IOException, MalformedData {
         if (args.length != 4)
             throw new IllegalArgumentException("Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB");
@@ -18,7 +24,6 @@ public class Lab3 {
         List<BLineTable> lines = fileParser.readLines(args[1]);
         String from = args[2];
         String to = args[3];
-        //new GUI(stops, lines, new DijkstraStringPath(stops, lines));
 
         DijkstraStringPath dsp = new DijkstraStringPath(stops, lines);
 

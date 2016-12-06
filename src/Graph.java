@@ -8,15 +8,19 @@ public class Graph<E> {
     private Map<E, Vertex<E>> vMap;
     private Map<Vertex<E>, List<Edge<E>>> adjList;
 
+    /**
+     *
+     */
     public Graph() {
         vMap = new HashMap<>();
         adjList = new HashMap<>();
     }
 
-    public int size() {
-        return vMap.size();
-    }
-
+    /**
+     *
+     * @param data
+     * @return
+     */
     public Vertex<E> getVertex(E data) {
         Vertex<E> exists = vMap.get(data);
         if (exists != null)
@@ -25,6 +29,11 @@ public class Graph<E> {
             return null;
     }
 
+    /**
+     *
+     * @param data
+     * @return
+     */
     public Vertex<E> addVertex(E data) {
         if (getVertex(data) != null)
             return null;
@@ -34,6 +43,13 @@ public class Graph<E> {
         return newVertex;
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @param cost
+     * @return
+     */
     public boolean addEdge(E from, E to, int cost) {
         if (from.equals(to))
             throw new IllegalArgumentException();
@@ -48,24 +64,20 @@ public class Graph<E> {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<E, Vertex<E>> getVertices() {
         return vMap;
     }
 
-    public void setMax() {
-        for (Vertex<E> v : vMap.values()) {
-            v.setMax();
-        }
-    }
-
+    /**
+     *
+     * @param v
+     * @return
+     */
     public List<Edge<E>> getOutgoingEdges(Vertex<E> v) {
         return adjList.get(v);
-    }
-    public List<Vertex<E>> getNextVertices(Vertex<E> v){
-        List<Vertex<E>> list = new ArrayList<>();
-        for (Edge<E> e : getOutgoingEdges(v)){
-            list.add(e.getTo());
-        }
-        return list;
     }
 }

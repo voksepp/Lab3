@@ -10,6 +10,11 @@ public class DijkstraStringPath implements Path<String> {
 
     private final DijkstraPath<String> d;
 
+    /**
+     *
+     * @param stops
+     * @param lines
+     */
     public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines) {
         Graph<String> g = new Graph<>();
 
