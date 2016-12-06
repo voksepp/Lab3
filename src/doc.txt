@@ -8,6 +8,9 @@ an element and has to sort the priorityQueue by bubbling and therefore has the t
 edge loop worst case scenario is that the vertex is connected to every other vertex and thus has a time complexity of
 O(E) (E edges).
 
+
+In total the time complexity of the computePath method is O(V+E*log(V)).
+
 public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
         path.clear();                                                   //  O(V)
