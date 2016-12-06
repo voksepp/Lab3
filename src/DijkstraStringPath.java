@@ -16,7 +16,7 @@ public class DijkstraStringPath implements Path<String> {
      * @param stops a list of the stops from the text-file
      * @param lines a list of the lines from the text-file
      */
-    DijkstraStringPath(List<BStop> stops, List<BLineTable> lines) {
+    public DijkstraStringPath(List<BStop> stops, List<BLineTable> lines) {
         Graph<String> g = new Graph<>();
 
         for (BStop s : stops) {
