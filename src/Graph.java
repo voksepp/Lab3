@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,5 +61,12 @@ public class Graph<E> {
 
     public List<Edge<E>> getOutgoingEdges(Vertex<E> v) {
         return adjList.get(v);
+    }
+    public List<Vertex<E>> getNextVertices(Vertex<E> v){
+        List<Vertex<E>> list = new ArrayList<>();
+        for (Edge<E> e : getOutgoingEdges(v)){
+            list.add(e.getTo());
+        }
+        return list;
     }
 }
