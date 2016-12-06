@@ -30,6 +30,7 @@ public class Graph<E> {
             return null;
         Vertex<E> newVertex = new Vertex<>(data);
         vMap.put(data, newVertex);
+        adjList.put(newVertex, new ArrayList<>());
         return newVertex;
     }
 
