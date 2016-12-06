@@ -24,13 +24,13 @@ public void computePath(E from, E to) {
         while (!pq.isEmpty()) {                                         // O(V)
             Vertex<E> u = pq.poll();                                        // O(1)
             for (Edge<E> e : g.getOutgoingEdges(u)) {                       // O(E)
-                Vertex<E> v = e.getDestination();                               // O( ?? )
-                int alt = u.getDistance() + e.getCost();
-                if (alt < v.getDistance()) {
-                    v.setDistance(alt);
-                    previous.put(v, u);
-                    if (!pq.contains(v))
-                        pq.add(v);
+                Vertex<E> v = e.getDestination();                               // O(1)
+                int alt = u.getDistance() + e.getCost();                        // O(1)
+                if (alt < v.getDistance()) {                                    // O(1)
+                    v.setDistance(alt);                                             // O(1)
+                    previous.put(v, u);                                             // O(1)
+                    if (!pq.contains(v))                                            // O(V)
+                        pq.add(v);                                                      // O(log(V))
                 }
             }
         }
