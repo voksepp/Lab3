@@ -36,6 +36,7 @@ class DijkstraPath<E> implements Path<E> {
     public void computePath(E from, E to) {
         pq.clear();
         path.clear();
+        visited.clear();
         destination = g.getVertex(to);
         Vertex<E> origin = g.getVertex(from);
 
