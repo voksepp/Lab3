@@ -11,7 +11,7 @@ public class Lab3 {
 
     /**
      *
-     * @param args
+     * @param args Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB
      * @throws IOException
      * @throws MalformedData
      */
