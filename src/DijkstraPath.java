@@ -23,61 +23,6 @@ public class DijkstraPath<E> implements Path<E> {
         pq = new PriorityQueue<>();
     }
 
-    /**
-     * Computes the path from <code>from</code> to <code>to</code> (if any). Path
-     * information can be retrieved by subsequent calls to
-     * <code>getPath()</code> and <code>getPathLength()</code>. It must be
-     * possible to call this method any number of times.
-     * <p>
-     * Precondition: The underlying graph must not contain any negative
-     * edge weights.
-     *
-     * @param from
-     * @param to
-     */
-
-    public void computePath2(E from, E to) {
-        pq.clear();
-        destination = g.getVertex(to);
-        origin = g.getVertex(from);
-
-        for (Vertex<E> v : g.getVertices().values()){
-            v.setDistance(Integer.MAX_VALUE);
-            previous.put(v, null);
-            pq.add(v);
-        }
-
-        origin.setDistance(0);
-
-        pq.add(origin);
-
-        while (!pq.isEmpty()){
-            Vertex<E> u = pq.peek();
-            for (Vertex<E> ver : pq) {
-                if (ver.getDistance() < u.getDistance()){
-                    u = ver;
-                }
-
-            }
-            for (Edge<E> e : g.getOutgoingEdges(u)){
-                Vertex<E> v = e.getTo();
-                int alt = u.getDistance() + e.getCost();
-                if (alt < v.getDistance()){
-                    v.setDistance(alt);
-                    previous.put(v, u);
-                }
-            }
-        }
-
-        path.clear();
-        Vertex<E> u = destination;
-        while (previous.get(u) != null){
-            path.add(u.getData());
-            u = previous.get(u);
-        }
-        Collections.reverse(path);
-    }
-
     public void computePath(E from, E to){
         pq.clear();
         destination = g.getVertex(to);
