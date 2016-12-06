@@ -9,6 +9,12 @@ edge loop worst case scenario is that the vertex is connected to every other ver
 O(E) (E edges).
 
 
+All operations in the outer level code: O(1) and O(V) -> O(V) dominant.
+First loop level: O(log(V)) and O(E) -> O(E) dominant.
+Second loop level: O(log(V))
+
+->>> O(V) + O(E) * O(log(V))
+
 In total the time complexity of the computePath method is O(V+E*log(V)).
 
 public void computePath(E from, E to) {
