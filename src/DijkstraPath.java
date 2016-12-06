@@ -96,6 +96,8 @@ public class DijkstraPath<E> implements Path<E> {
                 if (alt < v.getDistance()){
                     v.setDistance(alt);
                     previous.put(v, u);
+                    if (!pq.contains(v))
+                        pq.add(v);
                 }
             }
         }
