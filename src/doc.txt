@@ -3,8 +3,8 @@ V = amount of vertices
 E = amount of edges
 
 public void computePath(E from, E to) {
-        pq.clear();                                                     //  O(XXX)
-        path.clear();                                                   //  O(XXX)
+        pq.clear();                                                     //  O(V)
+        path.clear();                                                   //  O(V)
         destination = g.getVertex(to);                                  //  O(1)
         Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
