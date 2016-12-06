@@ -76,7 +76,6 @@ public class DijkstraPath<E> implements Path<E> {
     }
 
     public void computePath2(E from, E to){
-        path.clear();
         pq.clear();
 
         for (Vertex<E> v : g.getVertices().values()){
@@ -97,6 +96,12 @@ public class DijkstraPath<E> implements Path<E> {
                     previous.put(v, u);
                 }
             }
+        }
+
+        path.clear();
+        Vertex<E> u = destination;
+        while (previous.get(u) != null){
+            // TODO: fixa
         }
     }
 
