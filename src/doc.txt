@@ -31,7 +31,7 @@ public void computePath(E from, E to) {
                 if (alt < v.getDistance()) {                                    // O(1)
                     v.setDistance(alt);                                         // O(1)
                     previous.put(v, u);                                         // O(1)
-                    if (!pq.contains(v))                                        // O(1) HashMap
+                    if (!pq.contains(v))                                        // O(1)
                         pq.add(v);                                              // O(log(E))
                 }
             }
