@@ -12,6 +12,7 @@ public class DijkstraPath<E> implements Path<E> {
     private int totalDistance;
     HashSet<Vertex<E>> visitedVertices = new HashSet<>();
     //behövs ej? private final Map<Vertex<E>, Integer> distances;
+    private HashMap<Vertex<E>, Vertex<E>> previous = new HashMap();
 
     /**
      *
@@ -63,6 +64,31 @@ public class DijkstraPath<E> implements Path<E> {
         }
 
         path.add(origin.getData()); // vertexens namn i path-listan
+    }
+
+    public void computePath2(E from, E to){
+        path.clear();
+        pq.clear();
+
+        for (Vertex<E> v : g.getVertices().values()){
+            v.setDistance(Integer.MAX_VALUE);
+            previous.put(v, null);
+            pq.add(v);
+        }
+
+        origin.setDistance(0);
+
+        while (!pq.isEmpty()){
+            Vertex<E> u = pq.poll();
+            for (Edge<E> e : g.getOutgoingEdges(u)){
+                Vertex<E> v = e.getTo();
+                int alt = u.getDistance() + e.getCost();
+                if (alt < v.getDistance()){
+                    v.setDistance(alt);
+                    previous.put(v, u);
+                }
+            }
+        }
     }
 
     /**
