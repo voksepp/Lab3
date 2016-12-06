@@ -1,4 +1,5 @@
 Time complexity analysis: computePath
+n = amount of vertices
 
 public void computePath(E from, E to) {
         pq.clear();                                                     //  O(n)
@@ -17,7 +18,7 @@ public void computePath(E from, E to) {
         }
 
         origin.setDistance(0);                                          //  O(1)
-        pq.add(origin);
+        pq.add(origin);                                                 //  O(1)
 
         while (!pq.isEmpty()) {
             Vertex<E> u = pq.poll();
@@ -33,11 +34,11 @@ public void computePath(E from, E to) {
             }
         }
 
-        Vertex<E> u = destination;
-        while (previous.get(u) != null) {
+        Vertex<E> u = destination;                                      //  O(1)
+        while (previous.get(u) != null) {                               //  worst case: O(n)
             path.add(u.getData());
             u = previous.get(u);
         }
-        path.add(origin.getData());
-        Collections.reverse(path);
+        path.add(origin.getData());                                     //  O(1)
+        Collections.reverse(path);                                      //  O(n)
     }
