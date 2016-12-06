@@ -55,7 +55,7 @@ public class DijkstraPath<E> implements Path<E> {
         while (!pq.isEmpty()) {
             Vertex<E> u = pq.poll();
             for (Edge<E> e : g.getOutgoingEdges(u)) {
-                Vertex<E> v = e.getTo();
+                Vertex<E> v = e.getDestination();
                 int alt = u.getDistance() + e.getCost();
                 if (alt < v.getDistance()) {
                     v.setDistance(alt);
