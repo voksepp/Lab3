@@ -50,5 +50,5 @@ public void computePath(E from, E to) {
         }
         path.add(origin.getData());                                     //  O(1)
         Collections.reverse(path);                                      //  O(V)
-    }
+}
 
