@@ -81,7 +81,7 @@ public class DijkstraPath<E> implements Path<E> {
         for (Vertex<E> v : g.getVertices().values()){
             v.setDistance(Integer.MAX_VALUE);
             previous.put(v, null);
-            pq.add(v);
+            //pq.add(v);
         }
 
         origin.setDistance(0);
