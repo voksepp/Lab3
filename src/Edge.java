@@ -1,4 +1,4 @@
-public class Edge<E> {
+class Edge<E> {
     private final Vertex<E> source;
     private final Vertex<E> destination;
     private final int cost;

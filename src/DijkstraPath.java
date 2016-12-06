@@ -2,13 +2,13 @@ import Lab3Help.Path;
 
 import java.util.*;
 
-public class DijkstraPath<E> implements Path<E> {
+class DijkstraPath<E> implements Path<E> {
 
     private final Graph<E> g;
-    private List<E> path;
-    private PriorityQueue<Vertex<E>> pq;
+    private final List<E> path;
+    private final PriorityQueue<Vertex<E>> pq;
     private Vertex<E> destination;
-    private HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
+    private final HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
 
     /**
      * DijkstraPath receives a graph and computes the cheapest route from an arbitrary vertex in the graph to another.
