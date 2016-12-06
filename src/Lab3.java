@@ -25,9 +25,9 @@ public class Lab3 {
         dsp.computePath(from, to);
         int pathLength = dsp.getPathLength();
 
-        if (pathLength == 0) {
+        if (pathLength == -1) {
             System.out.println("Det finns ingen väg från " + from + " till " + to);
-        } else if (pathLength > 0) {
+        } else if (pathLength >= 0) {
             System.out.println(dsp.getPathLength());
             Iterator i = dsp.getPath();
             while (i.hasNext())

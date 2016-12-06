@@ -96,6 +96,8 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public int getPathLength() {
+        if (destination.getDistance() == Integer.MAX_VALUE)
+            return -1;
         return destination.getDistance();
     }
 }
