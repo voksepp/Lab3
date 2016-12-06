@@ -13,7 +13,7 @@ public void computePath(E from, E to) {
             return;
         }
 
-        for (Vertex<E> v : g.getVertices().values()) {                  //  O(XXX)
+        for (Vertex<E> v : g.getVertices().values()) {                  //  O(V)
             v.setMax();                                                 //  O(1)
             previous.put(v, null);                                      //  O(1)
         }
