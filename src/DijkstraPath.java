@@ -48,10 +48,11 @@ public class DijkstraPath<E> implements Path<E> {
 
         while (!pq.isEmpty()) {
             Vertex<E> currentVertex = pq.poll();
+
             if(!visitedVertices.contains(currentVertex)){
                 visitedVertices.add(currentVertex);
 
-                for (Vertex<E> nearest : /*Få ut grannar till vertex*/) {
+                for (Edge<E> nearest : g.getOutgoingEdges(currentVertex)) {
 
                 }
             }
