@@ -7,12 +7,13 @@ class DijkstraPath<E> implements Path<E> {
     private final Graph<E> g;
     private final List<E> path;
     private final PriorityQueue<Vertex<E>> pq;
-    private Vertex<E> destination;
     private final HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
     private final HashSet<Vertex<E>> visited = new HashSet<>();
+    private Vertex<E> destination;
 
     /**
      * DijkstraPath receives a graph and computes the cheapest route from an arbitrary vertex in the graph to another.
+     *
      * @param g a graph
      */
     DijkstraPath(Graph<E> g) {
@@ -31,7 +32,7 @@ class DijkstraPath<E> implements Path<E> {
      * edge weights.
      *
      * @param from the vertex of which to start from
-     * @param to the goal
+     * @param to   the goal
      */
     public void computePath(E from, E to) {
         pq.clear();

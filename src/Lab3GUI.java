@@ -6,7 +6,6 @@ import java.util.List;
 class Lab3GUI {
 
     /**
-     *
      * @param args
      * @throws IOException
      * @throws MalformedData

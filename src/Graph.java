@@ -18,7 +18,6 @@ class Graph<E> {
     }
 
     /**
-     *
      * @param data usually the name of the vertex
      * @return the vertex
      */
@@ -32,6 +31,7 @@ class Graph<E> {
 
     /**
      * Adds a vertex to the graph
+     *
      * @param data usually the name of the vertex
      * @return the newly created vertex
      */
@@ -46,8 +46,9 @@ class Graph<E> {
 
     /**
      * Adds an edge to the graph
+     *
      * @param from The name of the source vertex
-     * @param to The name of the destination vertex
+     * @param to   The name of the destination vertex
      * @param cost the cost/weight of the edge
      * @return true if the edge has been added, false if it already exists
      */

@@ -11,9 +11,10 @@ public class Lab3 {
 
     /**
      * Calculates and prints the shortest path along bus lines between two stops.
+     *
      * @param args Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB
      *             This is written in the console
-     * @throws IOException Signals that an I/O exception of some sort has occurred.
+     * @throws IOException   Signals that an I/O exception of some sort has occurred.
      * @throws MalformedData Constructs an exception with a given error message.
      */
     public static void main(String[] args) throws IOException, MalformedData {

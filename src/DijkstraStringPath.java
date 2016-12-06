@@ -41,7 +41,7 @@ public class DijkstraStringPath implements Path<String> {
      * edge weights.
      *
      * @param from the vertex of which to start from
-     * @param to the goal
+     * @param to   the goal
      */
     @Override
     public void computePath(String from, String to) {

@@ -4,7 +4,8 @@ class Edge<E> {
     private final int cost;
 
     /**
-     *  Constructor for the Edge class, takes three arguments which are set as class variables
+     * Constructor for the Edge class, takes three arguments which are set as class variables
+     *
      * @param tail tail vertex
      * @param head head vertex
      * @param cost weight of the edge
@@ -34,5 +35,5 @@ class Edge<E> {
      */
     public Vertex<E> getTail() {
         return tail;
-   }
+    }
 }
