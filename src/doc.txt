@@ -2,8 +2,6 @@ Time complexity analysis: computePath
 V = amount of vertices
 E = amount of edges
 
-xx and xx in computePath has O(V) time complexity
-
 public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
         path.clear();                                                   //  O(V)
@@ -31,8 +29,9 @@ public void computePath(E from, E to) {
                 if (alt < v.getDistance()) {                                    // O(1)
                     v.setDistance(alt);                                         // O(1)
                     previous.put(v, u);                                         // O(1)
-                    if (!pq.contains(v))                                        // O(1)
+                    if (!visited.contains(v))                                   // O(1)
                         pq.add(v);                                              // O(log(E))
+                        visited.add(v);                                         // O(1)
                 }
             }
         }
