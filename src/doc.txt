@@ -22,8 +22,8 @@ public void computePath(E from, E to) {
         origin.setDistance(0);                                          //  O(1)
         pq.add(origin);                                                 //  O(1)
 
-        while (!pq.isEmpty()) {                                         // O(E) V^2
-            Vertex<E> u = pq.poll();                                        // O(logE)
+        while (!pq.isEmpty()) {                                         // O(V)
+            Vertex<E> u = pq.poll();                                        // O(log(V))
             for (Edge<E> e : g.getOutgoingEdges(u)) {                       // O(E)
                 Vertex<E> v = e.getHead();                                  // O(1)
                 int alt = u.getDistance() + e.getCost();                        // O(1)
@@ -31,7 +31,7 @@ public void computePath(E from, E to) {
                     v.setDistance(alt);                                         // O(1)
                     previous.put(v, u);                                         // O(1)
                     if (!visited.contains(v))                                   // O(1)
-                        pq.add(v);                                              // O(log(E))
+                        pq.add(v);                                              // O(log(V))
                         visited.add(v);                                         // O(1)
                 }
             }
