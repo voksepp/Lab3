@@ -11,8 +11,8 @@ public class Lab3 {
 
     /**
      *
-     * @param args arguments written in the console
-     * @throws IOException if the inout or output is wrong
+     * @param args Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB
+     * @throws IOException
      * @throws MalformedData
      */
     public static void main(String[] args) throws IOException, MalformedData {
