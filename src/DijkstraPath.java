@@ -11,7 +11,6 @@ public class DijkstraPath<E> implements Path<E> {
     private Vertex<E> origin;
     private int totalDistance;
     private HashSet<Vertex<E>> visitedVertices = new HashSet<>();
-    //behövs ej? private final Map<Vertex<E>, Integer> distances;
     private HashMap<Vertex<E>, Vertex<E>> previous = new HashMap();
 
     /**
@@ -20,7 +19,6 @@ public class DijkstraPath<E> implements Path<E> {
      */
     public DijkstraPath(Graph<E> g) {
         this.g = g;
-        // distances = new HashMap<>();
         path = new ArrayList<>();
         pq = new PriorityQueue<>();
     }
