@@ -101,8 +101,10 @@ public class DijkstraPath<E> implements Path<E> {
         path.clear();
         Vertex<E> u = destination;
         while (previous.get(u) != null){
-            // TODO: fixa
+            path.add(u.getData());
+            u = previous.get(u);
         }
+        Collections.reverse(path);
     }
 
     /**
