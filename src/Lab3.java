@@ -36,9 +36,9 @@ public class Lab3 {
             System.out.println("Det finns ingen väg från " + from + " till " + to);
         } else if (pathLength >= 0) {
             System.out.println(dsp.getPathLength());
-            Iterator i = dsp.getPath();
+            Iterator<String> i = dsp.getPath();
             while (i.hasNext())
-                System.out.println(i.next().toString());
+                System.out.println(i.next());
         }
     }
 }
