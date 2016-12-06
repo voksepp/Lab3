@@ -3,7 +3,7 @@ import Lab3Help.*;
 import java.io.IOException;
 import java.util.List;
 
-public class Lab3GUI {
+class Lab3GUI {
 
     /**
      *

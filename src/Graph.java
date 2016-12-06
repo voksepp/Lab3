@@ -3,10 +3,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Graph<E> {
+class Graph<E> {
 
-    private Map<E, Vertex<E>> vMap;
-    private Map<Vertex<E>, List<Edge<E>>> adjList;
+    private final Map<E, Vertex<E>> vMap;
+    private final Map<Vertex<E>, List<Edge<E>>> adjList;
 
     /**
      * THe constructor for the graph object, creates an empty graph. The representation consists of vertices and a map

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DijkstraStringPath implements Path<String> {
 
-    private DijkstraPath<String> d;
+    private final DijkstraPath<String> d;
 
     /**
      * DijkstraStringPath creates a DijkstraPath with Strings
