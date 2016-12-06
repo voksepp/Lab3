@@ -25,8 +25,14 @@ public class DijkstraPath<E> implements Path<E> {
 
     public void computePath(E from, E to){
         pq.clear();
+        path.clear();
         destination = g.getVertex(to);
         origin = g.getVertex(from);
+
+        if (from.equals(to)){
+            path.add(from);
+            return;
+        }
 
         for (Vertex<E> v : g.getVertices().values()){
             v.setDistance(Integer.MAX_VALUE);
@@ -51,7 +57,7 @@ public class DijkstraPath<E> implements Path<E> {
             }
         }
 
-        path.clear();
+
         Vertex<E> u = destination;
         while (previous.get(u) != null){
             path.add(u.getData());
