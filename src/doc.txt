@@ -21,10 +21,10 @@ public void computePath(E from, E to) {
         origin.setDistance(0);                                          //  O(1)
         pq.add(origin);                                                 //  O(1)
 
-        while (!pq.isEmpty()) {
-            Vertex<E> u = pq.poll();
-            for (Edge<E> e : g.getOutgoingEdges(u)) {
-                Vertex<E> v = e.getDestination();
+        while (!pq.isEmpty()) {                                         // O(V)
+            Vertex<E> u = pq.poll();                                        // O(1)
+            for (Edge<E> e : g.getOutgoingEdges(u)) {                       // O(E)
+                Vertex<E> v = e.getDestination();                               // O( ?? )
                 int alt = u.getDistance() + e.getCost();
                 if (alt < v.getDistance()) {
                     v.setDistance(alt);
