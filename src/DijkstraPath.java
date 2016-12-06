@@ -13,6 +13,10 @@ public class DijkstraPath<E> implements Path<E> {
     HashSet<Vertex<E>> visitedVertices = new HashSet<>();
     //behövs ej? private final Map<Vertex<E>, Integer> distances;
 
+    /**
+     *
+     * @param g
+     */
     public DijkstraPath(Graph<E> g) {
         this.g = g;
         // distances = new HashMap<>();
@@ -61,6 +65,18 @@ public class DijkstraPath<E> implements Path<E> {
         path.add(origin.getData()); // vertexens namn i path-listan
     }
 
+    /**
+     * Returns an iterator over the nodes in the path.
+     * <p>
+     * If a path has been found the first node in the iterator is the
+     * argument <code>from</code> passed to <code>computePath</code> and
+     * the last node is <code>to</code>.
+     * <p>
+     * If no path was found or if no call to computePath has been made the
+     * iterator is empty.
+     *
+     * @return An iterator over the computed path.
+     */
     @Override
     public Iterator<E> getPath() {
         return path.iterator();
@@ -78,7 +94,8 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public int getPathLength() {
+        if (false) // TODO:fixa villkor
+            return -1;
         return destination.getDistance();
-        // return distances.get(destination);
     }
 }
