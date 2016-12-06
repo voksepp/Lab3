@@ -2,7 +2,11 @@ Time complexity analysis: computePath
 V = amount of vertices
 E = amount of edges
 
-
+The time complexity of clear in priorityQueue is proportional to the amount of elements it contains (V elements) since
+clear goes through every element in priorityQueue and sets the element to null. This gives O(V). The poll method removes
+an element and has to sort the priorityQueue by bubbling and therefore has the time complexity O(log(V)). In the foreach
+edge loop worst case scenario is that the vertex is connected to every other vertex and thus has a time complexity of
+O(E) (E edges).
 
 public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
