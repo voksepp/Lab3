@@ -1,0 +1,44 @@
+Time complexity analysis: computePath
+
+public void computePath(E from, E to) {
+        pq.clear();
+        path.clear();
+        destination = g.getVertex(to);
+        Vertex<E> origin = g.getVertex(from);
+
+        if (from.equals(to)) {
+            path.add(from);
+            return;
+        }
+
+        for (Vertex<E> v : g.getVertices().values()) {
+            v.setMax();
+            previous.put(v, null);
+        }
+
+        origin.setDistance(0);
+
+        pq.add(origin);
+
+        while (!pq.isEmpty()) {
+            Vertex<E> u = pq.poll();
+            for (Edge<E> e : g.getOutgoingEdges(u)) {
+                Vertex<E> v = e.getDestination();
+                int alt = u.getDistance() + e.getCost();
+                if (alt < v.getDistance()) {
+                    v.setDistance(alt);
+                    previous.put(v, u);
+                    if (!pq.contains(v))
+                        pq.add(v);
+                }
+            }
+        }
+
+        Vertex<E> u = destination;
+        while (previous.get(u) != null) {
+            path.add(u.getData());
+            u = previous.get(u);
+        }
+        path.add(origin.getData());
+        Collections.reverse(path);
+    }
