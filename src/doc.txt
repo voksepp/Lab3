@@ -9,7 +9,7 @@ public void computePath(E from, E to) {
         Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
         if (from.equals(to)) {                                          //  O(1)
-            path.add(from);                                             //  O(1)
+            path.add(from);                                                 //  O(1)
             return;
         }
 
