@@ -29,6 +29,9 @@ public class Edge<E> {
         return destination;
     }
 
+    /**
+     * @return the source vertex
+     */
     public Vertex<E> getSource() {
         return source;
    }
