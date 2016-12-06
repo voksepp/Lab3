@@ -146,8 +146,6 @@ public class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public int getPathLength() {
-        if (false) // TODO:fixa villkor
-            return -1;
         return destination.getDistance();
     }
 }
