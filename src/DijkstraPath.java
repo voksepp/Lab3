@@ -9,6 +9,7 @@ class DijkstraPath<E> implements Path<E> {
     private final PriorityQueue<Vertex<E>> pq;
     private Vertex<E> destination;
     private final HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
+    private final HashSet<Vertex<E>> visited = new HashSet<>();
 
     /**
      * DijkstraPath receives a graph and computes the cheapest route from an arbitrary vertex in the graph to another.
@@ -59,8 +60,10 @@ class DijkstraPath<E> implements Path<E> {
                 if (alt < v.getDistance()) {
                     v.setDistance(alt);
                     previous.put(v, u);
-                    if (!pq.contains(v))
+                    if (!visited.contains(v)) {
                         pq.add(v);
+                        visited.add(v);
+                    }
                 }
             }
         }
