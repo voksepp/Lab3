@@ -31,11 +31,13 @@ public class Edge<E> {
         return to;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Vertex<E> getFrom() {
-        return from;
-    }
+// --Commented out by Inspection START (2016-12-06 15:15):
+//    /**
+//     *
+//     * @return
+//     */
+//    public Vertex<E> getFrom() {
+//        return from;
+//    }
+// --Commented out by Inspection STOP (2016-12-06 15:15)
 }

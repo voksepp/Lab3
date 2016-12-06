@@ -6,7 +6,7 @@ import Lab3Help.Path;
 import java.util.Iterator;
 import java.util.List;
 
-public class DijkstraStringPath implements Path<String> {
+class DijkstraStringPath implements Path<String> {
 
     private final DijkstraPath<String> d;
 
