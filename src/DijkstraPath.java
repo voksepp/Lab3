@@ -35,19 +35,19 @@ public class DijkstraPath<E> implements Path<E> {
      */
 
     public void computePath(E from, E to) {
-        path.clear();
+        path.clear();       // förberedelser för ny path
         pq.clear();
-        g.setMax();
+        g.setMax();         // sätter alla distance till INF
 
-        destination = g.getVertex(from);
+        destination = g.getVertex(from);        // hittar vertices
         origin = g.getVertex(to);
 
-        pq.add(origin);
+        pq.add(origin);     // lägger till source i prioritetskön
 
         while (!pq.isEmpty()) {
             //TODO: Stuff
             // använd denna metod: TODO:fixa
-            path.add(origin.getData());
+            path.add(origin.getData()); // vertexens namn i path-listan
         }
     }
 
