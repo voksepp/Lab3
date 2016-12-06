@@ -9,7 +9,8 @@ public class Graph<E> {
     private Map<Vertex<E>, List<Edge<E>>> adjList;
 
     /**
-     *
+     * THe constructor for the graph object, creates an empty graph. The representation consists of vertices and a map
+     * connecting a vertex to a list of edges emanating from it.
      */
     public Graph() {
         vMap = new HashMap<>();
@@ -18,8 +19,8 @@ public class Graph<E> {
 
     /**
      *
-     * @param data
-     * @return
+     * @param data usually the name of the vertex
+     * @return the vertex
      */
     public Vertex<E> getVertex(E data) {
         Vertex<E> exists = vMap.get(data);
@@ -30,9 +31,9 @@ public class Graph<E> {
     }
 
     /**
-     *
-     * @param data
-     * @return
+     * Adds a vertex to the graph
+     * @param data usually the name of the vertex
+     * @return the newly created vertex
      */
     public Vertex<E> addVertex(E data) {
         if (getVertex(data) != null)
@@ -44,11 +45,11 @@ public class Graph<E> {
     }
 
     /**
-     *
-     * @param from
-     * @param to
-     * @param cost
-     * @return
+     * Adds an edge to the graph
+     * @param from The name of the source vertex
+     * @param to The name of the destination vertex
+     * @param cost the cost/weight of the edge
+     * @return true if the edge has been added, false if it already exists
      */
     public boolean addEdge(E from, E to, int cost) {
         if (from.equals(to))
@@ -65,17 +66,15 @@ public class Graph<E> {
     }
 
     /**
-     *
-     * @return
+     * @return the map containing all vertices in the graph
      */
     public Map<E, Vertex<E>> getVertices() {
         return vMap;
     }
 
     /**
-     *
-     * @param v
-     * @return
+     * @param v A vertex
+     * @return All edges emanating from the vertex
      */
     public List<Edge<E>> getOutgoingEdges(Vertex<E> v) {
         return adjList.get(v);
