@@ -8,13 +8,13 @@ public class DijkstraPath<E> implements Path<E> {
     private List<E> path;
     private PriorityQueue<Vertex<E>> pq;
     private Vertex<E> destination;
-    private Vertex<E> origin;
     private HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
 
     /**
-     * @param g
+     * DijkstraPath receives a graph and computes the cheapest route from an arbitrary vertex in the graph to another.
+     * @param g a graph
      */
-    public DijkstraPath(Graph<E> g) {
+    DijkstraPath(Graph<E> g) {
         this.g = g;
         path = new ArrayList<>();
         pq = new PriorityQueue<>();
@@ -29,14 +29,14 @@ public class DijkstraPath<E> implements Path<E> {
      * Precondition: The underlying graph must not contain any negative
      * edge weights.
      *
-     * @param from
-     * @param to
+     * @param from the vertex of which to start from
+     * @param to the goal
      */
     public void computePath(E from, E to) {
         pq.clear();
         path.clear();
         destination = g.getVertex(to);
-        origin = g.getVertex(from);
+        Vertex<E> origin = g.getVertex(from);
 
         if (from.equals(to)) {
             path.add(from);
