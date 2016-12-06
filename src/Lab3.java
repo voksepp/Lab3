@@ -10,7 +10,7 @@ import java.util.List;
 public class Lab3 {
 
     /**
-     *
+     * Calculates and prints the shortest path along bus lines between two stops.
      * @param args Usage: java Lab3 stops.txt lines.txt HållplatsA HållplatsB
      * @throws IOException
      * @throws MalformedData
