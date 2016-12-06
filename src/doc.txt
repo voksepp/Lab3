@@ -8,7 +8,6 @@ an element and has to sort the priorityQueue by bubbling and therefore has the t
 edge loop worst case scenario is that the vertex is connected to every other vertex and thus has a time complexity of
 O(E) (E edges).
 
-
 All operations in the outer level code: O(1) and O(V) -> O(V) dominant.
 First loop level: O(log(V)) and O(E) -> O(E) dominant.
 Second loop level: O(log(V))
