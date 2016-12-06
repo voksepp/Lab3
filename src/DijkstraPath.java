@@ -51,7 +51,9 @@ public class DijkstraPath<E> implements Path<E> {
             if(!visitedVertices.contains(currentVertex)){
                 visitedVertices.add(currentVertex);
 
+                for (Vertex<E> nearest : /*Få ut grannar till vertex*/) {
 
+                }
             }
         }
 
