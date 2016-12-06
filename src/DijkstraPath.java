@@ -10,7 +10,7 @@ public class DijkstraPath<E> implements Path<E> {
     private Vertex<E> destination;
     private Vertex<E> origin;
     private int totalDistance;
-    HashSet<Vertex<E>> visitedVertices = new HashSet<>();
+    private HashSet<Vertex<E>> visitedVertices = new HashSet<>();
     //behövs ej? private final Map<Vertex<E>, Integer> distances;
 
     /**
@@ -42,6 +42,7 @@ public class DijkstraPath<E> implements Path<E> {
         pq.clear();
         g.setMax();         // sätter alla distance till INF
         totalDistance = Integer.MAX_VALUE;
+        HashMap<Integer, Integer> distance = new HashMap<Integer, Integer>();
 
         destination = g.getVertex(from);        // hittar vertices
         origin = g.getVertex(to);
@@ -57,7 +58,12 @@ public class DijkstraPath<E> implements Path<E> {
                 visitedVertices.add(currentVertex);
 
                 for (Edge<E> nearest : g.getOutgoingEdges(currentVertex)) {
-
+                    //if(!visitedVertices.contains(nearest) )
+                    int tmp = currentVertex.getDistance() + nearest.getCost()/*Avståndet mellan currentVertex och nearest*/;
+                    if(tmp < nearest.getCost()){
+                        /*distance = tmp*/
+                        /*kom ihåg att föregångaren till denna nearest är currentVertex*/
+                    }
                 }
             }
         }
