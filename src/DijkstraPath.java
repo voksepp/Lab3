@@ -1,9 +1,6 @@
 import Lab3Help.Path;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class DijkstraPath<E> implements Path<E> {
 
@@ -12,6 +9,8 @@ public class DijkstraPath<E> implements Path<E> {
     private PriorityQueue<Vertex<E>> pq;
     private Vertex<E> destination;
     private Vertex<E> origin;
+    private int totalDistance;
+    HashSet<Vertex<E>> visitedVertices = new HashSet<>();
     //behövs ej? private final Map<Vertex<E>, Integer> distances;
 
     public DijkstraPath(Graph<E> g) {
@@ -38,6 +37,7 @@ public class DijkstraPath<E> implements Path<E> {
         path.clear();       // förberedelser för ny path
         pq.clear();
         g.setMax();         // sätter alla distance till INF
+        totalDistance = Integer.MAX_VALUE;
 
         destination = g.getVertex(from);        // hittar vertices
         origin = g.getVertex(to);
@@ -47,7 +47,15 @@ public class DijkstraPath<E> implements Path<E> {
         pq.add(origin);     // lägger till source i prioritetskön
 
         while (!pq.isEmpty()) {
-            //TODO: Stuff
+            Vertex<E> currentVertex = pq.poll();
+
+            if(!visitedVertices.contains(currentVertex)){
+                visitedVertices.add(currentVertex);
+
+                for (Edge<E> nearest : g.getOutgoingEdges(currentVertex)) {
+
+                }
+            }
         }
 
         path.add(origin.getData()); // vertexens namn i path-listan
