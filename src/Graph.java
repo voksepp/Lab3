@@ -41,11 +41,9 @@ public class Graph<E> {
         Vertex<E> toV = getVertex(to);
 
         Edge<E> e = new Edge<>(fromV, toV, cost);
-        if (adjList.containsKey(e)){
-            if (!adjList.get(fromV).contains(e)) {
-                adjList.get(fromV).add(e);
-                return true;
-            }
+        if (!adjList.get(fromV).contains(e)) {
+            adjList.get(fromV).add(e);
+            return true;
         }
         return false;
     }
