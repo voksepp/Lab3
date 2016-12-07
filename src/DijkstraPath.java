@@ -45,6 +45,7 @@ class DijkstraPath<E> implements Path<E> {
 
         if (from.equals(to)) {
             path.add(from);
+            distances.put(destination,0);
             return;
         }
 
