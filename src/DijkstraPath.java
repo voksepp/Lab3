@@ -20,16 +20,16 @@ class DijkstraPath<E> implements Path<E> {
     DijkstraPath(Graph<E> g) {
         this.g = g;
         path = new ArrayList<>();
-        pq = new PriorityQueue<>(new VertexComparator<E>());
+        pq = new PriorityQueue<>(new VertexComparator());
     }
 
-    class VertexComparator<E> implements Comparator<Vertex<E>> {
+    class VertexComparator implements Comparator<Vertex> {
 
         VertexComparator(){
         }
 
         @Override
-        public int compare(Vertex<E> o1, Vertex<E> o2) {
+        public int compare(Vertex o1, Vertex o2) {
             return distances.get(o1)-distances.get(o2);
         }
     }
