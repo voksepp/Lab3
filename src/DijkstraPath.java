@@ -50,6 +50,7 @@ class DijkstraPath<E> implements Path<E> {
         pq.clear();
         path.clear();
         visited.clear();
+        distances.clear();
         destination = g.getVertex(to);
         Vertex<E> origin = g.getVertex(from);
 
