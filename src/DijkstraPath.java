@@ -23,17 +23,6 @@ class DijkstraPath<E> implements Path<E> {
         pq = new PriorityQueue<>(new VertexComparator());
     }
 
-    class VertexComparator implements Comparator<Vertex> {
-
-        VertexComparator(){
-        }
-
-        @Override
-        public int compare(Vertex o1, Vertex o2) {
-            return distances.get(o1)-distances.get(o2);
-        }
-    }
-
     /**
      * Computes the path from <code>from</code> to <code>to</code> (if any). Path
      * information can be retrieved by subsequent calls to
@@ -125,5 +114,16 @@ class DijkstraPath<E> implements Path<E> {
         if (distances.get(destination) == Integer.MAX_VALUE) // No path, origin -> destination
             return -1;
         return distances.get(destination);
+    }
+
+    class VertexComparator implements Comparator<Vertex> {
+
+        VertexComparator() {
+        }
+
+        @Override
+        public int compare(Vertex o1, Vertex o2) {
+            return distances.get(o1) - distances.get(o2);
+        }
     }
 }
