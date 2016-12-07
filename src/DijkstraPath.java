@@ -8,6 +8,7 @@ class DijkstraPath<E> implements Path<E> {
     private final List<E> path;
     private final PriorityQueue<Vertex<E>> pq;
     private final HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
+    private final HashMap<Vertex<E>, Integer> distances = new HashMap<>();
     private final HashSet<Vertex<E>> visited = new HashSet<>();
     private Vertex<E> destination;
 
@@ -47,11 +48,11 @@ class DijkstraPath<E> implements Path<E> {
         }
 
         for (Vertex<E> v : g.getVertices().values()) {
-            v.setMax();
+            distances.put(v, Integer.MAX_VALUE);
             previous.put(v, null);
         }
 
-        origin.setDistance(0);
+        distances.put(origin, 0);
         pq.add(origin);
         visited.add(origin);
 
@@ -59,9 +60,9 @@ class DijkstraPath<E> implements Path<E> {
             Vertex<E> u = pq.poll();
             for (Edge<E> e : g.getOutgoingEdges(u)) {
                 Vertex<E> v = e.getHead();
-                int alt = u.getDistance() + e.getCost();
-                if (alt < v.getDistance()) {
-                    v.setDistance(alt);
+                int alt = distances.get(u) + e.getCost();
+                if (alt < distances.get(v)) {
+                    distances.put(v, alt);
                     previous.put(v, u);
                     if (!visited.contains(v)) {
                         pq.add(v);
@@ -109,8 +110,8 @@ class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public int getPathLength() {
-        if (destination.getDistance() == Integer.MAX_VALUE) // No path origin -> destination
+        if (distances.get(destination) == Integer.MAX_VALUE) // No path origin -> destination
             return -1;
-        return destination.getDistance();
+        return distances.get(destination);
     }
 }
