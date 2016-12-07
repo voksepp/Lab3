@@ -38,6 +38,8 @@ class DijkstraPath<E> implements Path<E> {
         path.clear();
         visited.clear();
         distances.clear();
+        previous.clear();
+
         destination = g.getVertex(to);
         Vertex<E> origin = g.getVertex(from);
 
