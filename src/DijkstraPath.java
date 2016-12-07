@@ -117,7 +117,6 @@ class DijkstraPath<E> implements Path<E> {
     }
 
     class VertexComparator implements Comparator<Vertex> {
-
         VertexComparator() {
         }
 
