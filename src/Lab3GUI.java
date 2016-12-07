@@ -5,11 +5,6 @@ import java.util.List;
 
 class Lab3GUI {
 
-    /**
-     * @param args
-     * @throws IOException
-     * @throws MalformedData
-     */
     public static void main(String[] args) throws IOException, MalformedData {
         if (args.length != 2)
             throw new IllegalArgumentException("Usage: java Lab3 stops.txt lines.txt");
