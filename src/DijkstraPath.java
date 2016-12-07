@@ -20,7 +20,7 @@ class DijkstraPath<E> implements Path<E> {
     DijkstraPath(Graph<E> g) {
         this.g = g;
         path = new ArrayList<>();
-        pq = new PriorityQueue<>();
+        pq = new PriorityQueue<>(new VertexComparator<E>(distances));
     }
 
     /**
