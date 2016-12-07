@@ -6,10 +6,11 @@ class VertexComparator<E> implements Comparator<Vertex<E>> {
 
     /**
      * Comparator for comparing the distance to source between two vertices.
+     *
      * @param d Map containing the distances.
      */
     VertexComparator(Map<Vertex<E>, Integer> d) {
-        this.d=d;
+        this.d = d;
     }
 
     /**
