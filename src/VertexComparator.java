@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public class VertexComparator<E> implements Comparator<Vertex<E>> {
 
-    public final HashMap<Vertex<E>, Integer> d;
+    public HashMap<Vertex<E>, Integer> d;
 
     public VertexComparator(HashMap<Vertex<E>, Integer> distances){
         d = distances;
