@@ -6,9 +6,9 @@ class DijkstraPath<E> implements Path<E> {
 
     private final Graph<E> g;
     private final List<E> path = new ArrayList<>();
-    private final PriorityQueue<Vertex<E>> pq = new PriorityQueue<>(new VertexComparator());
     private final HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
     private final HashMap<Vertex<E>, Integer> distances = new HashMap<>();
+    private final PriorityQueue<Vertex<E>> pq = new PriorityQueue<>(new VertexComparator<>(distances));
     private final HashSet<Vertex<E>> visited = new HashSet<>();
     private Vertex<E> destination;
 
@@ -114,15 +114,5 @@ class DijkstraPath<E> implements Path<E> {
         if (distances.get(destination) == Integer.MAX_VALUE) // No path, origin -> destination
             return -1;
         return distances.get(destination);
-    }
-
-    class VertexComparator implements Comparator<Vertex> {
-        VertexComparator() {
-        }
-
-        @Override
-        public int compare(Vertex o1, Vertex o2) {
-            return distances.get(o1) - distances.get(o2);
-        }
     }
 }
