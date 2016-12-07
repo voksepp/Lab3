@@ -44,14 +44,14 @@ In total the time complexity of the computePath method is O(V+E*log(V)). ??????
         while (!pq.isEmpty()) {                                         //  O(V)
             Vertex<E> u = pq.poll();                                        //  O(log(V))
             for (Edge<E> e : g.getOutgoingEdges(u)) {                       //  O(E)
-                Vertex<E> v = e.getHead();                                  //  O(1)
-                int alt = distances.get(u) + e.getCost();                   //  O(1)
-                if (alt < distances.get(v)) {                               //  O(1)
-                    distances.put(v, alt);                                  //  O(1)
-                    previous.put(v, u);                                     //  O(1)
-                    if (!visited.contains(v)) {                             //  O(1)
-                        pq.add(v);                                          //  O(log(V))
-                        visited.add(v);                                     //  O(1)
+                Vertex<E> v = e.getHead();                                      //  O(1)
+                int alt = distances.get(u) + e.getCost();                       //  O(1)
+                if (alt < distances.get(v)) {                                   //  O(1)
+                    distances.put(v, alt);                                      //  O(1)
+                    previous.put(v, u);                                         //  O(1)
+                    if (!visited.contains(v)) {                                 //  O(1)
+                        pq.add(v);                                              //  O(log(V))
+                        visited.add(v);                                         //  O(1)
                     }
                 }
             }
