@@ -20,7 +20,18 @@ class DijkstraPath<E> implements Path<E> {
     DijkstraPath(Graph<E> g) {
         this.g = g;
         path = new ArrayList<>();
-        pq = new PriorityQueue<>(new VertexComparator<E>(distances));
+        pq = new PriorityQueue<>(new VertexComparator<E>());
+    }
+
+    class VertexComparator<E> implements Comparator<Vertex<E>> {
+
+        VertexComparator(){
+        }
+
+        @Override
+        public int compare(Vertex<E> o1, Vertex<E> o2) {
+            return distances.get(o1)-distances.get(o2);
+        }
     }
 
     /**
