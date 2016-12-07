@@ -8,8 +8,8 @@ class DijkstraPath<E> implements Path<E> {
     private final List<E> path = new ArrayList<>();
     private final HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
     private final HashMap<Vertex<E>, Integer> distances = new HashMap<>();
-    private final PriorityQueue<Vertex<E>> pq = new PriorityQueue<>(new VertexComparator<>(distances));
     private final HashSet<Vertex<E>> visited = new HashSet<>();
+    private final PriorityQueue<Vertex<E>> pq = new PriorityQueue<>(new VertexComparator<>(distances));
     private Vertex<E> destination;
 
     /**
