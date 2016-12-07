@@ -5,8 +5,8 @@ import java.util.*;
 class DijkstraPath<E> implements Path<E> {
 
     private final Graph<E> g;
-    private final List<E> path;
-    private final PriorityQueue<Vertex<E>> pq;
+    private final List<E> path = new ArrayList<>();
+    private final PriorityQueue<Vertex<E>> pq = new PriorityQueue<>(new VertexComparator());
     private final HashMap<Vertex<E>, Vertex<E>> previous = new HashMap<>();
     private final HashMap<Vertex<E>, Integer> distances = new HashMap<>();
     private final HashSet<Vertex<E>> visited = new HashSet<>();
@@ -19,8 +19,6 @@ class DijkstraPath<E> implements Path<E> {
      */
     DijkstraPath(Graph<E> g) {
         this.g = g;
-        path = new ArrayList<>();
-        pq = new PriorityQueue<>(new VertexComparator());
     }
 
     /**
