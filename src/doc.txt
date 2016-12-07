@@ -16,37 +16,43 @@ Second loop level: O(log(V))
 
 In total the time complexity of the computePath method is O(V+E*log(V)).
 
-public void computePath(E from, E to) {
+    public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
         path.clear();                                                   //  O(V)
         visited.clear();                                                //  O(V)
+        distances.clear();                                              //  O(V)
+        previous.clear();                                               //  O(V)
+
         destination = g.getVertex(to);                                  //  O(1)
         Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
         if (from.equals(to)) {                                          //  O(1)
             path.add(from);                                             //  O(1)
+            distances.put(destination, 0);                              //  O(1)
             return;
         }
 
         for (Vertex<E> v : g.getVertices().values()) {                  //  O(V)
-            v.setMax();                                                         //  O(1)
-            previous.put(v, null);                                              //  O(1)
+            distances.put(v, Integer.MAX_VALUE);                            //  O(1)
+            previous.put(v, null);                                          //  O(1)
         }
 
-        origin.setDistance(0);                                          //  O(1)
+        distances.put(origin, 0);                                       //  O(1)
         pq.add(origin);                                                 //  O(1)
+        visited.add(origin);                                            //  O(1)
 
-        while (!pq.isEmpty()) {                                         // O(V)
-            Vertex<E> u = pq.poll();                                        // O(log(V))
-            for (Edge<E> e : g.getOutgoingEdges(u)) {                       // O(E)
-                Vertex<E> v = e.getHead();                                  // O(1)
-                int alt = u.getDistance() + e.getCost();                        // O(1)
-                if (alt < v.getDistance()) {                                    // O(1)
-                    v.setDistance(alt);                                         // O(1)
-                    previous.put(v, u);                                         // O(1)
-                    if (!visited.contains(v))                                   // O(1)
-                        pq.add(v);                                              // O(log(V))
-                        visited.add(v);                                         // O(1)
+        while (!pq.isEmpty()) {                                         //  O(V)
+            Vertex<E> u = pq.poll();                                        //  O(log(V))
+            for (Edge<E> e : g.getOutgoingEdges(u)) {                       //  O(E)
+                Vertex<E> v = e.getHead();                                  //  O(1)
+                int alt = distances.get(u) + e.getCost();                   //  O(1)
+                if (alt < distances.get(v)) {                               //  O(1)
+                    distances.put(v, alt);                                  //  O(1)
+                    previous.put(v, u);                                     //  O(1)
+                    if (!visited.contains(v)) {                             //  O(1)
+                        pq.add(v);                                          //  O(log(V))
+                        visited.add(v);                                     //  O(1)
+                    }
                 }
             }
         }
@@ -58,4 +64,4 @@ public void computePath(E from, E to) {
         }
         path.add(origin.getData());                                     //  O(1)
         Collections.reverse(path);                                      //  O(V)
-}
+    }
