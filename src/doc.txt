@@ -6,15 +6,8 @@ The time complexity of clear in priorityQueue is proportional to the amount of e
 clear goes through every element in priorityQueue and sets the element to null. This gives O(V). The poll method removes
 an element and has to sort the priorityQueue by bubbling and therefore has the time complexity O(log(V)). In the foreach
 edge loop worst case scenario is that the vertex is connected to every other vertex and thus has a time complexity of
-O(E) (E edges).
+O(E) (E edges). // TODO: fixa
 
-All operations in the outer level code: O(1) and O(V) -> O(V) dominant.
-First loop level: O(log(V)) and O(E) -> O(E) dominant.
-Second loop level: O(log(V))
-
-->>> O(V) + O(E) * O(log(V))
-
-In total the time complexity of the computePath method is O(V+E*log(V)). ??????
 
     public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
@@ -41,7 +34,7 @@ In total the time complexity of the computePath method is O(V+E*log(V)). ??????
 
         while (!pq.isEmpty()) {                                         //  O(V)
             Vertex<E> u = pq.poll();                                        //  O(log(V))
-            if (!visited.contains(u)){                                      //  O(1)
+            if (!visited.contains(u)){                                      //  max O(V)
                 for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  O(E)
                     Vertex<E> v = e.getHead();                                  //  O(1)
                     int alt = distances.get(u) + e.getCost();                   //  O(1)
