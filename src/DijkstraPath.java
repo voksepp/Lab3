@@ -10,6 +10,7 @@ class DijkstraPath<E> implements Path<E> {
     private final HashMap<Vertex<E>, Integer> distances = new HashMap<>();
     private final HashSet<Vertex<E>> visited = new HashSet<>();
     private final PriorityQueue<Vertex<E>> pq = new PriorityQueue<>(new VertexComparator<>(distances));
+    private Vertex<E> origin;
     private Vertex<E> destination;
 
     /**
@@ -35,13 +36,12 @@ class DijkstraPath<E> implements Path<E> {
      */
     public void computePath(E from, E to) {
         pq.clear();
-        path.clear();
         visited.clear();
         distances.clear();
         previous.clear();
 
         destination = g.getVertex(to);
-        Vertex<E> origin = g.getVertex(from);
+        origin = g.getVertex(from);
 
         if (from.equals(to)) {
             path.add(from);
@@ -74,13 +74,7 @@ class DijkstraPath<E> implements Path<E> {
             }
         }
 
-        Vertex<E> u = destination;
-        while (previous.get(u) != null) {
-            path.add(u.getData());
-            u = previous.get(u);
-        }
-        path.add(origin.getData());
-        Collections.reverse(path);
+
     }
 
     /**
@@ -97,6 +91,15 @@ class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public Iterator<E> getPath() {
+        path.clear();
+
+        Vertex<E> u = destination;
+        while (previous.get(u) != null) {
+            path.add(u.getData());
+            u = previous.get(u);
+        }
+        path.add(origin.getData());
+        Collections.reverse(path);
         return path.iterator();
     }
 

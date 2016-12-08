@@ -18,7 +18,6 @@ In total the time complexity of the computePath method is O(V+E*log(V)). ??????
 
     public void computePath(E from, E to) {
         pq.clear();                                                     //  O(V)
-        path.clear();                                                   //  O(V)
         visited.clear();                                                //  O(V)
         distances.clear();                                              //  O(V)
         previous.clear();                                               //  O(V)
