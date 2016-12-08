@@ -28,13 +28,13 @@ public void computePath(E from, E to) {
     while (!pq.isEmpty()) {                                         //  O(E)
         Vertex<E> u = pq.poll();                                        //  O(log(V^2)) -> O(2log(V)) -> O(log(V))
         if (!visited.contains(u)){                                      //  O(1)
-            for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  limited by number of edges to O(E), and to O(V) by if statement above
+            for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  limited by number of edges to O(E), and to O(V) by if statement above.
                 Vertex<E> v = e.getHead();                                  //  O(1)
                 int alt = distances.get(u) + e.getCost();                   //  O(1)
                 if (alt < distances.get(v)) {                               //  O(1)
                     distances.put(v, alt);                                  //  O(1)
                     previous.put(v, u);                                     //  O(1)
-                    pq.add(v);                                              //  O(log(E)) -> O(log(V^2) -> O(2log(V)) -> O(log(V))
+                    pq.add(v);                                              //  O(log(E)) -> O(log(V^2) -> O(2log(V)) -> O(log(V))  // V < E^2
                 }
             }
             visited.add(u);                                             //  O(1)
