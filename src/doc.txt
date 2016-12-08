@@ -9,42 +9,44 @@ edge loop worst case scenario is that the vertex is connected to every other ver
 O(E) (E edges). // TODO: fixa
 
 
-    public void computePath(E from, E to) {
-        pq.clear();                                                     //  O(V)
-        visited.clear();                                                //  O(V)
-        distances.clear();                                              //  O(V)
-        previous.clear();                                               //  O(V)
+public void computePath(E from, E to) {
+    pq.clear();                                                     //  O(V)
+    visited.clear();                                                //  O(V)
+    distances.clear();                                              //  O(V)
+    previous.clear();                                               //  O(V)
 
-        destination = g.getVertex(to);                                  //  O(1)
-        Vertex<E> origin = g.getVertex(from);                           //  O(1)
+    destination = g.getVertex(to);                                  //  O(1)
+    Vertex<E> origin = g.getVertex(from);                           //  O(1)
 
-        if (from.equals(to)) {                                          //  O(1)
-            path.add(from);                                             //  O(1)
-            distances.put(destination, 0);                              //  O(1)
-            return;
-        }
+    if (from.equals(to)) {                                          //  O(1)
+        path.add(from);                                             //  O(1)
+        distances.put(destination, 0);                              //  O(1)
+        return;
+    }
 
-        for (Vertex<E> v : g.getVertices().values()) {                  //  O(V)
-            distances.put(v, Integer.MAX_VALUE);                            //  O(1)
-            previous.put(v, null);                                          //  O(1)
-        }
+    for (Vertex<E> v : g.getVertices().values()) {                  //  O(V)
+        distances.put(v, Integer.MAX_VALUE);                            //  O(1)
+        previous.put(v, null);                                          //  O(1)
+    }
 
-        distances.put(origin, 0);                                       //  O(1)
-        pq.add(origin);                                                 //  O(1)
+    distances.put(origin, 0);                                       //  O(1)
+    pq.add(origin);                                                 //  O(1)
 
-        while (!pq.isEmpty()) {                                         //  O(V)
-            Vertex<E> u = pq.poll();                                        //  O(log(V))
-            if (!visited.contains(u)){                                      //  max O(V)
-                for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  O(E)
-                    Vertex<E> v = e.getHead();                                  //  O(1)
-                    int alt = distances.get(u) + e.getCost();                   //  O(1)
-                    if (alt < distances.get(v)) {                               //  O(1)
-                        distances.put(v, alt);                                  //  O(1)
-                        previous.put(v, u);                                     //  O(1)
-                        pq.add(v);                                              //  O(log(V^2)) -> O(log(E))
-                    }
+    while (!pq.isEmpty()) {                                         //  O(V)
+        Vertex<E> u = pq.poll();                                        //  O(log(V))
+        if (!visited.contains(u)){                                      //  max O(V)
+            for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  O(E)
+                Vertex<E> v = e.getHead();                                  //  O(1)
+                int alt = distances.get(u) + e.getCost();                   //  O(1)
+                if (alt < distances.get(v)) {                               //  O(1)
+                    distances.put(v, alt);                                  //  O(1)
+                    previous.put(v, u);                                     //  O(1)
+                    pq.add(v);                                              //  O(log(V^2)) -> O(log(E))
                 }
-                visited.add(u);                                             //  O(1)
             }
+            visited.add(u);                                             //  O(1)
         }
     }
+}
+
+For the upper part of the method, above the while loop, the complexity is O(V).
