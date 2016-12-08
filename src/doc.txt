@@ -2,13 +2,6 @@ Time complexity analysis: computePath
 V = amount of vertices
 E = amount of edges
 
-The time complexity of clear in priorityQueue is proportional to the amount of elements it contains (V elements) since
-clear goes through every element in priorityQueue and sets the element to null. This gives O(V). The poll method removes
-an element and has to sort the priorityQueue by bubbling and therefore has the time complexity O(log(V)). In the foreach
-edge loop worst case scenario is that the vertex is connected to every other vertex and thus has a time complexity of
-O(E) (E edges). // TODO: fixa
-
-
 public void computePath(E from, E to) {
     pq.clear();                                                     //  O(V)
     visited.clear();                                                //  O(V)
@@ -32,10 +25,10 @@ public void computePath(E from, E to) {
     distances.put(origin, 0);                                       //  O(1)
     pq.add(origin);                                                 //  O(1)
 
-    while (!pq.isEmpty()) {                                         //  O(V)
-        Vertex<E> u = pq.poll();                                        //  O(log(V))
-        if (!visited.contains(u)){                                      //  max O(V)
-            for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  O(E)
+    while (!pq.isEmpty()) {                                         //  O(log(V^2)) -> O(E)
+        Vertex<E> u = pq.poll();                                        //  O(log(E))
+        if (!visited.contains(u)){                                      //  O(1)
+            for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  O(V)
                 Vertex<E> v = e.getHead();                                  //  O(1)
                 int alt = distances.get(u) + e.getCost();                   //  O(1)
                 if (alt < distances.get(v)) {                               //  O(1)
@@ -50,3 +43,4 @@ public void computePath(E from, E to) {
 }
 
 For the upper part of the method, above the while loop, the complexity is O(V).
+The while loop iterates once for every element of the queue
