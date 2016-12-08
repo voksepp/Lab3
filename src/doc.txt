@@ -25,16 +25,16 @@ public void computePath(E from, E to) {
     distances.put(origin, 0);                                       //  O(1)
     pq.add(origin);                                                 //  O(1)
 
-    while (!pq.isEmpty()) {                                         //  O(log(V^2)) -> O(E)
+    while (!pq.isEmpty()) {                                         //  O((V^2)) -> O(E)
         Vertex<E> u = pq.poll();                                        //  O(log(E))
-        if (!visited.contains(u)){                                      //  O(1)
+        if (!visited.contains(u)){                                      //  O(1), iterates V times
             for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  O(V)
                 Vertex<E> v = e.getHead();                                  //  O(1)
                 int alt = distances.get(u) + e.getCost();                   //  O(1)
                 if (alt < distances.get(v)) {                               //  O(1)
                     distances.put(v, alt);                                  //  O(1)
                     previous.put(v, u);                                     //  O(1)
-                    pq.add(v);                                              //  O(log(V^2)) -> O(log(E))
+                    pq.add(v);                                              //  O(log(V^2)) -> O(2log(V)) -> O(log(V))
                 }
             }
             visited.add(u);                                             //  O(1)
@@ -43,4 +43,9 @@ public void computePath(E from, E to) {
 }
 
 For the upper part of the method, above the while loop, the complexity is O(V).
-The while loop iterates once for every element of the queue
+
+
+The inner for loop iterates in total once for every element of the queue -> once for every iteration of the for loop
+-> once for every vertex -> V times -> complexity O(V*log(V))
+
+V+E*log(V)
