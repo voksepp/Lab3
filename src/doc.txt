@@ -25,16 +25,16 @@ public void computePath(E from, E to) {
     distances.put(origin, 0);                                       //  O(1)
     pq.add(origin);                                                 //  O(1)
 
-    while (!pq.isEmpty()) {                                         //  O((V^2)) -> O(E)
+    while (!pq.isEmpty()) {                                         //  O(E)
         Vertex<E> u = pq.poll();                                        //  O(log(V^2)) -> O(2log(V)) -> O(log(V))
         if (!visited.contains(u)){                                      //  O(1)
-            for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  limited by if statement above to O(V)
+            for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  limited by if statement above to O(V), and by number of edges to O(E), E<V
                 Vertex<E> v = e.getHead();                                  //  O(1)
                 int alt = distances.get(u) + e.getCost();                   //  O(1)
                 if (alt < distances.get(v)) {                               //  O(1)
                     distances.put(v, alt);                                  //  O(1)
                     previous.put(v, u);                                     //  O(1)
-                    pq.add(v);                                              //  O(log(V^2)) -> O(2log(V)) -> O(log(V))
+                    pq.add(v);                                              //  O(log(E)) -> O(log(V^2) -> O(2log(V)) -> O(log(V))
                 }
             }
             visited.add(u);                                             //  O(1)
@@ -63,15 +63,14 @@ outside the while loop for analysis purposes.
 Summary:
     top part:       O(V)
     while:          O(E*log(V))
-    for:            O(V*log(V))
+    for:            O(E*log(V))
     bottom part:    O(V)
 
-The complexity of the while and for loops can be combined if the for loop complexity is also expressed as O(E*log(V)),
-which is worse than O(V*log(V)).
+The top and bottom parts and the while and for loops are then combined, respectively.
 
-This gives:
+->
     top and bottom parts:   O(V)
-    while and for loops:    O(E*log(V)) + O(V*log(V)) -> O(2(E*log(V))) -> O((E*log(V)))
+    while and for loops:    O(2(E*log(V))) -> O((E*log(V)))
 
 And in total:
     computePath:            O(V+E*log(V)).
