@@ -60,4 +60,6 @@ O(E*log(V))
 for:
 O(V*log(V))
 
-This leads to a total time complexity of O(V+E*log(V)).
+This leads to a total time complexity for the computePath method of O(V+E*log(V)).
+
+(The getPath method also has complexity O(V))
