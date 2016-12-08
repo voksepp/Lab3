@@ -61,22 +61,17 @@ As the number of iterations of the for loop is independent of the number of whil
 outside the while loop for analysis purposes.
 
 Summary:
-top part:
-O(V)
-while:
-O(E*log(V))
-for:
-O(V*log(V))
-bottom part:
-O(V)
+    top part:       O(V)
+    while:          O(E*log(V))
+    for:            O(V*log(V))
+    bottom part:    O(V)
 
 The complexity of the while and for loops can be combined if the for loop complexity is also expressed as O(E*log(V)),
 which is worse than O(V*log(V)).
 
 This gives:
-top and bottom parts:
-O(V)
-while and for loops:
-O(2(E*log(V))) -> O((E*log(V)))
+    top and bottom parts:   O(V)
+    while and for loops:    O(E*log(V)) + O(V*log(V)) -> O(2(E*log(V))) -> O((E*log(V)))
 
-This leads to a total time complexity for the computePath method of O(V+E*log(V)).
+And in total:
+    computePath:            O(V+E*log(V)).
