@@ -45,7 +45,19 @@ public void computePath(E from, E to) {
 For the upper part of the method, above the while loop, the complexity is O(V).
 
 The while loop enclosing the for loop runs once for every element in the queue -> at worst V^2 times -> about O(E).
+Ignoring the for loop this gives a complexity of O(E*log(V)) for the while loop.
 
 The inner for loop iterates in total once for every vertex in the graph -> V times -> complexity O(V*log(V)).
+
+As the number of iterations of the for loop is independent of the number of while loop iterations it can be moved
+outside the while loop for analysis purposes.
+
+Summary:
+top part:
+O(V)
+while:
+O(E*log(V))
+for:
+O(V*log(V))
 
 This leads to a total time complexity of O(V+E*log(V)).
