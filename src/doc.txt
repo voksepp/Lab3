@@ -38,7 +38,6 @@ In total the time complexity of the computePath method is O(V+E*log(V)). ??????
 
         distances.put(origin, 0);                                       //  O(1)
         pq.add(origin);                                                 //  O(1)
-        visited.add(origin);                                            //  O(1)
 
         while (!pq.isEmpty()) {                                         //  O(V)
             Vertex<E> u = pq.poll();                                        //  O(log(V))
@@ -55,12 +54,19 @@ In total the time complexity of the computePath method is O(V+E*log(V)). ??????
                 }
             }
         }
-
-        Vertex<E> u = destination;                                      //  O(1)
-        while (previous.get(u) != null) {                               //  O(V)
-            path.add(u.getData());                                          // O(1)
-            u = previous.get(u);                                            // O(1)
+        while (!pq.isEmpty()) {                                         //  O(V)
+            Vertex<E> u = pq.poll();                                        //  O(log(V))
+            if (!visited.contains(u)){                                      //  O(1)
+                for (Edge<E> e : g.getOutgoingEdges(u)) {                   //  O(E)
+                    Vertex<E> v = e.getHead();                                  //  O(1)
+                    int alt = distances.get(u) + e.getCost();                   //  O(1)
+                    if (alt < distances.get(v)) {                               //  O(1)
+                        distances.put(v, alt);                                  //  O(1)
+                        previous.put(v, u);                                     //  O(1)
+                        pq.add(v);                                              //  O(log(V^2)) -> O(log(E))
+                    }
+                }
+                visited.add(u);                                             //  O(1)
+            }
         }
-        path.add(origin.getData());                                     //  O(1)
-        Collections.reverse(path);                                      //  O(V)
     }
