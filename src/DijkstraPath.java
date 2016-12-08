@@ -56,7 +56,6 @@ class DijkstraPath<E> implements Path<E> {
 
         distances.put(origin, 0);
         pq.add(origin);
-        //visited.add(origin);
 
         while (!pq.isEmpty()) {
             Vertex<E> u = pq.poll();
@@ -67,12 +66,10 @@ class DijkstraPath<E> implements Path<E> {
                     if (alt < distances.get(v)) {
                         distances.put(v, alt);
                         previous.put(v, u);
-                        //if (!visited.contains(v)) {
-                            pq.add(v);
-                            visited.add(v);
-                        //}
+                        pq.add(v);
                     }
                 }
+                visited.add(u);
             }
         }
     }
