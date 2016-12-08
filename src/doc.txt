@@ -40,9 +40,17 @@ public void computePath(E from, E to) {
             visited.add(u);                                             //  O(1)
         }
     }
+
+    Vertex<E> u = destination;                                          //  O(1)
+    while (previous.get(u) != null) {                                   //  O(V)
+        path.add(u.getData());                                          //  O(1)
+        u = previous.get(u);                                            //  O(1)
+    }
+    path.add(origin.getData());                                         //  O(1)
+    Collections.reverse(path);                                          //  O(V)
 }
 
-For the upper part of the method, above the while loop, the complexity is O(V).
+For the upper and lower parts of the method, surrounding the while loop, the complexity is O(V).
 
 The while loop enclosing the for loop runs once for every element in the queue -> at worst V^2 times -> about O(E).
 Ignoring the for loop this gives a complexity of O(E*log(V)) for the while loop.
@@ -59,7 +67,16 @@ while:
 O(E*log(V))
 for:
 O(V*log(V))
+bottom part:
+O(V)
+
+The complexity of the while and for loops can be combined if the for loop complexity is also expressed as O(E*log(V)),
+which is worse than O(V*log(V)).
+
+This gives:
+top and bottom parts:
+O(V)
+while and for loops:
+O(2(E*log(V))) -> O((E*log(V)))
 
 This leads to a total time complexity for the computePath method of O(V+E*log(V)).
-
-(The getPath method also has complexity O(V))

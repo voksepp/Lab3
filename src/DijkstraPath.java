@@ -35,6 +35,7 @@ class DijkstraPath<E> implements Path<E> {
      * @param to   the goal
      */
     public void computePath(E from, E to) {
+        path.clear();
         pq.clear();
         visited.clear();
         distances.clear();
@@ -72,6 +73,14 @@ class DijkstraPath<E> implements Path<E> {
                 visited.add(u);
             }
         }
+
+        Vertex<E> u = destination;
+        while (previous.get(u) != null) {
+            path.add(u.getData());
+            u = previous.get(u);
+        }
+        path.add(origin.getData());
+        Collections.reverse(path);
     }
 
     /**
@@ -88,15 +97,6 @@ class DijkstraPath<E> implements Path<E> {
      */
     @Override
     public Iterator<E> getPath() {
-        path.clear();
-
-        Vertex<E> u = destination;
-        while (previous.get(u) != null) {
-            path.add(u.getData());
-            u = previous.get(u);
-        }
-        path.add(origin.getData());
-        Collections.reverse(path);
         return path.iterator();
     }
 
