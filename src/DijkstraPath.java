@@ -60,7 +60,7 @@ class DijkstraPath<E> implements Path<E> {
 
         while (!pq.isEmpty()) {
             Vertex<E> u = pq.poll();
-            if (!visited.contains(u)){
+            if (!visited.contains(u)) {
                 for (Edge<E> e : g.getOutgoingEdges(u)) {
                     Vertex<E> v = e.getHead();
                     int alt = distances.get(u) + e.getCost();
