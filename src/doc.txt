@@ -48,4 +48,4 @@ The inner for loop iterates in total once for every vertex in the graph -> V tim
 
 The while loop enclosing it runs once for every element in the queue -> at worst V^2 times -> O(E).
 
-V+E*log(V)
+This leads to a total time complexity of O(V+E*log(V)).
