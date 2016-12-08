@@ -73,8 +73,6 @@ class DijkstraPath<E> implements Path<E> {
                 }
             }
         }
-
-
     }
 
     /**
