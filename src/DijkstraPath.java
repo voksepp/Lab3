@@ -56,19 +56,21 @@ class DijkstraPath<E> implements Path<E> {
 
         distances.put(origin, 0);
         pq.add(origin);
-        visited.add(origin);
+        //visited.add(origin);
 
         while (!pq.isEmpty()) {
             Vertex<E> u = pq.poll();
-            for (Edge<E> e : g.getOutgoingEdges(u)) {
-                Vertex<E> v = e.getHead();
-                int alt = distances.get(u) + e.getCost();
-                if (alt < distances.get(v)) {
-                    distances.put(v, alt);
-                    previous.put(v, u);
-                    if (!visited.contains(v)) {
-                        pq.add(v);
-                        visited.add(v);
+            if (!visited.contains(u)){
+                for (Edge<E> e : g.getOutgoingEdges(u)) {
+                    Vertex<E> v = e.getHead();
+                    int alt = distances.get(u) + e.getCost();
+                    if (alt < distances.get(v)) {
+                        distances.put(v, alt);
+                        previous.put(v, u);
+                        //if (!visited.contains(v)) {
+                            pq.add(v);
+                            visited.add(v);
+                        //}
                     }
                 }
             }
