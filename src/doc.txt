@@ -58,7 +58,7 @@ maximum amount of elements in the priority queue, as the outgoing edges of each 
 The while loop enclosing the for loop runs once for every element in the queue -> at worst E times -> O(E).
 Ignoring the for loop this gives a complexity of O(E*log(V)) for the while loop.
 
-The inner for loop would separately iterate at most E times, but it is limited by the if statement above to V iterations
+The inner for loop would separately iterate at most E times, but is limited by the if statement above to V iterations
 (once for each vertex being visited). The complexity of the for loop would then be O(V*log(V)) ,
 this could also be written as O(E*log(V)) (which is worse), to match the complexity of the while loop.
 
