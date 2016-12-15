@@ -34,7 +34,7 @@ public void computePath(E from, E to) {
                 if (alt < distances.get(v)) {                               //  O(1)
                     distances.put(v, alt);                                  //  O(1)
                     previous.put(v, u);                                     //  O(1)
-                    pq.add(v);                                              //  O(log(E)) -> O(log(V^2) -> O(2log(V)) -> O(log(V))  // E < V^2
+                    pq.add(v);                                              //  O(log(E)) -> O(log(V^2)) -> O(2log(V)) -> O(log(V))  // V^2 > E
 
                 }
             }
