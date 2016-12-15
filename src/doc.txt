@@ -34,7 +34,8 @@ public void computePath(E from, E to) {
                 if (alt < distances.get(v)) {                               //  O(1)
                     distances.put(v, alt);                                  //  O(1)
                     previous.put(v, u);                                     //  O(1)
-                    pq.add(v);                                              //  O(log(V^2) -> O(2log(V)) -> O(log(V))  // E < V^2
+                    pq.add(v);                                              //  O(log(E)) -> O(log(V^2) -> O(2log(V)) -> O(log(V))  // E < V^2
+
                 }
             }
             visited.add(u);                                             //  O(1)
@@ -59,8 +60,7 @@ The while loop enclosing the for loop runs once for every element in the queue -
 Ignoring the for loop this gives a complexity of O(E*log(V)) for the while loop.
 
 The inner for loop would separately iterate at most E times, but is limited by the if statement above to V iterations
-(once for each vertex being visited). The complexity of the for loop would then be O(V*log(V)) ,
-this could also be written as O(E*log(V)) (which is worse), to match the complexity of the while loop.
+(once for each vertex being visited). The complexity of the for loop would then be O(E*log(V)).
 
 As the number of iterations of the for loop is independent of the number of while loop iterations it can be moved
 outside the while loop for analysis purposes.
